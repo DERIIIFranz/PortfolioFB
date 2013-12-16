@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PortfolioFB</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="img_author_descr">Bild von Franz Brandstätter</string>
+    <string name="name">Franz Brandstätter</string>
+    <string name="profession">App-Entwickler</string>
+    <string name="slogan">Lernen Sie mich kennen!</string>
+    <string name="btn_private">Privat</string>
+    <string name="btn_projects">Projekte</string>
+    <string name="title_fragment_aboutMe">Über mich</string>
+    <string name="title_fragment_cv">Lebenslauf</string>
+    <string name="tabTitle_project_fragment_creative">Kreativ</string>
+    <string name="tabTitle_project_fragment_technical">Technisch</string>
+    <string name="title_activity_privat">Privat</string>
+    <string name="title_activity_projects">Projekte</string>
+    <string name="pageTitle_activity_project_technical_details">Technische Projekte</string>
+    <string name="pageTitle_activity_project_creative_details">Kreative Projekte</string>
+
+</resources>
