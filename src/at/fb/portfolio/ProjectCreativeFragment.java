@@ -8,13 +8,15 @@ import android.os.Bundle;
 public class ProjectCreativeFragment extends ProjectsFragment {
 
 	private List<Project> projects = new ArrayList<Project>();
+	private static boolean isVisibleToUser;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		super.setProjectsGrid(R.layout.partial_fragment_projects_creative);
+		super.setPageTitle(R.string.pageTitle_activity_project_creative_details);
 		
 		if (projects.isEmpty()) {
-			this.pageTitle = R.string.pageTitle_activity_project_creative_details;
 
 			projects.add(new Project(R.drawable.ic_picture1, "K13",
 					R.layout.project_technical_noomix));
@@ -24,5 +26,17 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 					R.layout.project_technical_noomix));
 			super.setProjects(projects);
 		}
+	}
+	
+	//used for testing if fragment is visible
+	@Override
+	public void setUserVisibleHint(boolean isVisibleToUser) {
+	    super.setUserVisibleHint(isVisibleToUser);
+
+	    ProjectCreativeFragment.isVisibleToUser = isVisibleToUser;
+	}
+	
+	public static boolean isVisibleToUser() {
+		return isVisibleToUser;
 	}
 }

@@ -10,8 +10,8 @@
     <string name="slogan">Lernen Sie mich kennen!</string>
     <string name="btn_private">Privat</string>
     <string name="btn_projects">Projekte</string>
-    <string name="title_fragment_aboutMe">Über mich</string>
-    <string name="title_fragment_cv">Lebenslauf</string>
+    <string name="tabTitle_privat_fragment_aboutMe">Über mich</string>
+    <string name="tabTitle_privat_fragment_cv">Lebenslauf</string>
     <string name="tabTitle_project_fragment_creative">Kreativ</string>
     <string name="tabTitle_project_fragment_technical">Technisch</string>
     <string name="title_activity_privat">Privat</string>

@@ -24,7 +24,7 @@ public class ProjectAdapter extends BaseAdapter {
         return projects.size();
     }
 
-    public Object getItem(int position) {
+    public Project getItem(int position) {
         return projects.get(position);
     }
 
@@ -37,7 +37,7 @@ public class ProjectAdapter extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {  // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+            imageView.setLayoutParams(new GridView.LayoutParams(150, 150));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
         } else {

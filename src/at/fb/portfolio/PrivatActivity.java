@@ -45,8 +45,8 @@ public class PrivatActivity extends ActionBarActivity implements
 		
 		// Corresponding fragment's TabTitles
 		String[] tabTitles = {
-				getString(R.string.title_fragment_aboutMe),
-				getString(R.string.title_fragment_cv)
+				getString(R.string.tabTitle_privat_fragment_aboutMe),
+				getString(R.string.tabTitle_privat_fragment_cv)
 		};
 		
 		// Create the adapter that will return a fragment for each of the three

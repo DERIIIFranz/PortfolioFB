@@ -15,34 +15,51 @@ import android.widget.GridView;
 import at.fb.portfolio.adapter.ProjectAdapter;
 
 public abstract class ProjectsFragment extends Fragment {
-	
+
 	List<Project> projects;
-	protected int pageTitle;
-	protected int tabTitle;
-	
+	private int pageTitle;
+	private int tabTitle;
+	private int projectsGrid;
+
 	public static final String FRAGMENT_PAGE_TITLE = "at.fb.portfolio.FRAGMENT_PAGE_TITLE";
-	
+
 	public int getPageTitle() {
 		return pageTitle;
 	}
-	
+
+	public void setPageTitle(int pageTitle) {
+		this.pageTitle = pageTitle;
+	}
+
 	public int getTabTitle() {
 		return tabTitle;
 	}
-	
+
+	public void setTabTitle(int tabTitle) {
+		this.tabTitle = tabTitle;
+	}
+
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
-	
+
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjectsGrid(int projectsGrid) {
+		this.projectsGrid = projectsGrid;
+	}
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-		View rootView = inflater.inflate(R.layout.fragment_projects_grid,
-				container, false);
+		View rootView = inflater.inflate(projectsGrid, container, false);
 
-		GridView gridview = (GridView) rootView
-				.findViewById(R.id.gridview_projects);
+	//	GridView gridview = (GridView) rootView.findViewById(projectsGrid);
+		
+		GridView gridview = (GridView) rootView;
 		gridview.setAdapter(new ProjectAdapter(this.getActivity(), projects));
 
 		gridview.setOnItemClickListener(new OnItemClickListener() {
