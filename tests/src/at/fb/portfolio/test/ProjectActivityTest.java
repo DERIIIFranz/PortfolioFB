@@ -157,8 +157,9 @@ public class ProjectActivityTest extends
 				.getAdapter().instantiateItem(projectPager, 1);
 		
 		GridView projectsCGrid = (GridView) pActivity
-				.findViewById(R.id.gridview_technical_projects);
+				.findViewById(R.id.gridview_creative_projects);
 		
+		swipeToLeft(10);
 		solo.clickOnView(projectsCGrid.getChildAt(0));
 		assertTrue(solo.searchText(cFragment.getProjects().get(0).getTitle()));
 		
