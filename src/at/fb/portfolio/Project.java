@@ -10,9 +10,11 @@ public class Project implements Parcelable {
 	public static final String PROJECT_COLLECTION = "at.fb.portfolio.PROJECT_COLLECTION";
 	public static final String PROJECT_POSITION = "at.fb.portfolio.PROJECT_POSITION";
 	
-	int thumb;
-	String title;
-	int layout;
+	private int thumb;
+	private String title;
+	private int layout;
+	private static int id = 0;
+	private int projectID;
 	
 	public static final Parcelable.Creator<Project> CREATOR = new Parcelable.Creator<Project>() {
         public Project createFromParcel(Parcel in) {
@@ -28,6 +30,7 @@ public class Project implements Parcelable {
 		this.thumb = thumb;
 		this.title = title;
 		this.layout = layout;
+		projectID = id++;
 	}
 	
 	private Project (Parcel in) {
@@ -35,6 +38,14 @@ public class Project implements Parcelable {
         title = in.readString();
         layout = in.readInt();
     }
+	
+	public int getId() {
+		return projectID;
+	}
+	
+	public static void resetId() {
+		id = 0;
+	}
 	
 	public int getThumb() {
 		return thumb;

@@ -8,6 +8,7 @@ import android.test.ViewAsserts;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ListView;
 import at.fb.portfolio.Project;
 import at.fb.portfolio.ProjectActivity;
 import at.fb.portfolio.ProjectCreativeFragment;
@@ -26,7 +27,7 @@ public class ProjectActivityTest extends
 	private ProjectActivity pActivity;
 	private ViewPager projectPager;
 	private Locale l;
-	private GridView projectsGrid;
+	private ListView listFragPartials;
 
 	public ProjectActivityTest() {
 		super(ProjectActivity.class);
@@ -48,12 +49,13 @@ public class ProjectActivityTest extends
 		assertNotNull("ProjectActivity is null", projectPager);
 	}
 
-	public void testProjectsGrid_layout() {
-		projectsGrid = (GridView) pActivity
-				.findViewById(R.id.gridview_technical_projects);
+	public void testProjectsList_layout() {
+		listFragPartials = (ListView) pActivity
+				.findViewById(R.id.ListView_projects_technical);
+
 		final View decorView = pActivity.getWindow().getDecorView();
 
-		ViewAsserts.assertOnScreen(decorView, projectsGrid);
+		ViewAsserts.assertOnScreen(decorView, listFragPartials);
 	}
 
 	public void testTabBar() {
@@ -74,120 +76,183 @@ public class ProjectActivityTest extends
 	}
 
 	public void testTechnicalContent() {
-		
-		projectsGrid = (GridView) pActivity
-				.findViewById(R.id.gridview_technical_projects);
+
+		listFragPartials = (ListView) pActivity
+				.findViewById(R.id.ListView_projects_technical);
 
 		assertTrue(ProjectTechnicalFragment.isVisibleToUser());
 
 		ProjectsFragment pFragment = (ProjectTechnicalFragment) projectPager
 				.getAdapter().instantiateItem(projectPager, 0);
 
-		assertTrue("Not all technical projects displayed", pFragment.getProjects()
-				.size() == projectsGrid.getCount());
+		// count displayed projects
+		int projectCountView = 0;
+		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
+			View v = listFragPartials.getChildAt(i);
+			projectCountView += ((GridView) v
+					.findViewById(R.id.gridview_projects)).getCount();
+		}
+
+		int projectCountObject = 0;
+		for (int i = 0; i < pFragment.getPartialFragments().size(); i++) {
+			projectCountObject += pFragment.getPartialFragments().get(i)
+					.getProjects().size();
+		}
+
+		assertTrue("Not all technical projects displayed",
+				projectCountObject == projectCountView);
 
 		/*
-		 * click on every item and verify if its title is displayed
-		 * in ProjectDetailsActivity
+		 * click on every item and verify if its title is displayed in
+		 * ProjectDetailsActivity
 		 */
-		for (int i = 0; i < pFragment.getProjects().size(); i++) {
-			Project p = pFragment.getProjects().get(i);
-			View projectItemView = projectsGrid.getChildAt(i);
-			solo.clickOnView(projectItemView);
+		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
+			for (int j = 0; j < ((GridView) listFragPartials.getChildAt(i)
+					.findViewById(R.id.gridview_projects)).getCount(); j++) {
+				Project p = pFragment.getPartialFragments().get(i)
+						.getProjects().get(j);
+				View projectItemView = ((GridView) listFragPartials.getChildAt(
+						i).findViewById(R.id.gridview_projects)).getChildAt(j);
+				solo.clickOnView(projectItemView);
 
-			assertTrue(solo.searchText(p.getTitle()));
-			solo.assertCurrentActivity(
-					"activity should be ProjectDetailsActivity",
-					ProjectDetailsActivity.class);
-			solo.goBack();
+				assertTrue(solo.searchText(p.getTitle()));
+				solo.assertCurrentActivity(
+						"activity should be ProjectDetailsActivity",
+						ProjectDetailsActivity.class);
+				solo.goBack();
+			}
 		}
 	}
 
 	public void testCreativeContent() {
-		projectsGrid = (GridView) pActivity
-				.findViewById(R.id.gridview_creative_projects);
-		
+		listFragPartials = (ListView) pActivity
+				.findViewById(R.id.ListView_projects_creative);
+
 		solo.clickOnText(pActivity.getString(
 				R.string.tabTitle_project_fragment_creative).toUpperCase(l));
 
 		assertFalse(ProjectTechnicalFragment.isVisibleToUser());
 		assertTrue(ProjectCreativeFragment.isVisibleToUser());
-		
+
 		ProjectsFragment pFragment = (ProjectCreativeFragment) projectPager
 				.getAdapter().instantiateItem(projectPager, 1);
-		
-		assertTrue("Not all creative projects displayed", pFragment.getProjects()
-				.size() == projectsGrid.getCount());
+
+		// count displayed projects
+		int projectCountView = 0;
+		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
+			View v = listFragPartials.getChildAt(i);
+			projectCountView += ((GridView) v
+					.findViewById(R.id.gridview_projects)).getCount();
+		}
+
+		int projectCountObject = 0;
+		for (int i = 0; i < pFragment.getPartialFragments().size(); i++) {
+			projectCountObject += pFragment.getPartialFragments().get(i)
+					.getProjects().size();
+		}
+
+		assertTrue("Not all creative projects displayed",
+				projectCountObject == projectCountView);
 
 		/*
-		 * click on every item and verify if its title is displayed
-		 * in ProjectDetailsActivity
+		 * click on every item and verify if its title is displayed in
+		 * ProjectDetailsActivity
 		 */
-		for (int i = 0; i < pFragment.getProjects().size(); i++) {
-			Project p = pFragment.getProjects().get(i);
-			View projectItemView = projectsGrid.getChildAt(i);
-			solo.clickOnView(projectItemView);
+		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
+			for (int j = 0; j < ((GridView) listFragPartials.getChildAt(i)
+					.findViewById(R.id.gridview_projects)).getCount(); j++) {
+				Project p = pFragment.getPartialFragments().get(i)
+						.getProjects().get(j);
+				View projectItemView = ((GridView) listFragPartials.getChildAt(
+						i).findViewById(R.id.gridview_projects)).getChildAt(j);
+				solo.clickOnView(projectItemView);
 
-			assertTrue(solo.searchText(p.getTitle()));
-			solo.assertCurrentActivity(
-					"activity should be ProjectDetailsActivity",
-					ProjectDetailsActivity.class);
-			solo.goBack();
+				assertTrue(solo.searchText(p.getTitle()));
+				solo.assertCurrentActivity(
+						"activity should be ProjectDetailsActivity",
+						ProjectDetailsActivity.class);
+				solo.goBack();
+			}
 		}
 	}
-	
+
 	public void testProjectTechnicalDetails() {
+		listFragPartials = (ListView) pActivity
+				.findViewById(R.id.ListView_projects_technical);
+
 		ProjectsFragment tFragment = (ProjectTechnicalFragment) projectPager
 				.getAdapter().instantiateItem(projectPager, 0);
-		
-		GridView projectsTGrid = (GridView) pActivity
-				.findViewById(R.id.gridview_technical_projects);
-		
-		solo.clickOnView(projectsTGrid.getChildAt(0));
-		assertTrue(solo.searchText(tFragment.getProjects().get(0).getTitle()));
-		
-		for(int i = 1; i < projectsTGrid.getCount(); i++) {
-			swipeToLeft(10);
-			assertTrue(solo.searchText(tFragment.getProjects().get(i).getTitle()));
+
+		View v = ((GridView) listFragPartials.getChildAt(0).findViewById(
+				R.id.gridview_projects)).getChildAt(0);
+
+		solo.clickOnView(v);
+		assertTrue(solo.searchText(tFragment.getPartialFragments().get(0)
+				.getProjects().get(0).getTitle()));
+
+		// swipe through all projects and check title
+		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
+			for (int j = 0; j < ((GridView) listFragPartials.getChildAt(i)
+					.findViewById(R.id.gridview_projects)).getCount(); j++) {
+				Project p = tFragment.getPartialFragments().get(i)
+						.getProjects().get(j);
+				assertTrue(solo.searchText(p.getTitle()));
+				swipeToLeft(10);
+			}
 		}
 	}
-	
+
 	public void testProjectCreativeDetails() {
+
+		solo.clickOnText(pActivity.getString(
+				R.string.tabTitle_project_fragment_creative).toUpperCase(l));
+
+		listFragPartials = (ListView) pActivity
+				.findViewById(R.id.ListView_projects_creative);
+
 		ProjectsFragment cFragment = (ProjectCreativeFragment) projectPager
 				.getAdapter().instantiateItem(projectPager, 1);
-		
-		GridView projectsCGrid = (GridView) pActivity
-				.findViewById(R.id.gridview_creative_projects);
-		
-		swipeToLeft(10);
-		solo.clickOnView(projectsCGrid.getChildAt(0));
-		assertTrue(solo.searchText(cFragment.getProjects().get(0).getTitle()));
-		
-		for(int i = 1; i < projectsCGrid.getCount(); i++) {
-			swipeToLeft(10);
-			assertTrue(solo.searchText(cFragment.getProjects().get(i).getTitle()));
+
+		View v = ((GridView) listFragPartials.getChildAt(0).findViewById(
+				R.id.gridview_projects)).getChildAt(0);
+
+		solo.clickOnView(v);
+		assertTrue(solo.searchText(cFragment.getPartialFragments().get(0)
+				.getProjects().get(0).getTitle()));
+
+		// swipe through all projects and check title
+		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
+			for (int j = 0; j < ((GridView) listFragPartials.getChildAt(i)
+					.findViewById(R.id.gridview_projects)).getCount(); j++) {
+				Project p = cFragment.getPartialFragments().get(i)
+						.getProjects().get(j);
+				assertTrue(solo.searchText(p.getTitle()));
+				swipeToLeft(10);
+			}
 		}
 	}
-	
+
 	private void swipeToLeft(int stepCount) {
 		DisplayMetrics displaymetrics = new DisplayMetrics();
-		getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+		getActivity().getWindowManager().getDefaultDisplay()
+				.getMetrics(displaymetrics);
 		int height = displaymetrics.heightPixels;
 		int width = displaymetrics.widthPixels;
-	    float xStart = width - 10 ;
-	    float xEnd = 10;
-	    solo.drag(xStart, xEnd, height / 2, height / 2, stepCount);
+		float xStart = width - 10;
+		float xEnd = 10;
+		solo.drag(xStart, xEnd, height / 2, height / 2, stepCount);
 	}
 
 	@SuppressWarnings("unused")
 	private void swipeToRight(int stepCount) {
 		DisplayMetrics displaymetrics = new DisplayMetrics();
-		getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+		getActivity().getWindowManager().getDefaultDisplay()
+				.getMetrics(displaymetrics);
 		int height = displaymetrics.heightPixels;
 		int width = displaymetrics.widthPixels;
-	    float xStart = 10 ;
-	    float xEnd = width - 10;
-	    solo.drag(xStart, xEnd, height / 2, height / 2, stepCount);
+		float xStart = 10;
+		float xEnd = width - 10;
+		solo.drag(xStart, xEnd, height / 2, height / 2, stepCount);
 	}
 
 	@Override

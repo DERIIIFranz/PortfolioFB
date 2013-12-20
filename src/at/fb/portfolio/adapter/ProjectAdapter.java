@@ -29,7 +29,7 @@ public class ProjectAdapter extends BaseAdapter {
     }
 
     public long getItemId(int position) {
-        return 0;
+        return projects.get(position).getId();
     }
 
     // create a new ImageView for each item referenced by the Adapter
