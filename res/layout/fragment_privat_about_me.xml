@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/content_about_me"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
-    <TextView
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Das bin ich!" />
-    
+        android:layout_height="fill_parent" >
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <com.pagesuite.flowtext.FlowTextView
+                android:id="@+id/tv"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:padding="10dip"
+                    android:src="@drawable/portrait2"
+                    android:contentDescription="@string/img_portrait2_descr" />
+                
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="400dip"
+                    android:padding="10dip"
+                    android:src="@drawable/img_team1"
+                    android:contentDescription="@string/img_team1_descr" />
+                
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="600dip"
+                    android:padding="10dip"
+                    android:src="@drawable/team"
+                    android:contentDescription="@string/img_team_descr" />
+            </com.pagesuite.flowtext.FlowTextView>
+        </LinearLayout>
+    </ScrollView>

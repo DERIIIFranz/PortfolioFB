@@ -15,7 +15,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:contentDescription="@string/img_author_descr"
-        android:src="@drawable/ic_picture1" />
+        android:src="@drawable/portrait1" />
     <TextView
         android:id="@+id/profession"
         android:layout_width="wrap_content"

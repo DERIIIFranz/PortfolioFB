@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_documents"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Nachfolgend finden Sie einige wichtige Dokumente" 
+        android:paddingBottom="10dip"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/btn_cv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showCV"
+            android:src="@drawable/ic_action_download" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="@id/btn_cv"
+            android:layout_toRightOf="@id/btn_cv"
+            android:text="Lebenslauf" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/btn_masterThesis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showMasterThesis"
+            android:src="@drawable/ic_action_download" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="@id/btn_masterThesis"
+            android:layout_toRightOf="@id/btn_masterThesis"
+            android:text="Masterthesis" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/btn_bakkThesis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showBakkThesis"
+            android:src="@drawable/ic_action_download" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="@id/btn_bakkThesis"
+            android:layout_toRightOf="@id/btn_bakkThesis"
+            android:text="Bachelorthesis" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -23,19 +23,19 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 			Project.resetId();
 
 			projects1 = new ArrayList<Project>();
-			projects1.add(new Project(R.drawable.ic_picture1, "K13",
+			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_K13),
 					R.layout.project_technical_noomix));
-			projects1.add(new Project(R.drawable.ic_picture1, "TGTN",
+			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_TGTN),
 					R.layout.project_technical_noomix));
-			projects1.add(new Project(R.drawable.ic_picture1, "Priat",
+			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_pirat),
 					R.layout.project_technical_noomix));
-			projects1.add(new Project(R.drawable.ic_picture1, "MOCAP",
+			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_MOCAP),
 					R.layout.project_technical_noomix));
 
 			pFrag1 = new PartialFragment("3D", projects1);
 
 			projects2 = new ArrayList<Project>();
-			projects2.add(new Project(R.drawable.ic_picture1, "Clip",
+			projects2.add(new Project(R.drawable.portrait1, getString(R.string.project_clip),
 					R.layout.project_technical_noomix));
 
 			pFrag2 = new PartialFragment("2D", projects2);

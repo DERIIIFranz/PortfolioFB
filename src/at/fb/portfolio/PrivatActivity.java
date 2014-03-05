@@ -10,7 +10,9 @@ import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import at.fb.portfolio.adapter.TabsAdapter;
+import at.fb.portfolio.tools.PDFTools;
 
 public class PrivatActivity extends ActionBarActivity implements
 		ActionBar.TabListener {
@@ -41,12 +43,12 @@ public class PrivatActivity extends ActionBarActivity implements
 		
 		// Fragments to be shown as Tabs
 		Fragment[] frags = { new PrivatAboutMeFragment(), 
-				new PrivatCVFragment() };
+				new PrivatDocsFragment() };
 		
 		// Corresponding fragment's TabTitles
 		String[] tabTitles = {
 				getString(R.string.tabTitle_privat_fragment_aboutMe),
-				getString(R.string.tabTitle_privat_fragment_cv)
+				getString(R.string.tabTitle_privat_fragment_documents)
 		};
 		
 		// Create the adapter that will return a fragment for each of the three
@@ -130,4 +132,15 @@ public class PrivatActivity extends ActionBarActivity implements
 
 	}
 
+	public void showCV(View view) {
+		PDFTools.showPDFUrl( this, "http://www.pdf-archive.com/2014/03/05/lebenslauf/lebenslauf.pdf" );
+	}
+	
+	public void showMasterThesis(View view) {
+		PDFTools.showPDFUrl( this, "http://www.pdf-archive.com/2014/03/05/masterthesis/masterthesis.pdf" );
+	}
+	
+	public void showBakkThesis(View view) {
+		PDFTools.showPDFUrl( this, "http://www.pdf-archive.com/2014/03/05/bachelorthesis/bachelorthesis.pdf" );
+	}
 }

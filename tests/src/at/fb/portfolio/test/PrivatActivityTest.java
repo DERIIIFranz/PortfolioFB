@@ -6,7 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.test.ActivityInstrumentationTestCase2;
 import at.fb.portfolio.PrivatAboutMeFragment;
 import at.fb.portfolio.PrivatActivity;
-import at.fb.portfolio.PrivatCVFragment;
+import at.fb.portfolio.PrivatDocsFragment;
 import at.fb.portfolio.R;
 
 import com.jayway.android.robotium.solo.Solo;
@@ -49,7 +49,7 @@ public class PrivatActivityTest extends
 				pActivity.getString(R.string.tabTitle_privat_fragment_aboutMe)
 						.toUpperCase(l), pActivity.getSupportActionBar()
 						.getTabAt(0).getText());
-		assertEquals(pActivity.getString(R.string.tabTitle_privat_fragment_cv)
+		assertEquals(pActivity.getString(R.string.tabTitle_privat_fragment_documents)
 				.toUpperCase(l), pActivity.getSupportActionBar().getTabAt(1)
 				.getText());
 	}
@@ -58,10 +58,10 @@ public class PrivatActivityTest extends
 		
 		assertTrue(PrivatAboutMeFragment.isVisibleToUser());
 
-		solo.clickOnText(pActivity.getString(R.string.tabTitle_privat_fragment_cv).toUpperCase(l)); 
+		solo.clickOnText(pActivity.getString(R.string.tabTitle_privat_fragment_documents).toUpperCase(l)); 
 
 		assertFalse(PrivatAboutMeFragment.isVisibleToUser());
-		assertTrue(PrivatCVFragment.isVisibleToUser());
+		assertTrue(PrivatDocsFragment.isVisibleToUser());
 	}
 	
 	@Override

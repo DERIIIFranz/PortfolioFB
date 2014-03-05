@@ -23,27 +23,27 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			Project.resetId();
 
 			projects1 = new ArrayList<Project>();
-			projects1.add(new Project(R.drawable.ic_picture1, "Noomix",
+			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_noomix),
 					R.layout.project_technical_noomix));
-			projects1.add(new Project(R.drawable.ic_picture1, "Atikon",
+			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_atikon),
 					R.layout.project_technical_noomix));
-			projects1.add(new Project(R.drawable.ic_picture1, "Freundlinger",
+			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_freundlinger),
 					R.layout.project_technical_noomix));
-			projects1.add(new Project(R.drawable.ic_picture1, "Artconsense",
+			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_artconsense),
 					R.layout.project_technical_noomix));
 
 			pFrag1 = new PartialFragment("Webentwicklung", projects1);
 
 			projects2 = new ArrayList<Project>();
-			projects2.add(new Project(R.drawable.ic_picture1, "S-Watchdog",
+			projects2.add(new Project(R.drawable.portrait1, getString(R.string.project_sWatchdog),
 					R.layout.project_technical_noomix));
 
 			pFrag2 = new PartialFragment("Websicherheit", projects2);
 
 			projects3 = new ArrayList<Project>();
-			projects3.add(new Project(R.drawable.ic_picture1, "PortfolioFB",
+			projects3.add(new Project(R.drawable.portrait1, getString(R.string.project_portfolioFB),
 					R.layout.project_technical_noomix));
-			projects3.add(new Project(R.drawable.ic_picture1, "?",
+			projects3.add(new Project(R.drawable.portrait1, getString(R.string.project_x),
 					R.layout.project_technical_noomix));
 
 			pFrag3 = new PartialFragment("Apps", projects3);

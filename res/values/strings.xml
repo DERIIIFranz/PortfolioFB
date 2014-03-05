@@ -4,19 +4,54 @@
     <string name="app_name">PortfolioFB</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="img_author_descr">Bild von Franz Brandstätter</string>
-    <string name="name">Franz Brandstätter</string>
+    
+    <string name="img_author_descr">Bild von Franz Brandstätter MSc</string>
+    <string name="img_portrait2_descr">Portrait von Franz Brandstätter MSc</string>
+    <string name="img_team_descr">Teamfoto Volleyball</string>
+    <string name="img_team1_descr">Foto Teamwork</string>
+    
+    <string name="name">Franz Brandstätter MSc</string>
     <string name="profession">App-Entwickler</string>
     <string name="slogan">Lernen Sie mich kennen!</string>
     <string name="btn_private">Privat</string>
     <string name="btn_projects">Projekte</string>
     <string name="tabTitle_privat_fragment_aboutMe">Über mich</string>
-    <string name="tabTitle_privat_fragment_cv">Lebenslauf</string>
+    <string name="tabTitle_privat_fragment_documents">Dokumente</string>
     <string name="tabTitle_project_fragment_creative">Kreativ</string>
     <string name="tabTitle_project_fragment_technical">Technisch</string>
     <string name="title_activity_privat">Privat</string>
     <string name="title_activity_projects">Projekte</string>
     <string name="pageTitle_activity_project_technical_details">Technische Projekte</string>
     <string name="pageTitle_activity_project_creative_details">Kreative Projekte</string>
+    <string name="pdf_show_local_progress_title">Download</string>
+    <string name="pdf_show_local_progress_content">PDF wird geladen</string>
+    <string name="pdf_show_online_dialog_title">PDF Viewer</string>
+    <string name="pdf_show_online_dialog_question">PDF via Google Drive anzeigen</string>
+    <string name="pdf_show_online_dialog_button_no">Abbrechen</string>
+    <string name="pdf_show_online_dialog_button_yes">OK</string>
+    
+    <string name="project_noomix">Noomix</string>
+    <string name="project_atikon">Atikon</string>
+    <string name="project_freundlinger">Freundlinger</string>
+    <string name="project_artconsense">Artconsense</string>
+    <string name="project_sWatchdog">S-Watchdog</string>
+    <string name="project_portfolioFB">PortfolioFB</string>
+    <string name="project_x">\?</string>
+    <string name="project_K13">K13</string>
+    <string name="project_TGTN">TGTN</string>
+    <string name="project_pirat">Pirat</string>
+    <string name="project_MOCAP">MOCAP</string>
+    <string name="project_clip">Clip</string>
 
+    <string name="about_me">Mein Name ist Franz Brandstätter und ich habe kürzlich mein Studium abgeschlossen.
+        Im ersten Abschnitt meines Studiums beschäftigte ich mich im Zuge des Bachelorstudiums an der FH Hagenberg 
+        (Medientechnik und -design) primär mit kreativen Projekten. Insbesondere faszinierte mich das Arbeiten mit 3D-Objekten.
+        Ebenso entdeckte ich meine Leidenschaft für das Programmieren von visuellen Anwendungen, weshalb ich meinen Fokus
+        im Masterstudium auf Web-Entwicklung legte. Mit fortschreitender Vertiefung meiner Fachkenntnisse wurde mir schnell klar,
+        dass die Entwicklung mobiler Anwendung in Form von Apps einen ganz besonderern Reiz auf mich ausübt. Aus diesem Grund
+        erweiterte ich meine Kenntnisse in diesem Bereich nach Abschluss meines Studiums noch weiter, um die Ihnen vorliegende App
+        programmieren zu können. Seit diesem Zeitpunkt ist für mich klar, dass ich meine berufliche Karriere in diesem Sektor starten
+        möchte!\n\nWährend meiner gesamten Studienzeit war mir schon immer ein entsprechender sportlicher Ausgleich wichtig. Seit vielen
+        Jahren übe ich deshalb den Teamsport (Beach) Volleyball aus. Zum Einen halte ich mich auf diese Weise körperlich fit und zum
+        Anderen schule ich damit insbesondere meine soziale Kompetenzen in Bezug auf Teamfähigkeit.</string>
 </resources>

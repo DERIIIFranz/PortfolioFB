@@ -3,8 +3,6 @@ package at.fb.portfolio.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import views.NonScrollableGridView;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,13 +12,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.TextView;
 import at.fb.portfolio.PartialFragment;
 import at.fb.portfolio.Project;
 import at.fb.portfolio.ProjectDetailsActivity;
 import at.fb.portfolio.ProjectsFragment;
 import at.fb.portfolio.R;
+import at.fb.portfolio.views.NonScrollableGridView;
 
 public class PartialFragAdapter extends BaseAdapter {
 	
