@@ -1,6 +1,7 @@
 package at.fb.portfolio;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
@@ -39,16 +40,11 @@ public class ProjectActivity extends ActionBarActivity implements
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		// Fragments to be shown as Tabs
-		ProjectsFragment[] frags = { new ProjectTechnicalFragment(),
-				new ProjectCreativeFragment() };
-		
-		// Corresponding fragment's TabTitles
-		String[] fragsTabTitles = {
-				getString(R.string.tabTitle_project_fragment_technical),
-				getString(R.string.tabTitle_project_fragment_creative) };
+		Fragment[] frags = { ProjectTechnicalFragment.newInstance(this),
+				ProjectCreativeFragment.newInstance(this) };
 
 		tabsAdapter = new TabsAdapter(
-				getSupportFragmentManager(), frags, fragsTabTitles);
+				getSupportFragmentManager(), frags);
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.projectPager);

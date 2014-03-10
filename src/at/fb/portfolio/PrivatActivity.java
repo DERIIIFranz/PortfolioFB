@@ -42,19 +42,13 @@ public class PrivatActivity extends ActionBarActivity implements
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		
 		// Fragments to be shown as Tabs
-		Fragment[] frags = { new PrivatAboutMeFragment(), 
-				new PrivatDocsFragment() };
-		
-		// Corresponding fragment's TabTitles
-		String[] tabTitles = {
-				getString(R.string.tabTitle_privat_fragment_aboutMe),
-				getString(R.string.tabTitle_privat_fragment_documents)
-		};
-		
+		Fragment[] frags = { PrivatAboutMeFragment.newInstance(this), 
+				PrivatDocsFragment.newInstance(this) };
+
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
 		tabsAdapter = new TabsAdapter(
-				getSupportFragmentManager(), frags, tabTitles);
+				getSupportFragmentManager(), frags);
 		
 
 		// Set up the ViewPager with the sections adapter.

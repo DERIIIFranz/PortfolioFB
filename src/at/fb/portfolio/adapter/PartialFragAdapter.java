@@ -13,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import at.fb.portfolio.PartialFragment;
+import at.fb.portfolio.ProjectPartialFragment;
 import at.fb.portfolio.Project;
 import at.fb.portfolio.ProjectDetailsActivity;
 import at.fb.portfolio.ProjectsFragment;
@@ -23,10 +23,16 @@ import at.fb.portfolio.views.NonScrollableGridView;
 public class PartialFragAdapter extends BaseAdapter {
 	
 	private Activity context;
-	private List<PartialFragment> pFrags;
+	private List<ProjectPartialFragment> pFrags;
 	private String pageTitle;
 
-	public PartialFragAdapter(Activity c, List<PartialFragment> pFrags, String pageTitle) {
+	/**
+	 * Supplies projectpage with several PartialFragments
+	 * @param c corresponding activity
+	 * @param pFrags list of groups (PartialFragments) of projects
+	 * @param pageTitle
+	 */
+	public PartialFragAdapter(Activity c, List<ProjectPartialFragment> pFrags, String pageTitle) {
 		this.pageTitle = pageTitle;
         context = c;
         this.pFrags = pFrags;

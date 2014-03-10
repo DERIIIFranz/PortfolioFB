@@ -1,14 +1,15 @@
 package at.fb.portfolio;
 
 
-import com.pagesuite.flowtext.FlowTextView;
-
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.pagesuite.flowtext.FlowTextView;
 
 public class PrivatAboutMeFragment extends Fragment {
 	
@@ -23,7 +24,7 @@ public class PrivatAboutMeFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragment_privat_about_me,
 				container, false);
 
-		tv = (FlowTextView) rootView.findViewById(R.id.tv);  
+		tv = (FlowTextView) rootView.findViewById(R.id.tv_about_me);  
 		tv.setColor(Color.LTGRAY);
 		tv.setTextSize(30);
 		tv.setText(getActivity().getString(R.string.about_me)); // using plain text    
@@ -42,6 +43,18 @@ public class PrivatAboutMeFragment extends Fragment {
 	
 	public static boolean isVisibleToUser() {
 		return isVisibleToUser;
+	}
+
+	public static PrivatAboutMeFragment newInstance(Context ctx) {
+		PrivatAboutMeFragment f = new PrivatAboutMeFragment();
+		
+		Bundle args = new Bundle();
+		args.putString(MainActivity.TAB_TITLE, ctx.getString(R.string.tabTitle_privat_fragment_aboutMe));
+		
+		f.setArguments(args);
+		
+		return f;
+		
 	}
 
 }

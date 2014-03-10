@@ -5,65 +5,65 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Nachfolgend finden Sie einige wichtige Dokumente" 
-        android:paddingBottom="10dip"/>
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
         <ImageButton
-            android:id="@+id/btn_cv"
+            android:id="@+id/btn_docs_cv"
+            android:contentDescription="@string/ic_action_download_descr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="showCV"
             android:src="@drawable/ic_action_download" />
 
         <TextView
+            android:id="@+id/tv_docs_cv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="@id/btn_cv"
-            android:layout_toRightOf="@id/btn_cv"
-            android:text="Lebenslauf" />
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/btn_docs_cv"
+            android:text="@string/privat_docs_cv_text" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
         <ImageButton
-            android:id="@+id/btn_masterThesis"
+            android:id="@+id/btn_docs_masterThesis"
+            android:contentDescription="@string/ic_action_download_descr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="showMasterThesis"
             android:src="@drawable/ic_action_download" />
 
         <TextView
+            android:id="@+id/tv_docs_masterThesis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="@id/btn_masterThesis"
-            android:layout_toRightOf="@id/btn_masterThesis"
-            android:text="Masterthesis" />
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/btn_docs_masterThesis"
+            android:text="@string/privat_docs_masterThesis_text" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
         <ImageButton
-            android:id="@+id/btn_bakkThesis"
+            android:id="@+id/btn_docs_bakkThesis"
+            android:contentDescription="@string/ic_action_download_descr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="showBakkThesis"
             android:src="@drawable/ic_action_download" />
 
         <TextView
+            android:id="@+id/tv_docs_bakkThesis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="@id/btn_bakkThesis"
-            android:layout_toRightOf="@id/btn_bakkThesis"
-            android:text="Bachelorthesis" />
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/btn_docs_bakkThesis"
+            android:text="@string/privat_docs_bakkThesis_text" />
     </RelativeLayout>
 
 </LinearLayout>

@@ -3,11 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-    <TextView 
+
+    <at.fb.portfolio.views.ResizableImageView
+        android:id="@+id/img_project_noomix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_project_noomix_header_white" />
+
+    <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Noomix Inhalt"/>
-    
+        android:text="Noomix Inhalt" />
 
 </LinearLayout>

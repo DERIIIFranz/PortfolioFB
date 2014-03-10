@@ -9,11 +9,12 @@
             android:layout_height="wrap_content" >
 
             <com.pagesuite.flowtext.FlowTextView
-                android:id="@+id/tv"
+                android:id="@+id/tv_about_me"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <ImageView
+                    android:id="@+id/iv_about_me_portrait2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -23,6 +24,7 @@
                     android:contentDescription="@string/img_portrait2_descr" />
                 
                 <ImageView
+                    android:id="@+id/iv_about_me_team1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -32,6 +34,7 @@
                     android:contentDescription="@string/img_team1_descr" />
                 
                 <ImageView
+                    android:id="@+id/iv_about_me_team"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"

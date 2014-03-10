@@ -3,12 +3,13 @@ package at.fb.portfolio;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
 import android.os.Bundle;
 
 public class ProjectCreativeFragment extends ProjectsFragment {
-	private List<PartialFragment> partialFragments = new ArrayList<PartialFragment>();
+	private List<ProjectPartialFragment> partialFragments = new ArrayList<ProjectPartialFragment>();
 
-	private PartialFragment pFrag1, pFrag2;
+	private ProjectPartialFragment pFrag1, pFrag2;
 	private List<Project> projects1, projects2;
 	private static boolean isVisibleToUser;
 
@@ -32,13 +33,13 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_MOCAP),
 					R.layout.project_technical_noomix));
 
-			pFrag1 = new PartialFragment("3D", projects1);
+			pFrag1 = new ProjectPartialFragment("3D", projects1);
 
 			projects2 = new ArrayList<Project>();
 			projects2.add(new Project(R.drawable.portrait1, getString(R.string.project_clip),
 					R.layout.project_technical_noomix));
 
-			pFrag2 = new PartialFragment("2D", projects2);
+			pFrag2 = new ProjectPartialFragment("2D", projects2);
 
 			partialFragments.add(pFrag1);
 			partialFragments.add(pFrag2);
@@ -58,5 +59,17 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 
 	public static boolean isVisibleToUser() {
 		return isVisibleToUser;
+	}
+
+	public static ProjectCreativeFragment newInstance(Context ctx) {
+		ProjectCreativeFragment f = new ProjectCreativeFragment();
+		
+		Bundle args = new Bundle();
+		args.putString(MainActivity.TAB_TITLE, ctx.getString(R.string.tabTitle_project_fragment_creative));
+		
+		f.setArguments(args);
+		
+		return f;
+		
 	}
 }

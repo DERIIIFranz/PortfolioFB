@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.View;
 
 public class MainActivity extends Activity {
+	
+	public final static String TAB_TITLE = "at.fb.portfolio.TAB_TITLE";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

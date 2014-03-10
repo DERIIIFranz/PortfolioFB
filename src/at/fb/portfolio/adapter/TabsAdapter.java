@@ -5,6 +5,7 @@ import java.util.Locale;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import at.fb.portfolio.MainActivity;
 
 /**
  * A {@link FragmentPagerAdapter} that returns a fragment corresponding to one
@@ -13,13 +14,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class TabsAdapter extends FragmentPagerAdapter {
 
 	private Fragment[] frags;
-	private String[] tabTitles;
 
-	public TabsAdapter(FragmentManager fm, Fragment[] frags,
-			String[] tabTitles) {
+	public TabsAdapter(FragmentManager fm, Fragment[] frags) {
 		super(fm);
 		this.frags = frags;
-		this.tabTitles = tabTitles;
 	}
 
 	@Override
@@ -36,6 +34,6 @@ public class TabsAdapter extends FragmentPagerAdapter {
 	@Override
 	public CharSequence getPageTitle(int position) {
 		Locale l = Locale.getDefault();
-		return tabTitles[position].toUpperCase(l);
+		return frags[position].getArguments().getString(MainActivity.TAB_TITLE).toUpperCase(l);
 	}
 }

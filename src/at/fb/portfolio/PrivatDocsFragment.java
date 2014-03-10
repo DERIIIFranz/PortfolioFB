@@ -1,5 +1,6 @@
 package at.fb.portfolio;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -31,5 +32,15 @@ public class PrivatDocsFragment extends Fragment {
 		return isVisibleToUser;
 	}
 
-	
+	public static PrivatDocsFragment newInstance(Context ctx) {
+		PrivatDocsFragment f = new PrivatDocsFragment();
+		
+		Bundle args = new Bundle();
+		args.putString(MainActivity.TAB_TITLE, ctx.getString(R.string.tabTitle_privat_fragment_documents));
+		
+		f.setArguments(args);
+		
+		return f;
+		
+	}
 }

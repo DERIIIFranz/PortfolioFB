@@ -3,13 +3,14 @@ package at.fb.portfolio;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
 import android.os.Bundle;
 
 public class ProjectTechnicalFragment extends ProjectsFragment {
 
-	private List<PartialFragment> partialFragments = new ArrayList<PartialFragment>();
+	private List<ProjectPartialFragment> partialFragments = new ArrayList<ProjectPartialFragment>();
 	private static boolean isVisibleToUser;
-	private PartialFragment pFrag1, pFrag2, pFrag3;
+	private ProjectPartialFragment pFrag1, pFrag2, pFrag3;
 	private List<Project> projects1, projects2, projects3;
 
 	@Override
@@ -32,13 +33,13 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_artconsense),
 					R.layout.project_technical_noomix));
 
-			pFrag1 = new PartialFragment("Webentwicklung", projects1);
+			pFrag1 = new ProjectPartialFragment("Webentwicklung", projects1);
 
 			projects2 = new ArrayList<Project>();
 			projects2.add(new Project(R.drawable.portrait1, getString(R.string.project_sWatchdog),
 					R.layout.project_technical_noomix));
 
-			pFrag2 = new PartialFragment("Websicherheit", projects2);
+			pFrag2 = new ProjectPartialFragment("Websicherheit", projects2);
 
 			projects3 = new ArrayList<Project>();
 			projects3.add(new Project(R.drawable.portrait1, getString(R.string.project_portfolioFB),
@@ -46,7 +47,7 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			projects3.add(new Project(R.drawable.portrait1, getString(R.string.project_x),
 					R.layout.project_technical_noomix));
 
-			pFrag3 = new PartialFragment("Apps", projects3);
+			pFrag3 = new ProjectPartialFragment("Apps", projects3);
 
 			partialFragments.add(pFrag1);
 			partialFragments.add(pFrag2);
@@ -67,5 +68,17 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 
 	public static boolean isVisibleToUser() {
 		return isVisibleToUser;
+	}
+	
+	public static ProjectTechnicalFragment newInstance(Context ctx) {
+		ProjectTechnicalFragment f = new ProjectTechnicalFragment();
+		
+		Bundle args = new Bundle();
+		args.putString(MainActivity.TAB_TITLE, ctx.getString(R.string.tabTitle_project_fragment_technical));
+		
+		f.setArguments(args);
+		
+		return f;
+		
 	}
 }

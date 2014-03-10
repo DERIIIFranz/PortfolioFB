@@ -10,47 +10,48 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import at.fb.portfolio.adapter.PartialFragAdapter;
 
-public class ProjectsFragment extends Fragment {
-	
-	private int listView;
-	private List<PartialFragment> partialFragments;
-	private int pageTitle;
-	
+public abstract class ProjectsFragment extends Fragment {
+
+	private int mListView;
+	private List<ProjectPartialFragment> mPartialFragments;
+	private int mPageTitle;
+
 	public static final String FRAGMENT_PAGE_TITLE = "at.fb.portfolio.FRAGMENT_PAGE_TITLE";
 
 	public int getListView() {
-		return listView;
+		return mListView;
 	}
 
 	public void setListView(int listView) {
-		this.listView = listView;
+		this.mListView = listView;
 	}
 
-	public List<PartialFragment> getPartialFragments() {
-		return partialFragments;
+	public List<ProjectPartialFragment> getPartialFragments() {
+		return mPartialFragments;
 	}
 
-	public void setPartialFragments(List<PartialFragment> partialFragments) {
-		this.partialFragments = partialFragments;
+	public void setPartialFragments(List<ProjectPartialFragment> partialFragments) {
+		this.mPartialFragments = partialFragments;
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		
-		View rootView = inflater.inflate(listView, container, false);
-		
+
+		View rootView = inflater.inflate(mListView, container, false);
+
 		ListView lView = (ListView) rootView;
-		lView.setAdapter(new PartialFragAdapter(getActivity(), partialFragments, getActivity().getString(pageTitle)));
-		
+		lView.setAdapter(new PartialFragAdapter(getActivity(),
+				mPartialFragments, getActivity().getString(mPageTitle)));
+
 		return rootView;
 	}
 
 	public int getPageTitle() {
-		return pageTitle;
+		return mPageTitle;
 	}
 
 	public void setPageTitle(int pageTitle) {
-		this.pageTitle = pageTitle;
+		this.mPageTitle = pageTitle;
 	}
 }
