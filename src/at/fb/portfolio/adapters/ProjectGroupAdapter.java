@@ -13,39 +13,39 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import at.fb.portfolio.ProjectPartialFragment;
+import at.fb.portfolio.ProjectGroup;
 import at.fb.portfolio.Project;
 import at.fb.portfolio.ProjectDetailsActivity;
 import at.fb.portfolio.ProjectsFragment;
 import at.fb.portfolio.R;
 import at.fb.portfolio.views.NonScrollableGridView;
 
-public class PartialFragAdapter extends BaseAdapter {
+public class ProjectGroupAdapter extends BaseAdapter {
 	
 	private Activity mContext;
-	private List<ProjectPartialFragment> mPartialFrags;
+	private List<ProjectGroup> mProjectGroups;
 	private String mPageTitle;
 
 	/**
 	 * Supplies projectpage with several PartialFragments
 	 * @param c corresponding activity
-	 * @param pFrags list of groups (PartialFragments) of projects
+	 * @param projectGroups list of groups of projects
 	 * @param pageTitle
 	 */
-	public PartialFragAdapter(Activity c, List<ProjectPartialFragment> pFrags, String pageTitle) {
+	public ProjectGroupAdapter(Activity c, List<ProjectGroup> projectGroups, String pageTitle) {
 		this.mPageTitle = pageTitle;
         mContext = c;
-        this.mPartialFrags = pFrags;
+        this.mProjectGroups = projectGroups;
     }
 	
 	@Override
 	public int getCount() {
-		return mPartialFrags.size();
+		return mProjectGroups.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return mPartialFrags.get(position);
+		return mProjectGroups.get(position);
 	}
 
 	@Override
@@ -57,22 +57,22 @@ public class PartialFragAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		LayoutInflater vi = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-		View pFragView = vi.inflate(R.layout.partial_fragment_projects, null);
+		View projectGroupView = vi.inflate(R.layout.group_project, null);
 
-		TextView label=(TextView)pFragView.findViewById(R.id.text_project_category);
-		label.setText(mPartialFrags.get(position).getCategory());
+		TextView label=(TextView)projectGroupView.findViewById(R.id.text_project_category);
+		label.setText(mProjectGroups.get(position).getCategory());
 
-		final NonScrollableGridView gView = (NonScrollableGridView) pFragView.findViewById(R.id.gridview_projects);
-		gView.setAdapter(new ProjectAdapter(mContext, mPartialFrags.get(position).getProjects()));
+		final NonScrollableGridView gView = (NonScrollableGridView) projectGroupView.findViewById(R.id.gridview_projects);
+		gView.setAdapter(new ProjectAdapter(mContext, mProjectGroups.get(position).getProjects()));
 
 		gView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
 				
 				ArrayList<Project> allProjects = new ArrayList<Project>();
-				for (int i = 0; i < mPartialFrags.size(); i++) {
-					for (int j = 0; j < mPartialFrags.get(i).getProjects().size(); j++) {
-						allProjects.add(mPartialFrags.get(i).getProjects().get(j));
+				for (int i = 0; i < mProjectGroups.size(); i++) {
+					for (int j = 0; j < mProjectGroups.get(i).getProjects().size(); j++) {
+						allProjects.add(mProjectGroups.get(i).getProjects().get(j));
 					}
 				}
 				
@@ -87,7 +87,7 @@ public class PartialFragAdapter extends BaseAdapter {
 				mContext.startActivity(intent);
 			}
 		});
-		return pFragView;
+		return projectGroupView;
 	}
 
 }

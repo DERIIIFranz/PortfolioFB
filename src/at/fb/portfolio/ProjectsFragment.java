@@ -8,12 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import at.fb.portfolio.adapters.PartialFragAdapter;
+import at.fb.portfolio.adapters.ProjectGroupAdapter;
 
 public abstract class ProjectsFragment extends Fragment {
 
 	private int mListView;
-	private List<ProjectPartialFragment> mPartialFragments;
+	private List<ProjectGroup> mProjectGroups;
 	private int mPageTitle;
 
 	public static final String FRAGMENT_PAGE_TITLE = "at.fb.portfolio.FRAGMENT_PAGE_TITLE";
@@ -26,12 +26,12 @@ public abstract class ProjectsFragment extends Fragment {
 		this.mListView = listView;
 	}
 
-	public List<ProjectPartialFragment> getPartialFragments() {
-		return mPartialFragments;
+	public List<ProjectGroup> getPartialFragments() {
+		return mProjectGroups;
 	}
 
-	public void setPartialFragments(List<ProjectPartialFragment> partialFragments) {
-		this.mPartialFragments = partialFragments;
+	public void setPartialFragments(List<ProjectGroup> partialFragments) {
+		this.mProjectGroups = partialFragments;
 	}
 
 	@Override
@@ -41,8 +41,8 @@ public abstract class ProjectsFragment extends Fragment {
 		View rootView = inflater.inflate(mListView, container, false);
 
 		ListView lView = (ListView) rootView;
-		lView.setAdapter(new PartialFragAdapter(getActivity(),
-				mPartialFragments, getActivity().getString(mPageTitle)));
+		lView.setAdapter(new ProjectGroupAdapter(getActivity(),
+				mProjectGroups, getActivity().getString(mPageTitle)));
 
 		return rootView;
 	}

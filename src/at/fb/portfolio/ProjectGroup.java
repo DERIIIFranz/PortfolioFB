@@ -2,12 +2,12 @@ package at.fb.portfolio;
 
 import java.util.List;
 
-public class ProjectPartialFragment {
+public class ProjectGroup {
 	
 	private String mCategory;
 	private List<Project> mProjects;
 	
-	public ProjectPartialFragment(String category, List<Project> projects) {
+	public ProjectGroup(String category, List<Project> projects) {
 		this.mCategory = category;
 		this.mProjects = projects;
 	}

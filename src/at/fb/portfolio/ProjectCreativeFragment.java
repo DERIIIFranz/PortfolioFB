@@ -7,9 +7,9 @@ import android.content.Context;
 import android.os.Bundle;
 
 public class ProjectCreativeFragment extends ProjectsFragment {
-	private List<ProjectPartialFragment> partialFragments = new ArrayList<ProjectPartialFragment>();
+	private List<ProjectGroup> partialFragments = new ArrayList<ProjectGroup>();
 
-	private ProjectPartialFragment mPartialFrag1, mPartialFrag2;
+	private ProjectGroup mPartialFrag1, mPartialFrag2;
 	private List<Project> mProjects1, mProjects2;
 	private static boolean sIsVisibleToUser;
 
@@ -33,13 +33,13 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_MOCAP),
 					R.layout.project_technical_noomix));
 
-			mPartialFrag1 = new ProjectPartialFragment("3D", mProjects1);
+			mPartialFrag1 = new ProjectGroup("3D", mProjects1);
 
 			mProjects2 = new ArrayList<Project>();
 			mProjects2.add(new Project(R.drawable.portrait1, getString(R.string.project_clip),
 					R.layout.project_technical_noomix));
 
-			mPartialFrag2 = new ProjectPartialFragment("2D", mProjects2);
+			mPartialFrag2 = new ProjectGroup("2D", mProjects2);
 
 			partialFragments.add(mPartialFrag1);
 			partialFragments.add(mPartialFrag2);

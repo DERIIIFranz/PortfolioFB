@@ -8,9 +8,9 @@ import android.os.Bundle;
 
 public class ProjectTechnicalFragment extends ProjectsFragment {
 
-	private List<ProjectPartialFragment> mPartialFragments = new ArrayList<ProjectPartialFragment>();
+	private List<ProjectGroup> mPartialFragments = new ArrayList<ProjectGroup>();
 	private static boolean sIsVisibleToUser;
-	private ProjectPartialFragment mPartialFrag1, mPartialFrag2, mPartialFrag3;
+	private ProjectGroup mPartialFrag1, mPartialFrag2, mPartialFrag3;
 	private List<Project> mProjects1, mProjects2, mProjects3;
 
 	@Override
@@ -33,13 +33,13 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_artconsense),
 					R.layout.project_technical_noomix));
 
-			mPartialFrag1 = new ProjectPartialFragment("Webentwicklung", mProjects1);
+			mPartialFrag1 = new ProjectGroup("Webentwicklung", mProjects1);
 
 			mProjects2 = new ArrayList<Project>();
 			mProjects2.add(new Project(R.drawable.portrait1, getString(R.string.project_sWatchdog),
 					R.layout.project_technical_noomix));
 
-			mPartialFrag2 = new ProjectPartialFragment("Websicherheit", mProjects2);
+			mPartialFrag2 = new ProjectGroup("Websicherheit", mProjects2);
 
 			mProjects3 = new ArrayList<Project>();
 			mProjects3.add(new Project(R.drawable.portrait1, getString(R.string.project_portfolioFB),
@@ -47,7 +47,7 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			mProjects3.add(new Project(R.drawable.portrait1, getString(R.string.project_x),
 					R.layout.project_technical_noomix));
 
-			mPartialFrag3 = new ProjectPartialFragment("Apps", mProjects3);
+			mPartialFrag3 = new ProjectGroup("Apps", mProjects3);
 
 			mPartialFragments.add(mPartialFrag1);
 			mPartialFragments.add(mPartialFrag2);
