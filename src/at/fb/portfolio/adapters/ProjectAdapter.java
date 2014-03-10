@@ -1,4 +1,4 @@
-package at.fb.portfolio.adapter;
+package at.fb.portfolio.adapters;
 
 import java.util.List;
 
@@ -12,24 +12,24 @@ import at.fb.portfolio.Project;
 
 public class ProjectAdapter extends BaseAdapter {
     private Context mContext;
-    private List<Project> projects;
+    private List<Project> mProjects;
     
 
     public ProjectAdapter(Context c, List<Project> projects) {
         mContext = c;
-        this.projects = projects;
+        this.mProjects = projects;
     }
 
     public int getCount() {
-        return projects.size();
+        return mProjects.size();
     }
 
     public Project getItem(int position) {
-        return projects.get(position);
+        return mProjects.get(position);
     }
 
     public long getItemId(int position) {
-        return projects.get(position).getId();
+        return mProjects.get(position).getId();
     }
 
     // create a new ImageView for each item referenced by the Adapter
@@ -44,8 +44,8 @@ public class ProjectAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        imageView.setImageResource(projects.get(position).getThumb());
-        imageView.setContentDescription(projects.get(position).getTitle());
+        imageView.setImageResource(mProjects.get(position).getThumb());
+        imageView.setContentDescription(mProjects.get(position).getTitle());
         return imageView;
     }
 }

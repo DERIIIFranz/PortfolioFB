@@ -1,4 +1,4 @@
-package at.fb.portfolio.adapter;
+package at.fb.portfolio.adapters;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +22,9 @@ import at.fb.portfolio.views.NonScrollableGridView;
 
 public class PartialFragAdapter extends BaseAdapter {
 	
-	private Activity context;
-	private List<ProjectPartialFragment> pFrags;
-	private String pageTitle;
+	private Activity mContext;
+	private List<ProjectPartialFragment> mPartialFrags;
+	private String mPageTitle;
 
 	/**
 	 * Supplies projectpage with several PartialFragments
@@ -33,19 +33,19 @@ public class PartialFragAdapter extends BaseAdapter {
 	 * @param pageTitle
 	 */
 	public PartialFragAdapter(Activity c, List<ProjectPartialFragment> pFrags, String pageTitle) {
-		this.pageTitle = pageTitle;
-        context = c;
-        this.pFrags = pFrags;
+		this.mPageTitle = pageTitle;
+        mContext = c;
+        this.mPartialFrags = pFrags;
     }
 	
 	@Override
 	public int getCount() {
-		return pFrags.size();
+		return mPartialFrags.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return pFrags.get(position);
+		return mPartialFrags.get(position);
 	}
 
 	@Override
@@ -55,36 +55,36 @@ public class PartialFragAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		LayoutInflater vi = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 		View pFragView = vi.inflate(R.layout.partial_fragment_projects, null);
 
 		TextView label=(TextView)pFragView.findViewById(R.id.text_project_category);
-		label.setText(pFrags.get(position).getCategory());
+		label.setText(mPartialFrags.get(position).getCategory());
 
 		final NonScrollableGridView gView = (NonScrollableGridView) pFragView.findViewById(R.id.gridview_projects);
-		gView.setAdapter(new ProjectAdapter(context, pFrags.get(position).getProjects()));
+		gView.setAdapter(new ProjectAdapter(mContext, mPartialFrags.get(position).getProjects()));
 
 		gView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
 				
 				ArrayList<Project> allProjects = new ArrayList<Project>();
-				for (int i = 0; i < pFrags.size(); i++) {
-					for (int j = 0; j < pFrags.get(i).getProjects().size(); j++) {
-						allProjects.add(pFrags.get(i).getProjects().get(j));
+				for (int i = 0; i < mPartialFrags.size(); i++) {
+					for (int j = 0; j < mPartialFrags.get(i).getProjects().size(); j++) {
+						allProjects.add(mPartialFrags.get(i).getProjects().get(j));
 					}
 				}
 				
-				Intent intent = new Intent(context,
+				Intent intent = new Intent(mContext,
 						ProjectDetailsActivity.class);
 				intent.putExtra(Project.PROJECT_LAYOUT,
 						R.layout.activity_project_details);
 				intent.putExtra(Project.PROJECT_POSITION, (int)id);
-				intent.putExtra(ProjectsFragment.FRAGMENT_PAGE_TITLE, pageTitle);
+				intent.putExtra(ProjectsFragment.FRAGMENT_PAGE_TITLE, mPageTitle);
 				intent.putParcelableArrayListExtra(Project.PROJECT_COLLECTION,
 						allProjects);
-				context.startActivity(intent);
+				mContext.startActivity(intent);
 			}
 		});
 		return pFragView;

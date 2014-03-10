@@ -8,10 +8,10 @@ import android.os.Bundle;
 
 public class ProjectTechnicalFragment extends ProjectsFragment {
 
-	private List<ProjectPartialFragment> partialFragments = new ArrayList<ProjectPartialFragment>();
-	private static boolean isVisibleToUser;
-	private ProjectPartialFragment pFrag1, pFrag2, pFrag3;
-	private List<Project> projects1, projects2, projects3;
+	private List<ProjectPartialFragment> mPartialFragments = new ArrayList<ProjectPartialFragment>();
+	private static boolean sIsVisibleToUser;
+	private ProjectPartialFragment mPartialFrag1, mPartialFrag2, mPartialFrag3;
+	private List<Project> mProjects1, mProjects2, mProjects3;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -19,41 +19,41 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 		super.setListView(R.layout.fragment_projects_technical);
 		super.setPageTitle(R.string.pageTitle_activity_project_technical_details);
 
-		if (partialFragments.isEmpty()) {
+		if (mPartialFragments.isEmpty()) {
 
 			Project.resetId();
 
-			projects1 = new ArrayList<Project>();
-			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_noomix),
+			mProjects1 = new ArrayList<Project>();
+			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_noomix),
 					R.layout.project_technical_noomix));
-			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_atikon),
+			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_atikon),
 					R.layout.project_technical_noomix));
-			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_freundlinger),
+			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_freundlinger),
 					R.layout.project_technical_noomix));
-			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_artconsense),
-					R.layout.project_technical_noomix));
-
-			pFrag1 = new ProjectPartialFragment("Webentwicklung", projects1);
-
-			projects2 = new ArrayList<Project>();
-			projects2.add(new Project(R.drawable.portrait1, getString(R.string.project_sWatchdog),
+			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_artconsense),
 					R.layout.project_technical_noomix));
 
-			pFrag2 = new ProjectPartialFragment("Websicherheit", projects2);
+			mPartialFrag1 = new ProjectPartialFragment("Webentwicklung", mProjects1);
 
-			projects3 = new ArrayList<Project>();
-			projects3.add(new Project(R.drawable.portrait1, getString(R.string.project_portfolioFB),
-					R.layout.project_technical_noomix));
-			projects3.add(new Project(R.drawable.portrait1, getString(R.string.project_x),
+			mProjects2 = new ArrayList<Project>();
+			mProjects2.add(new Project(R.drawable.portrait1, getString(R.string.project_sWatchdog),
 					R.layout.project_technical_noomix));
 
-			pFrag3 = new ProjectPartialFragment("Apps", projects3);
+			mPartialFrag2 = new ProjectPartialFragment("Websicherheit", mProjects2);
 
-			partialFragments.add(pFrag1);
-			partialFragments.add(pFrag2);
-			partialFragments.add(pFrag3);
+			mProjects3 = new ArrayList<Project>();
+			mProjects3.add(new Project(R.drawable.portrait1, getString(R.string.project_portfolioFB),
+					R.layout.project_technical_noomix));
+			mProjects3.add(new Project(R.drawable.portrait1, getString(R.string.project_x),
+					R.layout.project_technical_noomix));
 
-			super.setPartialFragments(partialFragments);
+			mPartialFrag3 = new ProjectPartialFragment("Apps", mProjects3);
+
+			mPartialFragments.add(mPartialFrag1);
+			mPartialFragments.add(mPartialFrag2);
+			mPartialFragments.add(mPartialFrag3);
+
+			super.setPartialFragments(mPartialFragments);
 
 		}
 	}
@@ -63,11 +63,11 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 	public void setUserVisibleHint(boolean isVisibleToUser) {
 		super.setUserVisibleHint(isVisibleToUser);
 
-		ProjectTechnicalFragment.isVisibleToUser = isVisibleToUser;
+		ProjectTechnicalFragment.sIsVisibleToUser = isVisibleToUser;
 	}
 
 	public static boolean isVisibleToUser() {
-		return isVisibleToUser;
+		return sIsVisibleToUser;
 	}
 	
 	public static ProjectTechnicalFragment newInstance(Context ctx) {

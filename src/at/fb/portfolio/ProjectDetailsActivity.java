@@ -8,12 +8,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import at.fb.portfolio.adapter.ProjectDetailsPagerAdapter;
+import at.fb.portfolio.adapters.ProjectDetailsPagerAdapter;
 
 public class ProjectDetailsActivity extends ActionBarActivity {
 
-	ProjectDetailsPagerAdapter pagerAdapter;
-	ViewPager viewPager;
+	private ProjectDetailsPagerAdapter mPagerAdapter;
+	private ViewPager mViewPager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +26,11 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 		setTitle(extras.getString(ProjectsFragment.FRAGMENT_PAGE_TITLE));
 		setContentView(extras.getInt(Project.PROJECT_LAYOUT));
 
-		pagerAdapter = new ProjectDetailsPagerAdapter(
+		mPagerAdapter = new ProjectDetailsPagerAdapter(
 				getSupportFragmentManager(), projects);
-		viewPager = (ViewPager) findViewById(R.id.projectDetailsPager);
-		viewPager.setAdapter(pagerAdapter);
-		viewPager.setCurrentItem(extras.getInt(Project.PROJECT_POSITION));
+		mViewPager = (ViewPager) findViewById(R.id.projectDetailsPager);
+		mViewPager.setAdapter(mPagerAdapter);
+		mViewPager.setCurrentItem(extras.getInt(Project.PROJECT_POSITION));
 		
 
 		// Show the Up button in the action bar.

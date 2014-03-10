@@ -11,7 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import at.fb.portfolio.adapter.TabsAdapter;
+import at.fb.portfolio.adapters.TabsAdapter;
 import at.fb.portfolio.tools.PDFTools;
 
 public class PrivatActivity extends ActionBarActivity implements
@@ -25,7 +25,7 @@ public class PrivatActivity extends ActionBarActivity implements
 	 * intensive, it may be best to switch to a
 	 * {@link android.support.v4.app.FragmentStatePagerAdapter}.
 	 */
-	private TabsAdapter tabsAdapter;
+	private TabsAdapter mTabsAdapter;
 
 	/**
 	 * The {@link ViewPager} that will host the section contents.
@@ -47,13 +47,13 @@ public class PrivatActivity extends ActionBarActivity implements
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
-		tabsAdapter = new TabsAdapter(
+		mTabsAdapter = new TabsAdapter(
 				getSupportFragmentManager(), frags);
 		
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.privatPager);
-		mViewPager.setAdapter(tabsAdapter);
+		mViewPager.setAdapter(mTabsAdapter);
 
 		// When swiping between different sections, select the corresponding
 		// tab. We can also use ActionBar.Tab#select() to do this if we have
@@ -67,13 +67,13 @@ public class PrivatActivity extends ActionBarActivity implements
 				});
 
 		// For each of the sections in the app, add a tab to the action bar.
-		for (int i = 0; i < tabsAdapter.getCount(); i++) {
+		for (int i = 0; i < mTabsAdapter.getCount(); i++) {
 			// Create a tab with text corresponding to the page title defined by
 			// the adapter. Also specify this Activity object, which implements
 			// the TabListener interface, as the callback (listener) for when
 			// this tab is selected.
 			actionBar.addTab(actionBar.newTab()
-					.setText(tabsAdapter.getPageTitle(i))
+					.setText(mTabsAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
 	}

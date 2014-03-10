@@ -5,3 +5,5 @@ main/gen/
 gen
 bin
 /.settings
+bin
+gen

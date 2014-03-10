@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import at.fb.portfolio.adapter.PartialFragAdapter;
+import at.fb.portfolio.adapters.PartialFragAdapter;
 
 public abstract class ProjectsFragment extends Fragment {
 

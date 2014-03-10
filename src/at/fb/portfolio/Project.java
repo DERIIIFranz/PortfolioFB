@@ -10,11 +10,11 @@ public class Project implements Parcelable {
 	public static final String PROJECT_COLLECTION = "at.fb.portfolio.PROJECT_COLLECTION";
 	public static final String PROJECT_POSITION = "at.fb.portfolio.PROJECT_POSITION";
 	
-	private int thumb;
-	private String title;
-	private int layout;
-	private static int id = 0;
-	private int projectID;
+	private int mThumb;
+	private String mTitle;
+	private int mLayout;
+	private static int sId = 0;
+	private int mProjectID;
 	
 	public static final Parcelable.Creator<Project> CREATOR = new Parcelable.Creator<Project>() {
         public Project createFromParcel(Parcel in) {
@@ -27,36 +27,36 @@ public class Project implements Parcelable {
     };
 	
 	public Project(int thumb, String title, int layout) {
-		this.thumb = thumb;
-		this.title = title;
-		this.layout = layout;
-		projectID = id++;
+		this.mThumb = thumb;
+		this.mTitle = title;
+		this.mLayout = layout;
+		mProjectID = sId++;
 	}
 	
 	private Project (Parcel in) {
-        thumb = in.readInt();
-        title = in.readString();
-        layout = in.readInt();
+        mThumb = in.readInt();
+        mTitle = in.readString();
+        mLayout = in.readInt();
     }
 	
 	public int getId() {
-		return projectID;
+		return mProjectID;
 	}
 	
 	public static void resetId() {
-		id = 0;
+		sId = 0;
 	}
 	
 	public int getThumb() {
-		return thumb;
+		return mThumb;
 	}
 	
 	public String getTitle() {
-		return title;
+		return mTitle;
 	}
 	
 	public int getLayout() {
-		return layout;
+		return mLayout;
 	}
 
 	@Override
@@ -66,8 +66,8 @@ public class Project implements Parcelable {
 
 	@Override
 	public void writeToParcel(Parcel out, int flags) {
-		out.writeInt(thumb);
-		out.writeString(title);
-		out.writeInt(layout);	
+		out.writeInt(mThumb);
+		out.writeString(mTitle);
+		out.writeInt(mLayout);	
 	}
 }

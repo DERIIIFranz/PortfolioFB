@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 public class PrivatDocsFragment extends Fragment {
 	
-	private static boolean isVisibleToUser;
+	private static boolean sIsVisibleToUser;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,11 +25,11 @@ public class PrivatDocsFragment extends Fragment {
 	public void setUserVisibleHint(boolean isVisibleToUser) {
 	    super.setUserVisibleHint(isVisibleToUser);
 
-	    PrivatDocsFragment.isVisibleToUser = isVisibleToUser;
+	    PrivatDocsFragment.sIsVisibleToUser = isVisibleToUser;
 	}
 	
 	public static boolean isVisibleToUser() {
-		return isVisibleToUser;
+		return sIsVisibleToUser;
 	}
 
 	public static PrivatDocsFragment newInstance(Context ctx) {

@@ -9,9 +9,9 @@ import android.os.Bundle;
 public class ProjectCreativeFragment extends ProjectsFragment {
 	private List<ProjectPartialFragment> partialFragments = new ArrayList<ProjectPartialFragment>();
 
-	private ProjectPartialFragment pFrag1, pFrag2;
-	private List<Project> projects1, projects2;
-	private static boolean isVisibleToUser;
+	private ProjectPartialFragment mPartialFrag1, mPartialFrag2;
+	private List<Project> mProjects1, mProjects2;
+	private static boolean sIsVisibleToUser;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -23,26 +23,26 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 
 			Project.resetId();
 
-			projects1 = new ArrayList<Project>();
-			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_K13),
+			mProjects1 = new ArrayList<Project>();
+			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_K13),
 					R.layout.project_technical_noomix));
-			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_TGTN),
+			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_TGTN),
 					R.layout.project_technical_noomix));
-			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_pirat),
+			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_pirat),
 					R.layout.project_technical_noomix));
-			projects1.add(new Project(R.drawable.portrait1, getString(R.string.project_MOCAP),
-					R.layout.project_technical_noomix));
-
-			pFrag1 = new ProjectPartialFragment("3D", projects1);
-
-			projects2 = new ArrayList<Project>();
-			projects2.add(new Project(R.drawable.portrait1, getString(R.string.project_clip),
+			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_MOCAP),
 					R.layout.project_technical_noomix));
 
-			pFrag2 = new ProjectPartialFragment("2D", projects2);
+			mPartialFrag1 = new ProjectPartialFragment("3D", mProjects1);
 
-			partialFragments.add(pFrag1);
-			partialFragments.add(pFrag2);
+			mProjects2 = new ArrayList<Project>();
+			mProjects2.add(new Project(R.drawable.portrait1, getString(R.string.project_clip),
+					R.layout.project_technical_noomix));
+
+			mPartialFrag2 = new ProjectPartialFragment("2D", mProjects2);
+
+			partialFragments.add(mPartialFrag1);
+			partialFragments.add(mPartialFrag2);
 
 			super.setPartialFragments(partialFragments);
 
@@ -54,11 +54,11 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 	public void setUserVisibleHint(boolean isVisibleToUser) {
 		super.setUserVisibleHint(isVisibleToUser);
 
-		ProjectCreativeFragment.isVisibleToUser = isVisibleToUser;
+		ProjectCreativeFragment.sIsVisibleToUser = isVisibleToUser;
 	}
 
 	public static boolean isVisibleToUser() {
-		return isVisibleToUser;
+		return sIsVisibleToUser;
 	}
 
 	public static ProjectCreativeFragment newInstance(Context ctx) {

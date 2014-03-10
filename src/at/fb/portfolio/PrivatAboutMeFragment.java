@@ -13,9 +13,9 @@ import com.pagesuite.flowtext.FlowTextView;
 
 public class PrivatAboutMeFragment extends Fragment {
 	
-	private static boolean isVisibleToUser = false;
+	private static boolean sIsVisibleToUser = false;
 	
-	private FlowTextView tv;
+	private FlowTextView mTv;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -24,11 +24,11 @@ public class PrivatAboutMeFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragment_privat_about_me,
 				container, false);
 
-		tv = (FlowTextView) rootView.findViewById(R.id.tv_about_me);  
-		tv.setColor(Color.LTGRAY);
-		tv.setTextSize(30);
-		tv.setText(getActivity().getString(R.string.about_me)); // using plain text    
-		tv.invalidate(); // call this to render the text
+		mTv = (FlowTextView) rootView.findViewById(R.id.tv_about_me);  
+		mTv.setColor(Color.LTGRAY);
+		mTv.setTextSize(30);
+		mTv.setText(getActivity().getString(R.string.about_me)); // using plain text    
+		mTv.invalidate(); // call this to render the text
 
 		return rootView;
 	}
@@ -38,11 +38,11 @@ public class PrivatAboutMeFragment extends Fragment {
 	public void setUserVisibleHint(boolean isVisibleToUser) {
 	    super.setUserVisibleHint(isVisibleToUser);
 
-	    PrivatAboutMeFragment.isVisibleToUser = isVisibleToUser;
+	    PrivatAboutMeFragment.sIsVisibleToUser = isVisibleToUser;
 	}
 	
 	public static boolean isVisibleToUser() {
-		return isVisibleToUser;
+		return sIsVisibleToUser;
 	}
 
 	public static PrivatAboutMeFragment newInstance(Context ctx) {
