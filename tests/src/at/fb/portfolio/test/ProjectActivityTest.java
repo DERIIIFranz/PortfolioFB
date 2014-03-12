@@ -94,8 +94,8 @@ public class ProjectActivityTest extends
 		}
 
 		int projectCountObject = 0;
-		for (int i = 0; i < pFragment.getPartialFragments().size(); i++) {
-			projectCountObject += pFragment.getPartialFragments().get(i)
+		for (int i = 0; i < pFragment.getProjectGroups().size(); i++) {
+			projectCountObject += pFragment.getProjectGroups().get(i)
 					.getProjects().size();
 		}
 
@@ -109,7 +109,7 @@ public class ProjectActivityTest extends
 		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
 			for (int j = 0; j < ((GridView) listFragPartials.getChildAt(i)
 					.findViewById(R.id.gridview_projects)).getCount(); j++) {
-				Project p = pFragment.getPartialFragments().get(i)
+				Project p = pFragment.getProjectGroups().get(i)
 						.getProjects().get(j);
 				View projectItemView = ((GridView) listFragPartials.getChildAt(
 						i).findViewById(R.id.gridview_projects)).getChildAt(j);
@@ -146,8 +146,8 @@ public class ProjectActivityTest extends
 		}
 
 		int projectCountObject = 0;
-		for (int i = 0; i < pFragment.getPartialFragments().size(); i++) {
-			projectCountObject += pFragment.getPartialFragments().get(i)
+		for (int i = 0; i < pFragment.getProjectGroups().size(); i++) {
+			projectCountObject += pFragment.getProjectGroups().get(i)
 					.getProjects().size();
 		}
 
@@ -161,7 +161,7 @@ public class ProjectActivityTest extends
 		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
 			for (int j = 0; j < ((GridView) listFragPartials.getChildAt(i)
 					.findViewById(R.id.gridview_projects)).getCount(); j++) {
-				Project p = pFragment.getPartialFragments().get(i)
+				Project p = pFragment.getProjectGroups().get(i)
 						.getProjects().get(j);
 				View projectItemView = ((GridView) listFragPartials.getChildAt(
 						i).findViewById(R.id.gridview_projects)).getChildAt(j);
@@ -187,14 +187,14 @@ public class ProjectActivityTest extends
 				R.id.gridview_projects)).getChildAt(0);
 
 		solo.clickOnView(v);
-		assertTrue(solo.searchText(tFragment.getPartialFragments().get(0)
+		assertTrue(solo.searchText(tFragment.getProjectGroups().get(0)
 				.getProjects().get(0).getTitle()));
 
 		// swipe through all projects and check title
 		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
 			for (int j = 0; j < ((GridView) listFragPartials.getChildAt(i)
 					.findViewById(R.id.gridview_projects)).getCount(); j++) {
-				Project p = tFragment.getPartialFragments().get(i)
+				Project p = tFragment.getProjectGroups().get(i)
 						.getProjects().get(j);
 				assertTrue(solo.searchText(p.getTitle()));
 				swipeToLeft(10);
@@ -217,14 +217,14 @@ public class ProjectActivityTest extends
 				R.id.gridview_projects)).getChildAt(0);
 
 		solo.clickOnView(v);
-		assertTrue(solo.searchText(cFragment.getPartialFragments().get(0)
+		assertTrue(solo.searchText(cFragment.getProjectGroups().get(0)
 				.getProjects().get(0).getTitle()));
 
 		// swipe through all projects and check title
 		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
 			for (int j = 0; j < ((GridView) listFragPartials.getChildAt(i)
 					.findViewById(R.id.gridview_projects)).getCount(); j++) {
-				Project p = cFragment.getPartialFragments().get(i)
+				Project p = cFragment.getProjectGroups().get(i)
 						.getProjects().get(j);
 				assertTrue(solo.searchText(p.getTitle()));
 				swipeToLeft(10);

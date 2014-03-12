@@ -7,7 +7,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 public class ProjectCreativeFragment extends ProjectsFragment {
-	private List<ProjectGroup> partialFragments = new ArrayList<ProjectGroup>();
+	private List<ProjectGroup> mProjectGroups = new ArrayList<ProjectGroup>();
 
 	private ProjectGroup mPartialFrag1, mPartialFrag2;
 	private List<Project> mProjects1, mProjects2;
@@ -19,32 +19,40 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 		super.setListView(R.layout.fragment_projects_creative);
 		super.setPageTitle(R.string.pageTitle_activity_project_creative_details);
 
-		if (partialFragments.isEmpty()) {
+		if (mProjectGroups.isEmpty()) {
 
 			Project.resetId();
 
-			mProjects1 = new ArrayList<Project>();
-			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_K13),
-					R.layout.project_technical_noomix));
-			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_TGTN),
-					R.layout.project_technical_noomix));
-			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_pirat),
-					R.layout.project_technical_noomix));
-			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_MOCAP),
-					R.layout.project_technical_noomix));
+			GalleryImage i1 = new GalleryImage(R.drawable.portrait1,
+					R.drawable.portrait1, "Image 1");
+			GalleryImage i2 = new GalleryImage(R.drawable.portrait2,
+					R.drawable.portrait2, "Image 2");
 
-			mPartialFrag1 = new ProjectGroup("3D", mProjects1);
+			List<GalleryImage> galleryImages = new ArrayList<GalleryImage>();
+			galleryImages.add(i1);
+			galleryImages.add(i2);
+
+			mProjects1 = new ArrayList<Project>();
+			mProjects1.add(new Project(R.drawable.portrait1, -1,
+					getString(R.string.project_K13_title), "", galleryImages));
+			mProjects1.add(new Project(R.drawable.portrait1, -1,
+					getString(R.string.project_TGTN_title), "", null));
+			mProjects1.add(new Project(R.drawable.portrait1, -1,
+					getString(R.string.project_pirat_title), "", null));
+			mProjects1.add(new Project(R.drawable.portrait1, -1,
+					getString(R.string.project_MOCAP_title), "", null));
 
 			mProjects2 = new ArrayList<Project>();
-			mProjects2.add(new Project(R.drawable.portrait1, getString(R.string.project_clip),
-					R.layout.project_technical_noomix));
+			mProjects2.add(new Project(R.drawable.portrait1, -1,
+					getString(R.string.project_clip_title), "", null));
 
+			mPartialFrag1 = new ProjectGroup("3D", mProjects1);
 			mPartialFrag2 = new ProjectGroup("2D", mProjects2);
 
-			partialFragments.add(mPartialFrag1);
-			partialFragments.add(mPartialFrag2);
+			mProjectGroups.add(mPartialFrag1);
+			mProjectGroups.add(mPartialFrag2);
 
-			super.setPartialFragments(partialFragments);
+			super.setProjectGroups(mProjectGroups);
 
 		}
 	}
@@ -63,13 +71,14 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 
 	public static ProjectCreativeFragment newInstance(Context ctx) {
 		ProjectCreativeFragment f = new ProjectCreativeFragment();
-		
+
 		Bundle args = new Bundle();
-		args.putString(MainActivity.TAB_TITLE, ctx.getString(R.string.tabTitle_project_fragment_creative));
-		
+		args.putString(MainActivity.TAB_TITLE,
+				ctx.getString(R.string.tabTitle_project_fragment_creative));
+
 		f.setArguments(args);
-		
+
 		return f;
-		
+
 	}
 }

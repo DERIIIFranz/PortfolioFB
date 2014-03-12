@@ -24,28 +24,30 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			Project.resetId();
 
 			mProjects1 = new ArrayList<Project>();
-			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_noomix),
-					R.layout.project_technical_noomix));
-			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_atikon),
-					R.layout.project_technical_noomix));
-			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_freundlinger),
-					R.layout.project_technical_noomix));
-			mProjects1.add(new Project(R.drawable.portrait1, getString(R.string.project_artconsense),
-					R.layout.project_technical_noomix));
+			mProjects1.add(new Project(R.drawable.portrait1,
+					R.drawable.img_project_noomix_header_white,
+					getString(R.string.project_noomix_title),
+					getString(R.string.project_noomix_description), null));
+			mProjects1.add(new Project(R.drawable.portrait1, -1,
+					getString(R.string.project_atikon_title), "", null));
+			mProjects1.add(new Project(R.drawable.portrait1, -1,
+					getString(R.string.project_freundlinger_title), "", null));
+			mProjects1.add(new Project(R.drawable.portrait1, -1,
+					getString(R.string.project_artconsense_title), "", null));
 
 			mPartialFrag1 = new ProjectGroup("Webentwicklung", mProjects1);
 
 			mProjects2 = new ArrayList<Project>();
-			mProjects2.add(new Project(R.drawable.portrait1, getString(R.string.project_sWatchdog),
-					R.layout.project_technical_noomix));
+			mProjects2.add(new Project(R.drawable.portrait1, -1,
+					getString(R.string.project_sWatchdog_title), "", null));
 
 			mPartialFrag2 = new ProjectGroup("Websicherheit", mProjects2);
 
 			mProjects3 = new ArrayList<Project>();
-			mProjects3.add(new Project(R.drawable.portrait1, getString(R.string.project_portfolioFB),
-					R.layout.project_technical_noomix));
-			mProjects3.add(new Project(R.drawable.portrait1, getString(R.string.project_x),
-					R.layout.project_technical_noomix));
+			mProjects3.add(new Project(R.drawable.portrait1, -1,
+					getString(R.string.project_portfolioFB_title), "", null));
+			mProjects3.add(new Project(R.drawable.portrait1, -1,
+					getString(R.string.project_x_title), "", null));
 
 			mPartialFrag3 = new ProjectGroup("Apps", mProjects3);
 
@@ -53,7 +55,7 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			mPartialFragments.add(mPartialFrag2);
 			mPartialFragments.add(mPartialFrag3);
 
-			super.setPartialFragments(mPartialFragments);
+			super.setProjectGroups(mPartialFragments);
 
 		}
 	}
@@ -69,16 +71,17 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 	public static boolean isVisibleToUser() {
 		return sIsVisibleToUser;
 	}
-	
+
 	public static ProjectTechnicalFragment newInstance(Context ctx) {
 		ProjectTechnicalFragment f = new ProjectTechnicalFragment();
-		
+
 		Bundle args = new Bundle();
-		args.putString(MainActivity.TAB_TITLE, ctx.getString(R.string.tabTitle_project_fragment_technical));
-		
+		args.putString(MainActivity.TAB_TITLE,
+				ctx.getString(R.string.tabTitle_project_fragment_technical));
+
 		f.setArguments(args);
-		
+
 		return f;
-		
+
 	}
 }

@@ -36,18 +36,20 @@
     <string name="privat_docs_masterThesis_text">Masterthesis</string>
     <string name="privat_docs_bakkThesis_text">Bachelorthesis</string>
     
-    <string name="project_noomix">Noomix</string>
-    <string name="project_atikon">Atikon</string>
-    <string name="project_freundlinger">Freundlinger</string>
-    <string name="project_artconsense">Artconsense</string>
-    <string name="project_sWatchdog">S-Watchdog</string>
-    <string name="project_portfolioFB">PortfolioFB</string>
-    <string name="project_x">\?</string>
-    <string name="project_K13">K13</string>
-    <string name="project_TGTN">TGTN</string>
-    <string name="project_pirat">Pirat</string>
-    <string name="project_MOCAP">MOCAP</string>
-    <string name="project_clip">Clip</string>
+    <string name="project_noomix_title">Noomix</string>
+    <string name="project_noomix_description">Noomix is total super ;)</string>
+    
+    <string name="project_atikon_title">Atikon</string>
+    <string name="project_freundlinger_title">Freundlinger</string>
+    <string name="project_artconsense_title">Artconsense</string>
+    <string name="project_sWatchdog_title">S-Watchdog</string>
+    <string name="project_portfolioFB_title">PortfolioFB</string>
+    <string name="project_x_title">\?</string>
+    <string name="project_K13_title">K13</string>
+    <string name="project_TGTN_title">TGTN</string>
+    <string name="project_pirat_title">Pirat</string>
+    <string name="project_MOCAP_title">MOCAP</string>
+    <string name="project_clip_title">Clip</string>
 
     <string name="about_me">Mein Name ist Franz Brandstätter und ich habe kürzlich mein Studium abgeschlossen.
         Im ersten Abschnitt meines Studiums beschäftigte ich mich im Zuge des Bachelorstudiums an der FH Hagenberg 

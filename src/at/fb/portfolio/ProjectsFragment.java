@@ -26,12 +26,12 @@ public abstract class ProjectsFragment extends Fragment {
 		this.mListView = listView;
 	}
 
-	public List<ProjectGroup> getPartialFragments() {
+	public List<ProjectGroup> getProjectGroups() {
 		return mProjectGroups;
 	}
 
-	public void setPartialFragments(List<ProjectGroup> partialFragments) {
-		this.mProjectGroups = partialFragments;
+	public void setProjectGroups(List<ProjectGroup> projectGroups) {
+		this.mProjectGroups = projectGroups;
 	}
 
 	@Override
