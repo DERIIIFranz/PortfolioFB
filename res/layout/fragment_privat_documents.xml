@@ -11,9 +11,9 @@
 
         <ImageButton
             android:id="@+id/btn_docs_cv"
-            android:contentDescription="@string/ic_action_download_descr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/ic_action_download_descr"
             android:onClick="showCV"
             android:src="@drawable/ic_action_download" />
 
@@ -25,15 +25,16 @@
             android:layout_toRightOf="@id/btn_docs_cv"
             android:text="@string/privat_docs_cv_text" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
         <ImageButton
             android:id="@+id/btn_docs_masterThesis"
-            android:contentDescription="@string/ic_action_download_descr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/ic_action_download_descr"
             android:onClick="showMasterThesis"
             android:src="@drawable/ic_action_download" />
 
@@ -45,15 +46,16 @@
             android:layout_toRightOf="@id/btn_docs_masterThesis"
             android:text="@string/privat_docs_masterThesis_text" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
         <ImageButton
             android:id="@+id/btn_docs_bakkThesis"
-            android:contentDescription="@string/ic_action_download_descr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/ic_action_download_descr"
             android:onClick="showBakkThesis"
             android:src="@drawable/ic_action_download" />
 
@@ -65,5 +67,16 @@
             android:layout_toRightOf="@id/btn_docs_bakkThesis"
             android:text="@string/privat_docs_bakkThesis_text" />
     </RelativeLayout>
+
+    <GridView
+        android:id="@+id/gv_privat_docs_gallery"
+        android:layout_width="fill_parent" 
+	    android:layout_height="fill_parent"
+	    android:columnWidth="90dp"
+	    android:numColumns="auto_fit"
+	    android:verticalSpacing="10dp"
+	    android:horizontalSpacing="10dp"
+	    android:stretchMode="columnWidth"
+	    android:gravity="center" />
 
 </LinearLayout>

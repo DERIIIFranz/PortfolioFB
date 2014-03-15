@@ -117,6 +117,26 @@ public class PrivatActivityTest extends
 		assertEquals(View.VISIBLE, tvBakkThesis.getVisibility());
 	}
 
+	public void testImageGallery() {
+		swipeToLeft(1);
+		assertTrue(PrivatDocsFragment.isVisibleToUser());
+
+		ImageView iv_urkunde_thumb = (ImageView) pActivity
+				.findViewById(R.id.gv_privat_docs_gallery).getTouchables()
+				.get(0);
+		assertEquals(iv_urkunde_thumb.getTag(), R.drawable.urkunde_fhs_thumb);
+
+		solo.clickOnView(iv_urkunde_thumb);
+
+		ImageView iv_urkunde = (ImageView) solo.getView(R.id.iv_image_gallery);
+		TextView descr_urkunde = (TextView) solo.getView(R.id.tv_image_gallery);
+
+		assertEquals(iv_urkunde.getTag(), R.drawable.urkunde_fhs);
+		assertEquals(descr_urkunde.getText(),
+				pActivity.getString(R.string.img_urkunde_fhs_descr));
+
+	}
+
 	@Override
 	public void tearDown() throws Exception {
 		solo.finishOpenedActivities();
@@ -131,5 +151,6 @@ public class PrivatActivityTest extends
 		float xStart = width - 10;
 		float xEnd = 10;
 		solo.drag(xStart, xEnd, height / 2, height / 2, stepCount);
+		solo.sleep(100);
 	}
 }

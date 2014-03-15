@@ -21,23 +21,27 @@ import at.fb.portfolio.R;
 import at.fb.portfolio.views.NonScrollableGridView;
 
 public class ProjectGroupAdapter extends BaseAdapter {
-	
+
 	private Activity mContext;
 	private List<ProjectGroup> mProjectGroups;
 	private String mPageTitle;
 
 	/**
-	 * Supplies projectpage with several PartialFragments
-	 * @param c corresponding activity
-	 * @param projectGroups list of groups of projects
+	 * Supplies projectpage with several ProjectGroups
+	 * 
+	 * @param act
+	 *            corresponding activity
+	 * @param projectGroups
+	 *            list of groups
 	 * @param pageTitle
 	 */
-	public ProjectGroupAdapter(Activity c, List<ProjectGroup> projectGroups, String pageTitle) {
+	public ProjectGroupAdapter(Activity act, List<ProjectGroup> projectGroups,
+			String pageTitle) {
 		this.mPageTitle = pageTitle;
-        mContext = c;
-        this.mProjectGroups = projectGroups;
-    }
-	
+		mContext = act;
+		this.mProjectGroups = projectGroups;
+	}
+
 	@Override
 	public int getCount() {
 		return mProjectGroups.size();
@@ -55,33 +59,42 @@ public class ProjectGroupAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		LayoutInflater vi = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		LayoutInflater vi = (LayoutInflater) mContext
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 		View projectGroupView = vi.inflate(R.layout.group_project, null);
 
-		TextView label=(TextView)projectGroupView.findViewById(R.id.text_project_category);
+		TextView label = (TextView) projectGroupView
+				.findViewById(R.id.text_project_category);
 		label.setText(mProjectGroups.get(position).getCategory());
 
-		final NonScrollableGridView gView = (NonScrollableGridView) projectGroupView.findViewById(R.id.gridview_projects);
-		gView.setAdapter(new ProjectAdapter(mContext, mProjectGroups.get(position).getProjects()));
+		final NonScrollableGridView gView = (NonScrollableGridView) projectGroupView
+				.findViewById(R.id.gridview_projects);
+		gView.setAdapter(new ProjectAdapter(mContext, mProjectGroups.get(
+				position).getProjects()));
 
 		gView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
-				
+
 				ArrayList<Project> allProjects = new ArrayList<Project>();
 				for (int i = 0; i < mProjectGroups.size(); i++) {
-					for (int j = 0; j < mProjectGroups.get(i).getProjects().size(); j++) {
-						allProjects.add(mProjectGroups.get(i).getProjects().get(j));
+					for (int j = 0; j < mProjectGroups.get(i).getProjects()
+							.size(); j++) {
+						allProjects.add(mProjectGroups.get(i).getProjects()
+								.get(j));
 					}
 				}
-				
+
 				Intent intent = new Intent(mContext,
 						ProjectDetailsActivity.class);
 				intent.putExtra(Project.PROJECT_LAYOUT,
 						R.layout.activity_project_details);
-				intent.putExtra(Project.PROJECT_POSITION, (int)id);
-				intent.putExtra(ProjectsFragment.FRAGMENT_PAGE_TITLE, mPageTitle);
+				// use id as index here, as position only determines position
+				// within projectGroup
+				intent.putExtra(Project.PROJECT_POSITION, (int) id);
+				intent.putExtra(ProjectsFragment.FRAGMENT_PAGE_TITLE,
+						mPageTitle);
 				intent.putParcelableArrayListExtra(Project.PROJECT_COLLECTION,
 						allProjects);
 				mContext.startActivity(intent);

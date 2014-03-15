@@ -17,7 +17,7 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     
-    <style name="myDialogTheme" parent="@android:style/Theme.Dialog">
+    <style name="imageGalleryTheme" parent="@style/Theme.AppCompat">
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowFrame">@null</item>
     <item name="android:background">@android:color/transparent</item>

@@ -4,14 +4,12 @@
     <string name="app_name">PortfolioFB</string>
     <string name="action_settings">Einstellungen</string>
     <string name="hello_world">Hello world!</string>
-    
     <string name="img_author_descr">Bild von Franz Brandstätter MSc</string>
     <string name="img_portrait2_descr">Portrait von Franz Brandstätter MSc</string>
     <string name="img_team_descr">Teamfoto Volleyball</string>
     <string name="img_team1_descr">Foto Teamwork</string>
-    
+    <string name="img_urkunde_fhs_descr">Urkunde</string>
     <string name="ic_action_download_descr">Element downloaden</string>
-    
     <string name="name">Franz Brandstätter MSc</string>
     <string name="profession">App-Entwickler</string>
     <string name="slogan">Lernen Sie mich kennen!</string>
@@ -31,14 +29,11 @@
     <string name="pdf_show_online_dialog_question">PDF via Google Drive anzeigen</string>
     <string name="pdf_show_online_dialog_button_no">Abbrechen</string>
     <string name="pdf_show_online_dialog_button_yes">OK</string>
-    
     <string name="privat_docs_cv_text">Lebenslauf</string>
     <string name="privat_docs_masterThesis_text">Masterthesis</string>
     <string name="privat_docs_bakkThesis_text">Bachelorthesis</string>
-    
     <string name="project_noomix_title">Noomix</string>
     <string name="project_noomix_description">Noomix is total super ;)</string>
-    
     <string name="project_atikon_title">Atikon</string>
     <string name="project_freundlinger_title">Freundlinger</string>
     <string name="project_artconsense_title">Artconsense</string>
@@ -50,7 +45,6 @@
     <string name="project_pirat_title">Pirat</string>
     <string name="project_MOCAP_title">MOCAP</string>
     <string name="project_clip_title">Clip</string>
-
     <string name="about_me">Mein Name ist Franz Brandstätter und ich habe kürzlich mein Studium abgeschlossen.
         Im ersten Abschnitt meines Studiums beschäftigte ich mich im Zuge des Bachelorstudiums an der FH Hagenberg 
         (Medientechnik und -design) primär mit kreativen Projekten. Insbesondere faszinierte mich das Arbeiten mit 3D-Objekten.
@@ -62,4 +56,12 @@
         möchte!\n\nWährend meiner gesamten Studienzeit war mir schon immer ein entsprechender sportlicher Ausgleich wichtig. Seit vielen
         Jahren übe ich deshalb den Teamsport (Beach) Volleyball aus. Zum Einen halte ich mich auf diese Weise körperlich fit und zum
         Anderen fördere ich damit insbesondere meine soziale Kompetenzen in Bezug auf Teamfähigkeit.</string>
+    <string name="title_activity_image_gallery">ImageGalleryActivity</string>
+    <string name="img_image_gallery_descr">Hier sehen Sie eine Sammlung von Bildern.</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut 
+        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita 
+        kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing 
+        elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et 
+        accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+
 </resources>

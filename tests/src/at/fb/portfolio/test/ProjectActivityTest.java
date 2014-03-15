@@ -197,7 +197,7 @@ public class ProjectActivityTest extends
 				Project p = tFragment.getProjectGroups().get(i)
 						.getProjects().get(j);
 				assertTrue(solo.searchText(p.getTitle()));
-				swipeToLeft(10);
+				swipeToLeft(1);
 			}
 		}
 	}
@@ -227,7 +227,7 @@ public class ProjectActivityTest extends
 				Project p = cFragment.getProjectGroups().get(i)
 						.getProjects().get(j);
 				assertTrue(solo.searchText(p.getTitle()));
-				swipeToLeft(10);
+				swipeToLeft(1);
 			}
 		}
 	}
@@ -241,6 +241,7 @@ public class ProjectActivityTest extends
 		float xStart = width - 10;
 		float xEnd = 10;
 		solo.drag(xStart, xEnd, height / 2, height / 2, stepCount);
+		solo.sleep(100);
 	}
 
 	@SuppressWarnings("unused")
@@ -253,6 +254,7 @@ public class ProjectActivityTest extends
 		float xStart = 10;
 		float xEnd = width - 10;
 		solo.drag(xStart, xEnd, height / 2, height / 2, stepCount);
+		solo.sleep(100);
 	}
 
 	@Override

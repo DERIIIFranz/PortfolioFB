@@ -23,7 +23,7 @@ public abstract class ProjectsFragment extends Fragment {
 	}
 
 	public void setListView(int listView) {
-		this.mListView = listView;
+		mListView = listView;
 	}
 
 	public List<ProjectGroup> getProjectGroups() {
@@ -31,7 +31,7 @@ public abstract class ProjectsFragment extends Fragment {
 	}
 
 	public void setProjectGroups(List<ProjectGroup> projectGroups) {
-		this.mProjectGroups = projectGroups;
+		mProjectGroups = projectGroups;
 	}
 
 	@Override
@@ -41,8 +41,8 @@ public abstract class ProjectsFragment extends Fragment {
 		View rootView = inflater.inflate(mListView, container, false);
 
 		ListView lView = (ListView) rootView;
-		lView.setAdapter(new ProjectGroupAdapter(getActivity(),
-				mProjectGroups, getActivity().getString(mPageTitle)));
+		lView.setAdapter(new ProjectGroupAdapter(getActivity(), mProjectGroups,
+				getActivity().getString(mPageTitle)));
 
 		return rootView;
 	}
@@ -52,6 +52,6 @@ public abstract class ProjectsFragment extends Fragment {
 	}
 
 	public void setPageTitle(int pageTitle) {
-		this.mPageTitle = pageTitle;
+		mPageTitle = pageTitle;
 	}
 }

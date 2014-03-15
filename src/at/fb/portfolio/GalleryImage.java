@@ -8,6 +8,11 @@ public class GalleryImage implements Parcelable {
 	private int mDrawable;
 	private String mDescription;
 	
+	public static final String IMAGE_DESCRIPTION = "at.fb.portfolio.IMAGE_DESCRIPTION";
+	public static final String IMAGE_POSITION = "at.fb.portfolio.IMAGE_POSITION";
+	public static final String IMAGE_COLLECTION = "at.fb.portfolio.IMAGE_COLLECTION";
+	public static final String IMAGE = "at.fb.portfolio.IMAGE";
+	
 	public static final Parcelable.Creator<GalleryImage> CREATOR = new Parcelable.Creator<GalleryImage>() {
         public GalleryImage createFromParcel(Parcel in) {
             return new GalleryImage(in);
