@@ -10,9 +10,7 @@ import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import at.fb.portfolio.adapters.TabsAdapter;
-import at.fb.portfolio.tools.PDFTools;
 
 public class PrivatActivity extends ActionBarActivity implements
 		ActionBar.TabListener {
@@ -124,17 +122,5 @@ public class PrivatActivity extends ActionBarActivity implements
 	public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
 		// TODO Auto-generated method stub
 
-	}
-
-	public void showCV(View view) {
-		PDFTools.showPDFUrl( this, "http://www.pdf-archive.com/2014/03/05/lebenslauf/lebenslauf.pdf" );
-	}
-	
-	public void showMasterThesis(View view) {
-		PDFTools.showPDFUrl( this, "http://www.pdf-archive.com/2014/03/05/masterthesis/masterthesis.pdf" );
-	}
-	
-	public void showBakkThesis(View view) {
-		PDFTools.showPDFUrl( this, "http://www.pdf-archive.com/2014/03/05/bachelorthesis/bachelorthesis.pdf" );
 	}
 }

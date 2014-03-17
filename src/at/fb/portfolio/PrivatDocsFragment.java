@@ -10,30 +10,42 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
+import at.fb.portfolio.adapters.DocumentAdapter;
 import at.fb.portfolio.adapters.GalleryThumbAdapter;
 
 public class PrivatDocsFragment extends Fragment {
-	
+
 	private static boolean sIsVisibleToUser;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-		View rootView = inflater.inflate(R.layout.fragment_privat_documents, container, false);
-		
-		GridView gv = (GridView) rootView.findViewById(R.id.gv_privat_docs_gallery);
-		
+		View rootView = inflater.inflate(R.layout.fragment_privat_documents,
+				container, false);
+
+		GridView gvDownloads = (GridView) rootView
+				.findViewById(R.id.gv_privat_docs_download);
+
+		if (getPdfDocuments() != null && getPdfDocuments().size() > 0) {
+			gvDownloads.setAdapter(new DocumentAdapter(getActivity(),
+					getPdfDocuments()));
+		}
+
+		GridView gvGallery = (GridView) rootView
+				.findViewById(R.id.gv_privat_docs_gallery);
+
 		if (getGalleryImages() != null && getGalleryImages().size() > 0) {
-			gv.setAdapter(new GalleryThumbAdapter(getActivity(), getGalleryImages()));
+			gvGallery.setAdapter(new GalleryThumbAdapter(getActivity(),
+					getGalleryImages()));
 
 			/**
-			 * start ImageGalleryActivity on galleryImageThumbnail clicked
-			 * and pass all galleryImages of this project
+			 * start ImageGalleryActivity on galleryImageThumbnail clicked and
+			 * pass all galleryImages of this project
 			 */
-			gv.setOnItemClickListener(new OnItemClickListener() {
+			gvGallery.setOnItemClickListener(new OnItemClickListener() {
 				public void onItemClick(AdapterView<?> parent, View v,
 						int position, long id) {
 
@@ -49,39 +61,60 @@ public class PrivatDocsFragment extends Fragment {
 		}
 		return rootView;
 	}
-	
-	//used for testing if fragment is visible
+
+	// used for testing if fragment is visible
 	@Override
 	public void setUserVisibleHint(boolean isVisibleToUser) {
-	    super.setUserVisibleHint(isVisibleToUser);
+		super.setUserVisibleHint(isVisibleToUser);
 
-	    PrivatDocsFragment.sIsVisibleToUser = isVisibleToUser;
+		PrivatDocsFragment.sIsVisibleToUser = isVisibleToUser;
 	}
-	
+
 	public static boolean isVisibleToUser() {
 		return sIsVisibleToUser;
 	}
 
 	public static PrivatDocsFragment newInstance(Context ctx) {
 		PrivatDocsFragment f = new PrivatDocsFragment();
-		
+
 		Bundle args = new Bundle();
-		args.putString(MainActivity.TAB_TITLE, ctx.getString(R.string.tabTitle_privat_fragment_documents));
-		
+		args.putString(MainActivity.TAB_TITLE,
+				ctx.getString(R.string.tabTitle_privat_fragment_documents));
+
 		f.setArguments(args);
-		
+
 		return f;
-		
+
 	}
-	
+
 	private ArrayList<GalleryImage> getGalleryImages() {
 		ArrayList<GalleryImage> galleryImages = new ArrayList<GalleryImage>();
-		
+
 		GalleryImage i1 = new GalleryImage(R.drawable.urkunde_fhs_thumb,
-				R.drawable.urkunde_fhs, getString(R.string.img_urkunde_fhs_descr));
-		
+				R.drawable.urkunde_fhs,
+				getString(R.string.img_urkunde_fhs_descr));
+
 		galleryImages.add(i1);
-		
+
 		return galleryImages;
+	}
+
+	private ArrayList<PdfDocument> getPdfDocuments() {
+		ArrayList<PdfDocument> pdfDocuments = new ArrayList<PdfDocument>();
+
+		pdfDocuments
+				.add(new PdfDocument(getActivity(), getActivity().getString(
+						R.string.privat_docs_cv_title),
+						"http://www.pdf-archive.com/2014/03/05/lebenslauf/lebenslauf.pdf"));
+		pdfDocuments
+				.add(new PdfDocument(getActivity(), getActivity().getString(
+						R.string.privat_docs_masterThesis_title),
+						"http://www.pdf-archive.com/2014/03/05/masterthesis/masterthesis.pdf"));
+		pdfDocuments
+				.add(new PdfDocument(getActivity(), getActivity().getString(
+						R.string.privat_docs_bakkThesis_title),
+						"http://www.pdf-archive.com/2014/03/05/bachelorthesis/bachelorthesis.pdf"));
+
+		return pdfDocuments;
 	}
 }

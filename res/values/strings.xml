@@ -29,9 +29,9 @@
     <string name="pdf_show_online_dialog_question">PDF via Google Drive anzeigen</string>
     <string name="pdf_show_online_dialog_button_no">Abbrechen</string>
     <string name="pdf_show_online_dialog_button_yes">OK</string>
-    <string name="privat_docs_cv_text">Lebenslauf</string>
-    <string name="privat_docs_masterThesis_text">Masterthesis</string>
-    <string name="privat_docs_bakkThesis_text">Bachelorthesis</string>
+    <string name="privat_docs_cv_title">Lebenslauf</string>
+    <string name="privat_docs_masterThesis_title">Masterthesis</string>
+    <string name="privat_docs_bakkThesis_title">Bachelorthesis</string>
     <string name="project_noomix_title">Noomix</string>
     <string name="project_noomix_description">Noomix is total super ;)</string>
     <string name="project_atikon_title">Atikon</string>

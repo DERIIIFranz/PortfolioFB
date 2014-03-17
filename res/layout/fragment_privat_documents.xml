@@ -5,68 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <RelativeLayout
+    <GridView
+        android:id="@+id/gv_privat_docs_download"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <ImageButton
-            android:id="@+id/btn_docs_cv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/ic_action_download_descr"
-            android:onClick="showCV"
-            android:src="@drawable/ic_action_download" />
-
-        <TextView
-            android:id="@+id/tv_docs_cv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/btn_docs_cv"
-            android:text="@string/privat_docs_cv_text" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <ImageButton
-            android:id="@+id/btn_docs_masterThesis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/ic_action_download_descr"
-            android:onClick="showMasterThesis"
-            android:src="@drawable/ic_action_download" />
-
-        <TextView
-            android:id="@+id/tv_docs_masterThesis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/btn_docs_masterThesis"
-            android:text="@string/privat_docs_masterThesis_text" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <ImageButton
-            android:id="@+id/btn_docs_bakkThesis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/ic_action_download_descr"
-            android:onClick="showBakkThesis"
-            android:src="@drawable/ic_action_download" />
-
-        <TextView
-            android:id="@+id/tv_docs_bakkThesis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/btn_docs_bakkThesis"
-            android:text="@string/privat_docs_bakkThesis_text" />
-    </RelativeLayout>
+        android:layout_height="wrap_content" />
 
     <GridView
         android:id="@+id/gv_privat_docs_gallery"

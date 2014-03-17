@@ -6,7 +6,10 @@ import android.support.v4.view.ViewPager;
 import android.test.ActivityInstrumentationTestCase2;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import at.fb.portfolio.PrivatAboutMeFragment;
 import at.fb.portfolio.PrivatActivity;
@@ -97,24 +100,46 @@ public class PrivatActivityTest extends
 		swipeToLeft(1);
 		assertTrue(PrivatDocsFragment.isVisibleToUser());
 
-		ImageView btnCV = (ImageView) pActivity.findViewById(R.id.btn_docs_cv);
-		ImageView btnMasterThesis = (ImageView) pActivity
-				.findViewById(R.id.btn_docs_masterThesis);
-		ImageView btnBakkThesis = (ImageView) pActivity
-				.findViewById(R.id.btn_docs_bakkThesis);
+		GridView gv = (GridView) pActivity
+				.findViewById(R.id.gv_privat_docs_download);
+		assertEquals(3, gv.getChildCount());
 
-		TextView tvCV = (TextView) pActivity.findViewById(R.id.tv_docs_cv);
-		TextView tvMasterThesis = (TextView) pActivity
-				.findViewById(R.id.tv_docs_masterThesis);
-		TextView tvBakkThesis = (TextView) pActivity
-				.findViewById(R.id.tv_docs_bakkThesis);
+		String imgBtn_descr = pActivity
+				.getString(R.string.ic_action_download_descr);
 
-		assertEquals(View.VISIBLE, btnCV.getVisibility());
-		assertEquals(View.VISIBLE, btnMasterThesis.getVisibility());
-		assertEquals(View.VISIBLE, btnBakkThesis.getVisibility());
-		assertEquals(View.VISIBLE, tvCV.getVisibility());
-		assertEquals(View.VISIBLE, tvMasterThesis.getVisibility());
-		assertEquals(View.VISIBLE, tvBakkThesis.getVisibility());
+		// Test ImageButton's contentDescription
+		assertEquals(imgBtn_descr,
+				((ImageButton) ((RelativeLayout) gv.getChildAt(0))
+						.getChildAt(0)).getContentDescription());
+		assertEquals(imgBtn_descr,
+				((ImageButton) ((RelativeLayout) gv.getChildAt(1))
+						.getChildAt(0)).getContentDescription());
+		assertEquals(imgBtn_descr,
+				((ImageButton) ((RelativeLayout) gv.getChildAt(2))
+						.getChildAt(0)).getContentDescription());
+
+		// Test ImageButton's drawable
+		assertEquals(R.drawable.ic_action_download,
+				((ImageButton) ((RelativeLayout) gv.getChildAt(0))
+						.getChildAt(0)).getTag());
+		assertEquals(R.drawable.ic_action_download,
+				((ImageButton) ((RelativeLayout) gv.getChildAt(1))
+						.getChildAt(0)).getTag());
+		assertEquals(R.drawable.ic_action_download,
+				((ImageButton) ((RelativeLayout) gv.getChildAt(2))
+						.getChildAt(0)).getTag());
+
+		// Test TextViews
+		assertEquals(pActivity.getText(R.string.privat_docs_cv_title),
+				((TextView) ((RelativeLayout) gv.getChildAt(0)).getChildAt(1))
+						.getText());
+		assertEquals(
+				pActivity.getText(R.string.privat_docs_masterThesis_title),
+				((TextView) ((RelativeLayout) gv.getChildAt(1)).getChildAt(1))
+						.getText());
+		assertEquals(pActivity.getText(R.string.privat_docs_bakkThesis_title),
+				((TextView) ((RelativeLayout) gv.getChildAt(2)).getChildAt(1))
+						.getText());
 	}
 
 	public void testImageGallery() {
