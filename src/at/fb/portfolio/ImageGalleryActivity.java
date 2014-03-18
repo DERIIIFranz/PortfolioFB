@@ -69,5 +69,4 @@ public class ImageGalleryActivity extends ActionBarActivity {
 	    }
 	    return super.onKeyDown(keyCode, event);
 	}   
-
 }

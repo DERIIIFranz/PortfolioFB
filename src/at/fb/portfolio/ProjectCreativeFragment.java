@@ -26,7 +26,7 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 			GalleryImage i1 = new GalleryImage(R.drawable.portrait1,
 					R.drawable.portrait1, "Image 1");
 			GalleryImage i2 = new GalleryImage(R.drawable.portrait2,
-					R.drawable.portrait2, "Image 2");
+					R.drawable.portrait2, getString(R.string.lorem_ipsum));
 
 			List<GalleryImage> galleryImages = new ArrayList<GalleryImage>();
 			galleryImages.add(i1);
