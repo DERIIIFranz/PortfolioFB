@@ -5,13 +5,17 @@ import java.util.List;
 
 import android.content.Context;
 import android.os.Bundle;
+import at.fb.portfolio.projectItems.ProjectItem;
+import at.fb.portfolio.projectItems.ProjectItemImageGallery;
+import at.fb.portfolio.projectItems.ProjectItemImageHeader;
+import at.fb.portfolio.projectItems.ProjectItemText;
+import at.fb.portfolio.projectItems.ProjectItemVideo;
 
 public class ProjectTechnicalFragment extends ProjectsFragment {
 
-	private List<ProjectGroup> mPartialFragments = new ArrayList<ProjectGroup>();
+	private List<ProjectGroup> mProjectGroups = new ArrayList<ProjectGroup>();
 	private static boolean sIsVisibleToUser;
-	private ProjectGroup mPartialFrag1, mPartialFrag2, mPartialFrag3;
-	private List<Project> mProjects1, mProjects2, mProjects3;
+	private List<Project> mProjectGroup1, mProjectGroup2, mProjectGroup3;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -19,43 +23,107 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 		super.setListView(R.layout.fragment_projects_technical);
 		super.setPageTitle(R.string.pageTitle_activity_project_technical_details);
 
-		if (mPartialFragments.isEmpty()) {
+		if (mProjectGroups.isEmpty()) {
 
 			Project.resetId();
+			mProjectGroup1 = new ArrayList<Project>();
+			mProjectGroup2 = new ArrayList<Project>();
+			mProjectGroup3 = new ArrayList<Project>();
 
-			mProjects1 = new ArrayList<Project>();
-			mProjects1.add(new Project(R.drawable.portrait1,
-					R.drawable.img_project_noomix_header_white,
-					getString(R.string.project_noomix_title),
-					getString(R.string.project_noomix_description), null));
-			mProjects1.add(new Project(R.drawable.portrait1, -1,
-					getString(R.string.project_atikon_title), "", null));
-			mProjects1.add(new Project(R.drawable.portrait1, -1,
-					getString(R.string.project_freundlinger_title), "", null));
-			mProjects1.add(new Project(R.drawable.portrait1, -1,
-					getString(R.string.project_artconsense_title), "", null));
+			//
+			// PROJECT 1 -- NOOMIX
+			//
 
-			mPartialFrag1 = new ProjectGroup("Webentwicklung", mProjects1);
+			ArrayList<ProjectItem> pItems = new ArrayList<ProjectItem>();
 
-			mProjects2 = new ArrayList<Project>();
-			mProjects2.add(new Project(R.drawable.portrait1, -1,
-					getString(R.string.project_sWatchdog_title), "", null));
+			ArrayList<GalleryImage> galleryImages1 = new ArrayList<GalleryImage>();
+			GalleryImage i1 = new GalleryImage(
+					R.drawable.project_noomix_img1_thumb,
+					R.drawable.project_noomix_img1,
+					getString(R.string.project_noomix_img1_descr));
+			GalleryImage i2 = new GalleryImage(
+					R.drawable.project_noomix_img2_thumb,
+					R.drawable.project_noomix_img2,
+					getString(R.string.project_noomix_img2_descr));
+			galleryImages1.add(i1);
+			galleryImages1.add(i2);
 
-			mPartialFrag2 = new ProjectGroup("Websicherheit", mProjects2);
+			pItems.add(new ProjectItemImageHeader(
+					R.drawable.img_project_noomix_header_white));
+			pItems.add(new ProjectItemText(
+					getString(R.string.project_noomix_description)));
+			pItems.add(new ProjectItemImageGallery(galleryImages1));
+			pItems.add(new ProjectItemVideo(
+					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
+			// "http://dl.dropboxusercontent.com/s/l7bww337o7g5ei1/noomix_trailer.3gp"));
 
-			mProjects3 = new ArrayList<Project>();
-			mProjects3.add(new Project(R.drawable.portrait1, -1,
-					getString(R.string.project_portfolioFB_title), "", null));
-			mProjects3.add(new Project(R.drawable.portrait1, -1,
-					getString(R.string.project_x_title), "", null));
+			mProjectGroup1.add(new Project(
+					R.drawable.thumb_project_noomix_white,
+					getString(R.string.project_noomix_title), pItems));
 
-			mPartialFrag3 = new ProjectGroup("Apps", mProjects3);
+			//
+			// PROJECT 2 -- ATIKON
+			//
 
-			mPartialFragments.add(mPartialFrag1);
-			mPartialFragments.add(mPartialFrag2);
-			mPartialFragments.add(mPartialFrag3);
+			pItems = new ArrayList<ProjectItem>();
+			pItems.add(new ProjectItemVideo(
+					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
 
-			super.setProjectGroups(mPartialFragments);
+			mProjectGroup1.add(new Project(
+					R.drawable.thumb_project_noomix_white,
+					getString(R.string.project_atikon_title), pItems));
+
+			//
+			// PROJECT 3 -- FREUNDLINGER
+			//
+
+			mProjectGroup1.add(new Project(
+					R.drawable.thumb_project_noomix_white,
+					getString(R.string.project_freundlinger_title), null));
+
+			//
+			// PROJECT 4 -- ARCTCONSENSE
+			//
+
+			mProjectGroup1.add(new Project(
+					R.drawable.thumb_project_noomix_white,
+					getString(R.string.project_artconsense_title), null));
+
+			//
+			// PROJECT 5 -- SWATCHDOG
+			//
+
+			mProjectGroup2.add(new Project(
+					R.drawable.thumb_project_noomix_white,
+					getString(R.string.project_sWatchdog_title), null));
+
+			//
+			// PROJECT 6 -- PORTFOLIOFB
+			//
+
+			mProjectGroup3.add(new Project(
+					R.drawable.thumb_project_noomix_white,
+					getString(R.string.project_portfolioFB_title), null));
+
+			//
+			// PROJECT 7 -- PROJECTX
+			//
+
+			mProjectGroup3.add(new Project(
+					R.drawable.thumb_project_noomix_white,
+					getString(R.string.project_x_title), null));
+
+			mProjectGroups
+					.add(new ProjectGroup(
+							getString(R.string.project_group_technical_web_development),
+							mProjectGroup1));
+			mProjectGroups.add(new ProjectGroup(
+					getString(R.string.project_group_technical_web_security),
+					mProjectGroup2));
+			mProjectGroups.add(new ProjectGroup(
+					getString(R.string.project_group_technical_apps),
+					mProjectGroup3));
+			super.setProjectGroups(mProjectGroups);
 
 		}
 	}

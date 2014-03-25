@@ -88,8 +88,6 @@ public class ProjectGroupAdapter extends BaseAdapter {
 
 				Intent intent = new Intent(mContext,
 						ProjectDetailsActivity.class);
-				intent.putExtra(Project.PROJECT_LAYOUT,
-						R.layout.activity_project_details);
 				// use id as index here, as position only determines position
 				// within projectGroup
 				intent.putExtra(Project.PROJECT_POSITION, (int) id);

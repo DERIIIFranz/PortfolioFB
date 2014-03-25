@@ -24,7 +24,7 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 				Project.PROJECT_COLLECTION);
 		
 		setTitle(extras.getString(ProjectsFragment.FRAGMENT_PAGE_TITLE));
-		setContentView(extras.getInt(Project.PROJECT_LAYOUT));
+		setContentView(R.layout.activity_project_details);
 
 		mPagerAdapter = new ProjectDetailsPagerAdapter(
 				getSupportFragmentManager(), projects);

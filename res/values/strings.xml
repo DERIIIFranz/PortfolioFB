@@ -8,7 +8,8 @@
     <string name="img_portrait2_descr">Portrait von Franz Brandstätter MSc</string>
     <string name="img_team_descr">Teamfoto Volleyball</string>
     <string name="img_team1_descr">Foto Teamwork</string>
-    <string name="img_urkunde_fhs_descr">Urkunde</string>
+    <string name="img_urkunde_fhs_descr">Beim Salzburger Landespreis für Marketing, Kommunikation &amp; Design errungen wir
+        mit noomix den ausgezeichneten 2. Platz.</string>
     <string name="ic_action_download_descr">Element downloaden</string>
     <string name="name">Franz Brandstätter MSc</string>
     <string name="profession">App-Entwickler</string>
@@ -32,8 +33,19 @@
     <string name="privat_docs_cv_title">Lebenslauf</string>
     <string name="privat_docs_masterThesis_title">Masterthesis</string>
     <string name="privat_docs_bakkThesis_title">Bachelorthesis</string>
+    <string name="project_group_technical_web_development">Webentwicklung</string>
+    <string name="project_group_technical_web_security">Websicherheit</string>
+    <string name="project_group_technical_apps">Apps</string>
+    <string name="project_group_creative_3d">3D</string>
+    <string name="project_group_creative_2d">2D</string>
     <string name="project_noomix_title">Noomix</string>
-    <string name="project_noomix_description">Noomix is total super ;)</string>
+    <string name="project_noomix_description">Noomix ist ein 3rd person shooter und wurde für Windows, Mac, Linux und den 
+        Web-Browser entwickelt. Dieses Produkt des Masterprojekts an der FH Salzburg wurde von einem 19-köpfigen Team realisiert.
+        Zur Koordiantion dieses relativ großen Teams setzte man auf agiles Projektmanagement mittels Scrum. Noomix ist stark mit
+        ihrer Website verknüpft, wo Spieler umfangreiche Statistiken zum Spiel, ein Forum, eine Level-Galerie und vieles mehr finden.
+        Gemeinsam mit zwei Kollegen entwickelte ich unter anderem diese Website mit entsprechender API unter dem Framework Ruby on Rails.</string>
+    <string name="project_noomix_img1_descr">Dieser Screenshot zeigt einen Teil der Website, welche mit dem shooter "noomix" verbunden ist.</string>
+    <string name="project_noomix_img2_descr">Das 19-köpfige Entwicklungsteam des 3rd person shooters "noomix".</string>
     <string name="project_atikon_title">Atikon</string>
     <string name="project_freundlinger_title">Freundlinger</string>
     <string name="project_artconsense_title">Artconsense</string>

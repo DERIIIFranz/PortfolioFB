@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:scrollbars="vertical" >
 
-    <at.fb.portfolio.views.ResizableImageView
-        android:id="@+id/img_project_details_header"
+    <LinearLayout
+        android:id="@+id/ll_project_details"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_project_description"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-    
-    <GridView 
-        android:id="@+id/gv_project_details_gallery"
-        android:layout_width="fill_parent" 
-	    android:layout_height="fill_parent"
-	    android:columnWidth="90dp"
-	    android:numColumns="auto_fit"
-	    android:verticalSpacing="10dp"
-	    android:horizontalSpacing="10dp"
-	    android:stretchMode="columnWidth"
-	    android:gravity="center" />
-
-</LinearLayout>
+</ScrollView>

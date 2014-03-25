@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -25,16 +24,7 @@ public class ProjectDetailsPagerAdapter extends FragmentPagerAdapter {
 	public Fragment getItem(int i) {
 		Fragment fragment = new ProjectDetailsFragment();
 		Bundle args = new Bundle();
-
-		args.putString(Project.PROJECT_DESCRIPTION, mProjects.get(i)
-				.getDescription());
-		args.putString(Project.PROJECT_TITLE, mProjects.get(i).getTitle());
-		args.putInt(Project.PROJECT_IMAGE_HEADER, mProjects.get(i)
-				.getImgHeader());
-		args.putParcelableArrayList(Project.PROJECT_GALLERY_IMAGES,
-				(ArrayList<? extends Parcelable>) mProjects.get(i)
-						.getGalleryImages());
-
+		args.putParcelable(Project.PROJECT, mProjects.get(i));
 		fragment.setArguments(args);
 		return fragment;
 	}

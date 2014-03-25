@@ -1,26 +1,22 @@
 package at.fb.portfolio;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import at.fb.portfolio.projectItems.ProjectItem;
 
 public class Project implements Parcelable {
 
-	public static final String PROJECT_TITLE = "at.fb.portfolio.PROJECT_TITLE";
-	public static final String PROJECT_LAYOUT = "at.fb.portfolio.PROJECT_LAYOUT";
 	public static final String PROJECT_COLLECTION = "at.fb.portfolio.PROJECT_COLLECTION";
 	public static final String PROJECT_POSITION = "at.fb.portfolio.PROJECT_POSITION";
-	public static final String PROJECT_GALLERY_IMAGES = "at.fb.portfolio.PROJECT_GALLERY_IMAGES";
-	public static final String PROJECT_IMAGE_HEADER = "at.fb.portfolio.PROJECT_IMAGE_HEADER";
-	public static final String PROJECT_DESCRIPTION = "at.fb.portfolio.PROJECT_DESCRIPTION";
+	public static final String PROJECT = "at.fb.portfolio.PROJECT";
 
-	private int mThumb, mImgHeader;
-	private String mTitle, mDescription;
+	private int mThumb;
+	private String mTitle;
 	private static int sId = 0;
 	private int mProjectID;
-	private List<GalleryImage> mGalleryImages;
+	private ArrayList<ProjectItem> mProjectItems;
 
 	public static final Parcelable.Creator<Project> CREATOR = new Parcelable.Creator<Project>() {
 		public Project createFromParcel(Parcel in) {
@@ -33,42 +29,54 @@ public class Project implements Parcelable {
 	};
 
 	public Project() {
-		mGalleryImages = new ArrayList<GalleryImage>();
+		mProjectItems = new ArrayList<ProjectItem>();
+	//	mGalleryImages = new ArrayList<GalleryImage>();
 	}
 
-	public Project(int thumb, int imgHeader, String title, String description,
-			List<GalleryImage> galleryImages) {
+	public Project(int thumb, String title, ArrayList<ProjectItem> pItems) {
 		mThumb = thumb;
-		mImgHeader = imgHeader;
+//		mImgHeader = imgHeader;
 		mTitle = title;
-		mDescription = description;
-		mGalleryImages = galleryImages;
+		mProjectItems = pItems;
+//		mDescription = description;
+//		mGalleryImages = galleryImages;
+//		mVideoUrl = vUrl;
 		mProjectID = sId++;
 	}
+	
+	
 
 	private Project(Parcel in) {
 		this();
 
 		mThumb = in.readInt();
-		mImgHeader = in.readInt();
+//		mImgHeader = in.readInt();
 		mTitle = in.readString();
-		mDescription = in.readString();
-		in.readTypedList(mGalleryImages, GalleryImage.CREATOR);
+//		mDescription = in.readString();
+		in.readTypedList(mProjectItems, ProjectItem.CREATOR);
+//		in.readTypedList(mGalleryImages, GalleryImage.CREATOR);
+//		mVideoUrl = in.readString();
 	}
 
 	@Override
 	public void writeToParcel(Parcel out, int flags) {
 		out.writeInt(mThumb);
-		out.writeInt(mImgHeader);
+//		out.writeInt(mImgHeader);
 		out.writeString(mTitle);
-		out.writeString(mDescription);
-		out.writeTypedList(mGalleryImages);
+		out.writeTypedList(mProjectItems);
+//		out.writeString(mDescription);
+//		out.writeTypedList(mGalleryImages);
+//		out.writeString(mVideoUrl);
 	}
-
-	public List<GalleryImage> getGalleryImages() {
+/*
+	public ArrayList<GalleryImage> getGalleryImages() {
 		return mGalleryImages;
 	}
-
+*/
+	public ArrayList<ProjectItem> getProjectItems() {
+		return mProjectItems;
+	}
+	
 	public int getId() {
 		return mProjectID;
 	}
@@ -80,19 +88,23 @@ public class Project implements Parcelable {
 	public int getThumb() {
 		return mThumb;
 	}
-
+/*
 	public int getImgHeader() {
 		return mImgHeader;
 	}
-
+*/
 	public String getTitle() {
 		return mTitle;
 	}
-
+/*
 	public String getDescription() {
 		return mDescription;
 	}
-
+	
+	public String getVideoUrl() {
+		return mVideoUrl;
+	}
+*/
 	@Override
 	public int describeContents() {
 		return 0;
