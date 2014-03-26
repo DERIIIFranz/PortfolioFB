@@ -8,6 +8,7 @@ import android.os.Bundle;
 import at.fb.portfolio.projectItems.ProjectItem;
 import at.fb.portfolio.projectItems.ProjectItemImageGallery;
 import at.fb.portfolio.projectItems.ProjectItemImageHeader;
+import at.fb.portfolio.projectItems.ProjectItemPdfDocuments;
 import at.fb.portfolio.projectItems.ProjectItemText;
 import at.fb.portfolio.projectItems.ProjectItemVideo;
 
@@ -32,6 +33,7 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 
 			//
 			// PROJECT 1 -- NOOMIX
+			// PROJECTGROUP 1
 			//
 
 			ArrayList<ProjectItem> pItems = new ArrayList<ProjectItem>();
@@ -66,11 +68,18 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			//
 
 			pItems = new ArrayList<ProjectItem>();
-			pItems.add(new ProjectItemVideo(
-					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
+			ArrayList<PdfDocument> pdfDocuments = new ArrayList<PdfDocument>();
+			pdfDocuments
+					.add(new PdfDocument(
+							getString(R.string.project_atikon_report),
+							"http://dl.dropboxusercontent.com/s/unhp64t7speb342/Praktikumsbericht.pdf"));
+			
+			pItems.add(new ProjectItemImageHeader(R.drawable.img_project_atikon_header));
+			pItems.add(new ProjectItemText(getString(R.string.project_atikon_description)));
+			pItems.add(new ProjectItemPdfDocuments(pdfDocuments));
 
 			mProjectGroup1.add(new Project(
-					R.drawable.thumb_project_noomix_white,
+					R.drawable.thumb_project_atikon_white,
 					getString(R.string.project_atikon_title), pItems));
 
 			//
@@ -91,6 +100,7 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 
 			//
 			// PROJECT 5 -- SWATCHDOG
+			// PROJECTGROUP 2
 			//
 
 			mProjectGroup2.add(new Project(
@@ -99,6 +109,7 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 
 			//
 			// PROJECT 6 -- PORTFOLIOFB
+			// PROJECTGROUP 3
 			//
 
 			mProjectGroup3.add(new Project(
@@ -112,7 +123,9 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			mProjectGroup3.add(new Project(
 					R.drawable.thumb_project_noomix_white,
 					getString(R.string.project_x_title), null));
-
+			
+			
+			// add all projectGroups
 			mProjectGroups
 					.add(new ProjectGroup(
 							getString(R.string.project_group_technical_web_development),

@@ -47,6 +47,32 @@
     <string name="project_noomix_img1_descr">Dieser Screenshot zeigt einen Teil der Website, welche mit dem shooter "noomix" verbunden ist.</string>
     <string name="project_noomix_img2_descr">Das 19-köpfige Entwicklungsteam des 3rd person shooters "noomix".</string>
     <string name="project_atikon_title">Atikon</string>
+    <string name="project_atikon_report">Praktikumsbericht</string>
+    <string name="project_atikon_description">Im Rahmen des Berufspraktikums bei der Firma Atikon in der Abteilung
+Web konnte ich das in der FH Hagenberg im Zuge des Bachelorstudiums erlernte Wissen sehr gut umsetzen
+und erweitern. Eine große Bandbreite an unterschiedlichen Tätigkeiten
+bot mir einen Einblick in sehr viele Bereiche dieser Branche. Sowohl kommunikative,
+gestalterische, als auch technische Tätigkeiten prägten meinen
+Berufsalltag und ich konnte wertvolle, berufsbezogene Erfahrung sammeln.
+Der Schwerpunkt meiner Tätigkeiten lag darin, Webseiten-Aktualisierungen
+für Kunden durchzuführen. Während ich zu Beginn des Praktikums
+noch relativ einfache Änderungen realisierte, wurden mir mit zunehmender
+Erfahrung immer umfangreichere und komplexere Arbeiten zugeteilt. Bei
+diesen Änderungen trat ich sehr häufig in direkten Kontakt mit Kunden,
+um die Lösungen optimal auf die jeweilige Problemstellung zuschneiden zu
+können.
+Durch die zahlreichen Wartungsarbeiten die ich durchführte, hatte ich
+Gelegenheit das CMS der Firma Atikon ausführlich kennen zu lernen. Zusätzlich
+zu diesen Arbeiten wurde mir ein neuer Kunde zugeteilt, für den ich
+das Screendesign entwerfen und die daraus resultierende Umsetzung durchführen
+durfte.
+Selbständiges und verantwortungsbewusstes Arbeiten standen ebenso im
+Mittelpunkt des Praktikums, wie effizientes Zeitmanagement und freundlicher
+Kundenkontakt. Außerdem wurde mir vermittelt, dass gute Kommunikation
+innerhalb des Teams ein wesentlicher Bestandteil des Erfolgs der
+Firma Atikon ist. Um dies zu gewährleisten findet jede Woche eine abteilungsinterne
+Besprechung statt, wo die wichtigsten laufenden und zukünftigen
+Projekte besprochen werden.</string>
     <string name="project_freundlinger_title">Freundlinger</string>
     <string name="project_artconsense_title">Artconsense</string>
     <string name="project_sWatchdog_title">S-Watchdog</string>

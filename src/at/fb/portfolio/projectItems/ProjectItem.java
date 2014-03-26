@@ -30,6 +30,9 @@ public abstract class ProjectItem implements Parcelable {
 			else if(type.equals(ProjectItemVideo.TYPE))
 				return new ProjectItemVideo(in);
 			
+			else if(type.equals(ProjectItemPdfDocuments.TYPE))
+				return new ProjectItemPdfDocuments(in);
+			
 			else
 				return null;
 		}

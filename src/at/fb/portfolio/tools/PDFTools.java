@@ -1,6 +1,7 @@
 package at.fb.portfolio.tools;
 
 import java.io.File;
+import java.text.NumberFormat;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;

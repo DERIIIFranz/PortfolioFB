@@ -48,7 +48,7 @@ public class DocumentAdapter extends BaseAdapter {
 		
 		ImageButton imgBtn = (ImageButton) documentView.findViewById(R.id.btn_document);		
 		imgBtn.setImageResource(mPdfDocuments.get(position).getDownloadIcon());
-		imgBtn.setContentDescription(mPdfDocuments.get(position).getDownloadIconDescr());
+		imgBtn.setContentDescription(mPdfDocuments.get(position).getDownloadIconDescr(mContext));
 		// set the Drawables resourceId as the ImageButtons tag
 		// so that the id can be compared for testing purposes
 		imgBtn.setTag(mPdfDocuments.get(position).getDownloadIcon());
@@ -59,7 +59,7 @@ public class DocumentAdapter extends BaseAdapter {
 			
 			@Override
 			public void onClick(View v) {
-				mPdfDocuments.get(currentPosition).show();
+				mPdfDocuments.get(currentPosition).show(mContext);
 			}
 		});
 		

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.VideoView;
 import at.fb.portfolio.R;
 
@@ -32,10 +33,6 @@ public class ProjectItemVideo extends ProjectItem {
 				.findViewById(R.id.vv_project_item_video);
 		videoView.setVideoPath(mUri);
 
-		final MediaController mediaController = new MediaController(
-				rootView.getContext(), false);
-		videoView.setMediaController(mediaController);
-
 		//
 		// ProgressBar
 		//
@@ -48,10 +45,18 @@ public class ProjectItemVideo extends ProjectItem {
 
 			@Override
 			public void onPrepared(MediaPlayer mp) {
-				mediaController.setAnchorView(videoView);
-				pBar.setVisibility(View.GONE);
-				mediaController.show(0);
 
+				MediaController mc = new MediaController(rootView.getContext(), false);
+
+				videoView.setMediaController(mc);
+				mc.setAnchorView(videoView);
+				pBar.setVisibility(View.GONE);
+				mc.show(0);
+				
+				// set correct height
+				RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) videoView.getLayoutParams();
+			    params.height =  mp.getVideoHeight();
+			    videoView.setLayoutParams(params);
 			}
 		});
 

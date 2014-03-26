@@ -21,7 +21,7 @@ public class ProjectItemImageGallery extends ProjectItem {
 	public static final String TYPE = "at.fb.portfolio.ProjectItemImageGallery.TYPE";
 	private ArrayList<GalleryImage> mGalleryImages;
 
-	public ProjectItemImageGallery() {
+	private ProjectItemImageGallery() {
 		mGalleryImages = new ArrayList<GalleryImage>();
 	}
 

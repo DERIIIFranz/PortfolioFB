@@ -103,15 +103,15 @@ public class PrivatDocsFragment extends Fragment {
 		ArrayList<PdfDocument> pdfDocuments = new ArrayList<PdfDocument>();
 
 		pdfDocuments
-				.add(new PdfDocument(getActivity(), getActivity().getString(
+				.add(new PdfDocument(getActivity().getString(
 						R.string.privat_docs_cv_title),
 						"http://www.pdf-archive.com/2014/03/05/lebenslauf/lebenslauf.pdf"));
 		pdfDocuments
-				.add(new PdfDocument(getActivity(), getActivity().getString(
+				.add(new PdfDocument(getActivity().getString(
 						R.string.privat_docs_masterThesis_title),
 						"http://www.pdf-archive.com/2014/03/05/masterthesis/masterthesis.pdf"));
 		pdfDocuments
-				.add(new PdfDocument(getActivity(), getActivity().getString(
+				.add(new PdfDocument(getActivity().getString(
 						R.string.privat_docs_bakkThesis_title),
 						"http://www.pdf-archive.com/2014/03/05/bachelorthesis/bachelorthesis.pdf"));
 

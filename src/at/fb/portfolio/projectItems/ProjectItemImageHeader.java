@@ -5,8 +5,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import at.fb.portfolio.R;
-import at.fb.portfolio.views.ResizableImageView;
 
 public class ProjectItemImageHeader extends ProjectItem {
 
@@ -21,7 +21,7 @@ public class ProjectItemImageHeader extends ProjectItem {
 	public View getView(View rootView) {
 		LayoutInflater inflater = (LayoutInflater) rootView.getContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		ResizableImageView view = (ResizableImageView) inflater.inflate(
+		ImageView view = (ImageView) inflater.inflate(
 				R.layout.project_item_image_header, null);
 
 		view.setImageResource(mImgHeader);
