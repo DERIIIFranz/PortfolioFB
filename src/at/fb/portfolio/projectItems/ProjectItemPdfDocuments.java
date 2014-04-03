@@ -48,7 +48,7 @@ public class ProjectItemPdfDocuments extends ProjectItem {
 		}
 	};
 
-	public ProjectItemPdfDocuments(Parcel in) {
+	protected ProjectItemPdfDocuments(Parcel in) {
 		this();
 		in.readTypedList(mPdfDocuments, PdfDocument.CREATOR);
 	}

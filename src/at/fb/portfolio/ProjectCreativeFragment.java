@@ -7,6 +7,10 @@ import android.content.Context;
 import android.os.Bundle;
 import at.fb.portfolio.projectItems.ProjectItem;
 import at.fb.portfolio.projectItems.ProjectItemImageGallery;
+import at.fb.portfolio.projectItems.ProjectItemImageHeader;
+import at.fb.portfolio.projectItems.ProjectItemPdfDocuments;
+import at.fb.portfolio.projectItems.ProjectItemText;
+import at.fb.portfolio.projectItems.ProjectItemVideo;
 
 public class ProjectCreativeFragment extends ProjectsFragment {
 	private List<ProjectGroup> mProjectGroups = new ArrayList<ProjectGroup>();
@@ -32,27 +36,30 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 			// PROJECT 1 -- K13
 			//
 
-			GalleryImage i1 = new GalleryImage(R.drawable.portrait1,
-					R.drawable.portrait1, "Image 1");
-			GalleryImage i2 = new GalleryImage(R.drawable.portrait2,
-					R.drawable.portrait2, getString(R.string.lorem_ipsum));
+			pItems.add(new ProjectItemImageHeader(
+					R.drawable.img_project_k13_header_white));
+			pItems.add(new ProjectItemText(
+					getString(R.string.project_K13_description)));
+			pItems.add(new ProjectItemVideo(
+					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
 
-			ArrayList<GalleryImage> galleryImages = new ArrayList<GalleryImage>();
-			galleryImages.add(i1);
-			galleryImages.add(i2);
-
-			pItems.add(new ProjectItemImageGallery(galleryImages));
-			mProjectGroup1.add(new Project(
-					R.drawable.thumb_project_noomix_white,
+			mProjectGroup1.add(new Project(R.drawable.thumb_project_k13_white,
 					getString(R.string.project_K13_title), pItems));
 
 			//
 			// PROJECT 2 -- TGTN
 			//
 
-			mProjectGroup1.add(new Project(
-					R.drawable.thumb_project_noomix_white,
-					getString(R.string.project_TGTN_title), null));
+			pItems = new ArrayList<ProjectItem>();
+			pItems.add(new ProjectItemImageHeader(
+					R.drawable.img_project_tgtn_header));
+			pItems.add(new ProjectItemText(
+					getString(R.string.project_TGTN_description)));
+			pItems.add(new ProjectItemVideo(
+					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
+
+			mProjectGroup1.add(new Project(R.drawable.thumb_project_tgtn_white,
+					getString(R.string.project_TGTN_title), pItems));
 
 			//
 			// PROJECT 3 -- PIRAT
@@ -66,17 +73,42 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 			// PROJECT 4 -- MOCAP
 			//
 
+			ArrayList<PdfDocument> pdfDocuments = new ArrayList<PdfDocument>();
+			pdfDocuments
+					.add(new PdfDocument(
+							getString(R.string.pdf_bakkThesis_title),
+							"http://www.pdf-archive.com/2014/03/05/bachelorthesis/bachelorthesis.pdf"));
+
+			pItems = new ArrayList<ProjectItem>();
+			pItems.add(new ProjectItemImageHeader(
+					R.drawable.img_project_mocap_header_white));
+			pItems.add(new ProjectItemText(
+					getString(R.string.project_MOCAP_description)));
+			pItems.add(new ProjectItemPdfDocuments(pdfDocuments));
+			pItems.add(new ProjectItemVideo(
+					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
+
 			mProjectGroup1.add(new Project(
-					R.drawable.thumb_project_noomix_white,
-					getString(R.string.project_MOCAP_title), null));
+					R.drawable.thumb_project_mocap_white,
+					getString(R.string.project_MOCAP_title), pItems));
 
 			//
 			// PROJECT 5 -- CLIP
 			//
+			pItems = new ArrayList<ProjectItem>();
+			pItems.add(new ProjectItemImageHeader(
+					R.drawable.img_project_clip_header_white));
+			pItems.add(new ProjectItemText(
+					getString(R.string.project_clip_description)));
+			pItems.add(new ProjectItemVideo(
+					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
 
-			mProjectGroup2.add(new Project(
-					R.drawable.thumb_project_noomix_white,
-					getString(R.string.project_clip_title), null));
+			mProjectGroup2.add(new Project(R.drawable.thumb_project_clip_white,
+					getString(R.string.project_clip_title), pItems));
+
+			//
+			// add all projectGroups
+			//
 
 			mProjectGroups.add(new ProjectGroup(
 					getString(R.string.project_group_creative_3d),

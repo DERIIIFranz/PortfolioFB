@@ -31,8 +31,9 @@
     <string name="pdf_show_online_dialog_button_no">Abbrechen</string>
     <string name="pdf_show_online_dialog_button_yes">OK</string>
     <string name="privat_docs_cv_title">Lebenslauf</string>
-    <string name="privat_docs_masterThesis_title">Masterthesis</string>
-    <string name="privat_docs_bakkThesis_title">Bachelorthesis</string>
+    <string name="pdf_masterThesis_title">Masterthesis</string>
+    <string name="pdf_bakkThesis_title">Bachelorthesis</string>
+    <string name="project_image_header_descr">Titelbild</string>
     <string name="project_group_technical_web_development">Webentwicklung</string>
     <string name="project_group_technical_web_security">Websicherheit</string>
     <string name="project_group_technical_apps">Apps</string>
@@ -49,51 +50,88 @@
     <string name="project_atikon_title">Atikon</string>
     <string name="project_atikon_report">Praktikumsbericht</string>
     <string name="project_atikon_description">Im Rahmen des Berufspraktikums bei der Firma Atikon in der Abteilung
-Web konnte ich das in der FH Hagenberg im Zuge des Bachelorstudiums erlernte Wissen sehr gut umsetzen
-und erweitern. Eine große Bandbreite an unterschiedlichen Tätigkeiten
-bot mir einen Einblick in sehr viele Bereiche dieser Branche. Sowohl kommunikative,
-gestalterische, als auch technische Tätigkeiten prägten meinen
-Berufsalltag und ich konnte wertvolle, berufsbezogene Erfahrung sammeln.
-Der Schwerpunkt meiner Tätigkeiten lag darin, Webseiten-Aktualisierungen
-für Kunden durchzuführen. Während ich zu Beginn des Praktikums
-noch relativ einfache Änderungen realisierte, wurden mir mit zunehmender
-Erfahrung immer umfangreichere und komplexere Arbeiten zugeteilt. Bei
-diesen Änderungen trat ich sehr häufig in direkten Kontakt mit Kunden,
-um die Lösungen optimal auf die jeweilige Problemstellung zuschneiden zu
-können.
-Durch die zahlreichen Wartungsarbeiten die ich durchführte, hatte ich
-Gelegenheit das CMS der Firma Atikon ausführlich kennen zu lernen. Zusätzlich
-zu diesen Arbeiten wurde mir ein neuer Kunde zugeteilt, für den ich
-das Screendesign entwerfen und die daraus resultierende Umsetzung durchführen
-durfte.
-Selbständiges und verantwortungsbewusstes Arbeiten standen ebenso im
-Mittelpunkt des Praktikums, wie effizientes Zeitmanagement und freundlicher
-Kundenkontakt. Außerdem wurde mir vermittelt, dass gute Kommunikation
-innerhalb des Teams ein wesentlicher Bestandteil des Erfolgs der
-Firma Atikon ist. Um dies zu gewährleisten findet jede Woche eine abteilungsinterne
-Besprechung statt, wo die wichtigsten laufenden und zukünftigen
-Projekte besprochen werden.</string>
+		Web konnte ich das in der FH Hagenberg im Zuge des Bachelorstudiums erlernte Wissen sehr gut umsetzen
+		und erweitern. Eine große Bandbreite an unterschiedlichen Tätigkeiten
+		bot mir einen Einblick in sehr viele Bereiche dieser Branche. Sowohl kommunikative,
+		gestalterische, als auch technische Tätigkeiten prägten meinen
+		Berufsalltag und ich konnte wertvolle, berufsbezogene Erfahrung sammeln.
+		Der Schwerpunkt meiner Tätigkeiten lag darin, Webseiten-Aktualisierungen
+		für Kunden durchzuführen. Während ich zu Beginn des Praktikums
+		noch relativ einfache Änderungen realisierte, wurden mir mit zunehmender
+		Erfahrung immer umfangreichere und komplexere Arbeiten zugeteilt. Bei
+		diesen Änderungen trat ich sehr häufig in direkten Kontakt mit Kunden,
+		um die Lösungen optimal auf die jeweilige Problemstellung zuschneiden zu
+		können.
+		Durch die zahlreichen Wartungsarbeiten die ich durchführte, hatte ich
+		Gelegenheit das CMS der Firma Atikon ausführlich kennen zu lernen. Zusätzlich
+		zu diesen Arbeiten wurde mir ein neuer Kunde zugeteilt, für den ich
+		das Screendesign entwerfen und die daraus resultierende Umsetzung durchführen
+		durfte.
+		Selbständiges und verantwortungsbewusstes Arbeiten standen ebenso im
+		Mittelpunkt des Praktikums, wie effizientes Zeitmanagement und freundlicher
+		Kundenkontakt. Außerdem wurde mir vermittelt, dass gute Kommunikation
+		innerhalb des Teams ein wesentlicher Bestandteil des Erfolgs der
+		Firma Atikon ist. Um dies zu gewährleisten findet jede Woche eine abteilungsinterne
+		Besprechung statt, wo die wichtigsten laufenden und zukünftigen
+		Projekte besprochen werden.</string>
     <string name="project_freundlinger_title">Freundlinger</string>
+    <string name="project_freundlinger_description">Für die Firma Freundlinger Luft und Klima entwickelte ich parallel zu meinem 
+        Studium eine neue Website (das Design wurde allerdings vorgegeben). Umgesetzt habe ich diesen Internetauftritt mit dem CMS Drupal,
+        mit welchem ich auf Grund meiner Ausbildung an der FH Hagenberg und meinen privaten Projekten schon einiges an Erfahrung sammeln konnte.
+        Die Website wird in zwei Sprachen angeboten und bietet zudem eine angepasste Version für mobile Endgeräte. Ich habe nach wie vor 
+        Kundenkontakt mit dieser Firma und führe etwaige Anpassungswünsche der Seite durch.</string>
+    <string name="project_freundlinger_img1_descr">Dieser Screenshot zeigt die Startseite von Freundlinger.net.</string>
+    <string name="project_freundlinger_img2_descr">Screenshot einer Unterseite von Freundlinger.net.</string>
+    <string name="project_freundlinger_img3_descr">Ein weiterer Screenshot einer Seite von Freundlinger.net.</string>
     <string name="project_artconsense_title">Artconsense</string>
-    <string name="project_sWatchdog_title">S-Watchdog</string>
+    <string name="project_artconsense_description">Auch für die Firma Artconsense entwickelte ich eine Website basierend auf dem CMS Drupal. Das
+        Design wurde von selbiger Firma vorgegeben und ich konzentrierte mich demnach auf dessen Implementierung. Enge Zusammenarbeit mit der
+        Firma bei der Umsetzung ihres Internetauftritts stellen ihre vollste Zufriedenheit mit der Website sicher. Bis dato unterstütze ich 
+        Artconsense auch mit allfälligen Anpassungswünschen in Bezug auf ihre Seite.</string>
+    <string name="project_artconsense_img1_descr">Screenshot der Startseite von artconsense.com.</string>
+    <string name="project_artconsense_img2_descr">Screenshot einer Bildergalerie von artconsense.com.</string>
+    <string name="project_artconsense_img3_descr">Screenshot einer weiteren Unterseite von artconsense.com.</string>
+    <string name="project_swatchdog_title">S-Watchdog</string>
+    <string name="project_swatchdog_description">Meine Masterarbeit an der FHS widmete ich dem Thema Web-Sicherheit. In Kooperation mit der 
+        Firma Salzburg Research entwickelte ich eine "Richtlinienbasierte Zugriffskontrolle für RDF-Stores". Im Zuge der in Java 
+        implementierten Arbeit konnte ich mein Wissen nicht nur im Bereich Semantic Web vertiefen, sondern auch meine Kompetenzen in der
+        Java-Programmierung erweitern. Zudem konnte ich über den Zeitraum eines halben Jahres wertvolle Berufserfahrung als Java-Entwickler
+        in der Forschung sammeln.</string>
     <string name="project_portfolioFB_title">PortfolioFB</string>
+    <string name="project_portfolioFB_description">Schon im Laufe meines Studiums wurde mein Interesse an mobilen Anwendungen geweckt.
+        Nachdem ich mir im Zuge dieser Ausbildung unter anderem relativ solide Java-Kenntnisse aneignen konnte, fixierte ich meinen
+        Fokus unmittelbar nach meinem Abschluss auf die Entwicklung von Android-Apps und begann unverzüglich mit der Implementierung von
+        PortfolioFB. Im Selbststudium eignete ich mir dazu grundlegende Kenntnisse im allgemeinen über Android und im speziellen über das
+        Android-SDK an. Während ich bei der Umsetzung mein Augenmerk auf die Unterstützung unterschiedlichster mobiler Endgeräte
+        legte, entwickelte ich diese App nach den Grundsätzen von "Test-Driven-Development" durch die Verwendung der Library Robotium.</string>
     <string name="project_x_title">\?</string>
+    <string name="project_x_description">Viele weitere performante, gut strukturierte, gut aussehende und unverwechselbare
+        Apps werden folgen! :)</string>
     <string name="project_K13_title">K13</string>
+    <string name="project_K13_description">K13 ist ein Kurz-Animationsfilm und wurde von drei Studienkollegen und mir an der FH Hagenberg
+        im Rahmen des Bachelorprojekts erstellt.</string>
     <string name="project_TGTN_title">TGTN</string>
+    <string name="project_TGTN_description">TGTN ist ein 3D-Action-Adventure-Spiel, wessen Prototyp an der FH Hagenberg von einem 
+        24-köpfigen Team entwickelt wurde. Dabei konnte ich wertvolle Erfahrung beim Low-Poly-Modeling gewinnen.</string>
     <string name="project_pirat_title">Pirat</string>
     <string name="project_MOCAP_title">MOCAP</string>
+    <string name="project_MOCAP_description">Bei meiner Bachelorarbeit befasste ich mich mit Motion Capturing. Kernpunkt dieser Arbeit
+        ist die Übertragung von aufgezeichneten Gesichtsbewegungen eines Menschen auf das Gesichet eines 3D-Charakters. Dabei wird auf
+        die spezielle Methode der Gesichtsanimation namens "Blendshapeanimations" eingegangen.</string>
     <string name="project_clip_title">Clip</string>
+    <string name="project_clip_description">Im Laufe meines Bachelorstudiums beschäftigte ich mich neben 3D-Animationen auch mit 2D-Animationen.
+        Als Tool zum Erstellen der meisten dieser Animationen verwendete ich Adobe After Effects.</string>
     <string name="about_me">Mein Name ist Franz Brandstätter und ich habe kürzlich mein Studium abgeschlossen.
         Im ersten Abschnitt meines Studiums beschäftigte ich mich im Zuge des Bachelorstudiums an der FH Hagenberg 
         (Medientechnik und -design) primär mit kreativen Projekten. Insbesondere faszinierte mich das Arbeiten mit 3D-Objekten.
         Ebenso entdeckte ich meine Leidenschaft für das Programmieren von visuellen Anwendungen, weshalb ich meinen Fokus
         im Masterstudium auf Web-Entwicklung legte. Mit fortschreitender Vertiefung meiner Fachkenntnisse wurde mir schnell klar,
-        dass die Entwicklung mobiler Anwendung in Form von Apps einen ganz besonderern Reiz auf mich ausübt. Aus diesem Grund
+        dass die Entwicklung mobiler Anwendung in Form von Apps einen ganz besonderen Reiz auf mich ausübt. Aus diesem Grund
         erweiterte ich meine Kenntnisse in diesem Bereich nach Abschluss meines Studiums noch weiter, um die Ihnen vorliegende App
         programmieren zu können. Seit diesem Zeitpunkt ist für mich klar, dass ich meine berufliche Karriere in diesem Sektor starten
         möchte!\n\nWährend meiner gesamten Studienzeit war mir schon immer ein entsprechender sportlicher Ausgleich wichtig. Seit vielen
         Jahren übe ich deshalb den Teamsport (Beach) Volleyball aus. Zum Einen halte ich mich auf diese Weise körperlich fit und zum
-        Anderen fördere ich damit insbesondere meine soziale Kompetenzen in Bezug auf Teamfähigkeit.</string>
+        Anderen fördere ich damit insbesondere meine sozialen Kompetenzen in Bezug auf Teamfähigkeit.</string>
     <string name="title_activity_image_gallery">ImageGalleryActivity</string>
     <string name="img_image_gallery_descr">Hier sehen Sie eine Sammlung von Bildern.</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut 

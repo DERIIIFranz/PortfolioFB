@@ -38,7 +38,7 @@ public class ProjectItemText extends ProjectItem {
 		}
 	};
 	
-	public ProjectItemText(Parcel in) {
+	protected ProjectItemText(Parcel in) {
 		mTxt = in.readString();
 	}
 	

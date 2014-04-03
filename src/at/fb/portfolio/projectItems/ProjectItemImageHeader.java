@@ -38,7 +38,7 @@ public class ProjectItemImageHeader extends ProjectItem {
 		}
 	};
 
-	public ProjectItemImageHeader(Parcel in) {
+	protected ProjectItemImageHeader(Parcel in) {
 		mImgHeader = in.readInt();
 	}
 

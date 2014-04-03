@@ -73,9 +73,11 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 					.add(new PdfDocument(
 							getString(R.string.project_atikon_report),
 							"http://dl.dropboxusercontent.com/s/unhp64t7speb342/Praktikumsbericht.pdf"));
-			
-			pItems.add(new ProjectItemImageHeader(R.drawable.img_project_atikon_header));
-			pItems.add(new ProjectItemText(getString(R.string.project_atikon_description)));
+
+			pItems.add(new ProjectItemImageHeader(
+					R.drawable.img_project_atikon_header));
+			pItems.add(new ProjectItemText(
+					getString(R.string.project_atikon_description)));
 			pItems.add(new ProjectItemPdfDocuments(pdfDocuments));
 
 			mProjectGroup1.add(new Project(
@@ -86,45 +88,104 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			// PROJECT 3 -- FREUNDLINGER
 			//
 
+			ArrayList<GalleryImage> galleryImages2 = new ArrayList<GalleryImage>();
+			galleryImages2.add(new GalleryImage(
+					R.drawable.project_freundlinger_img1_thumb,
+					R.drawable.project_freundlinger_img1,
+					getString(R.string.project_freundlinger_img1_descr)));
+			galleryImages2.add(new GalleryImage(
+					R.drawable.project_freundlinger_img2_thumb,
+					R.drawable.project_freundlinger_img2,
+					getString(R.string.project_freundlinger_img2_descr)));
+			galleryImages2.add(new GalleryImage(
+					R.drawable.project_freundlinger_img3_thumb,
+					R.drawable.project_freundlinger_img3,
+					getString(R.string.project_freundlinger_img3_descr)));
+
+			pItems = new ArrayList<ProjectItem>();
+			pItems.add(new ProjectItemImageHeader(
+					R.drawable.img_project_freundlinger_header));
+			pItems.add(new ProjectItemText(
+					getString(R.string.project_freundlinger_description)));
+			pItems.add(new ProjectItemImageGallery(galleryImages2));
+
 			mProjectGroup1.add(new Project(
-					R.drawable.thumb_project_noomix_white,
-					getString(R.string.project_freundlinger_title), null));
+					R.drawable.thumb_project_freundlinger_white,
+					getString(R.string.project_freundlinger_title), pItems));
 
 			//
 			// PROJECT 4 -- ARCTCONSENSE
 			//
+			
+			ArrayList<GalleryImage> galleryImages3 = new ArrayList<GalleryImage>();
+			galleryImages3.add(new GalleryImage(
+					R.drawable.project_artconsense_img1_thumb,
+					R.drawable.project_artconsense_img1,
+					getString(R.string.project_artconsense_img1_descr)));
+			galleryImages3.add(new GalleryImage(
+					R.drawable.project_artconsense_img2_thumb,
+					R.drawable.project_artconsense_img2,
+					getString(R.string.project_artconsense_img2_descr)));
+			galleryImages3.add(new GalleryImage(
+					R.drawable.project_artconsense_img3_thumb,
+					R.drawable.project_artconsense_img3,
+					getString(R.string.project_artconsense_img3_descr)));
+
+			pItems = new ArrayList<ProjectItem>();
+			pItems.add(new ProjectItemImageHeader(
+					R.drawable.img_project_artconsense_header));
+			pItems.add(new ProjectItemText(
+					getString(R.string.project_artconsense_description)));
+			pItems.add(new ProjectItemImageGallery(galleryImages3));
 
 			mProjectGroup1.add(new Project(
-					R.drawable.thumb_project_noomix_white,
-					getString(R.string.project_artconsense_title), null));
+					R.drawable.thumb_project_artconsense_white,
+					getString(R.string.project_artconsense_title), pItems));
 
 			//
 			// PROJECT 5 -- SWATCHDOG
 			// PROJECTGROUP 2
 			//
+			
+			pdfDocuments = new ArrayList<PdfDocument>();
+			pdfDocuments.add(new PdfDocument(getActivity().getString(
+						R.string.pdf_masterThesis_title),
+						"http://www.pdf-archive.com/2014/03/05/masterthesis/masterthesis.pdf"));
+			
+			pItems = new ArrayList<ProjectItem>();
+			pItems.add(new ProjectItemImageHeader(
+					R.drawable.img_project_swatchdog_header_white));
+			pItems.add(new ProjectItemText(
+					getString(R.string.project_swatchdog_description)));
+			pItems.add(new ProjectItemPdfDocuments(pdfDocuments));
 
 			mProjectGroup2.add(new Project(
-					R.drawable.thumb_project_noomix_white,
-					getString(R.string.project_sWatchdog_title), null));
+					R.drawable.thumb_project_swatchdog_white,
+					getString(R.string.project_swatchdog_title), pItems));
 
 			//
 			// PROJECT 6 -- PORTFOLIOFB
 			// PROJECTGROUP 3
 			//
+			
+			pItems = new ArrayList<ProjectItem>();
+			pItems.add(new ProjectItemText(getString(R.string.project_portfolioFB_description)));
 
 			mProjectGroup3.add(new Project(
-					R.drawable.thumb_project_noomix_white,
-					getString(R.string.project_portfolioFB_title), null));
+					R.drawable.thumb_project_portfoliofb_white,
+					getString(R.string.project_portfolioFB_title), pItems));
 
 			//
 			// PROJECT 7 -- PROJECTX
 			//
+			
+			pItems = new ArrayList<ProjectItem>();
+			pItems.add(new ProjectItemText(getString(R.string.project_x_description)));
 
 			mProjectGroup3.add(new Project(
-					R.drawable.thumb_project_noomix_white,
-					getString(R.string.project_x_title), null));
-			
-			
+					R.drawable.thumb_project_x_white,
+					getString(R.string.project_x_title), pItems));
+
 			// add all projectGroups
 			mProjectGroups
 					.add(new ProjectGroup(

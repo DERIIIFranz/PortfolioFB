@@ -134,10 +134,10 @@ public class PrivatActivityTest extends
 				((TextView) ((RelativeLayout) gv.getChildAt(0)).getChildAt(1))
 						.getText());
 		assertEquals(
-				pActivity.getText(R.string.privat_docs_masterThesis_title),
+				pActivity.getText(R.string.pdf_masterThesis_title),
 				((TextView) ((RelativeLayout) gv.getChildAt(1)).getChildAt(1))
 						.getText());
-		assertEquals(pActivity.getText(R.string.privat_docs_bakkThesis_title),
+		assertEquals(pActivity.getText(R.string.pdf_bakkThesis_title),
 				((TextView) ((RelativeLayout) gv.getChildAt(2)).getChildAt(1))
 						.getText());
 	}

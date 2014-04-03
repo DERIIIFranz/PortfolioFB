@@ -7,6 +7,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -46,17 +48,28 @@ public class ProjectItemVideo extends ProjectItem {
 			@Override
 			public void onPrepared(MediaPlayer mp) {
 
-				MediaController mc = new MediaController(rootView.getContext(), false);
+				MediaController mc = new MediaController(
+						videoView.getContext(), false);
+				// set correct height
+				RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) videoView
+						.getLayoutParams();
+				params.height = mp.getVideoHeight();
+				videoView.setLayoutParams(params);
 
 				videoView.setMediaController(mc);
-				mc.setAnchorView(videoView);
 				pBar.setVisibility(View.GONE);
-				mc.show(0);
-				
-				// set correct height
-				RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) videoView.getLayoutParams();
-			    params.height =  mp.getVideoHeight();
-			    videoView.setLayoutParams(params);
+				// mc.show(0);
+
+				FrameLayout f = (FrameLayout) mc.getParent();
+				RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+						RelativeLayout.LayoutParams.MATCH_PARENT,
+						RelativeLayout.LayoutParams.WRAP_CONTENT);
+				lp.addRule(RelativeLayout.BELOW, videoView.getId());
+
+				((LinearLayout) f.getParent()).removeView(f);
+				((RelativeLayout) videoView.getParent()).addView(f, lp);
+
+				// mc.setAnchorView(videoView);
 			}
 		});
 
@@ -73,7 +86,7 @@ public class ProjectItemVideo extends ProjectItem {
 		}
 	};
 
-	public ProjectItemVideo(Parcel in) {
+	protected ProjectItemVideo(Parcel in) {
 		mUri = in.readString();
 	}
 

@@ -70,7 +70,7 @@ public class ProjectItemImageGallery extends ProjectItem {
 		}
 	};
 
-	public ProjectItemImageGallery(Parcel in) {
+	protected ProjectItemImageGallery(Parcel in) {
 		this();
 		in.readTypedList(mGalleryImages, GalleryImage.CREATOR);
 	}
