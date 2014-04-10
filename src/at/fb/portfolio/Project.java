@@ -8,9 +8,10 @@ import at.fb.portfolio.projectItems.ProjectItem;
 
 public class Project implements Parcelable {
 
-	public static final String PROJECT_COLLECTION = "at.fb.portfolio.PROJECT_COLLECTION";
+	public static final String PROJECT_GROUPS = "at.fb.portfolio.PROJECT_COLLECTION";
 	public static final String PROJECT_POSITION = "at.fb.portfolio.PROJECT_POSITION";
 	public static final String PROJECT = "at.fb.portfolio.PROJECT";
+	public static final String PROJECT_CATEGORY = "at.fb.portfolio.PROJECT_CATEGORY";
 
 	private int mThumb;
 	private String mTitle;

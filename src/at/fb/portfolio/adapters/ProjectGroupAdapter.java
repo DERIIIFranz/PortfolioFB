@@ -6,6 +6,7 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,7 +77,7 @@ public class ProjectGroupAdapter extends BaseAdapter {
 		gView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
-
+/*
 				ArrayList<Project> allProjects = new ArrayList<Project>();
 				for (int i = 0; i < mProjectGroups.size(); i++) {
 					for (int j = 0; j < mProjectGroups.get(i).getProjects()
@@ -85,7 +86,7 @@ public class ProjectGroupAdapter extends BaseAdapter {
 								.get(j));
 					}
 				}
-
+*/
 				Intent intent = new Intent(mContext,
 						ProjectDetailsActivity.class);
 				// use id as index here, as position only determines position
@@ -93,8 +94,8 @@ public class ProjectGroupAdapter extends BaseAdapter {
 				intent.putExtra(Project.PROJECT_POSITION, (int) id);
 				intent.putExtra(ProjectsFragment.FRAGMENT_PAGE_TITLE,
 						mPageTitle);
-				intent.putParcelableArrayListExtra(Project.PROJECT_COLLECTION,
-						allProjects);
+				intent.putParcelableArrayListExtra(Project.PROJECT_GROUPS,
+						(ArrayList<? extends Parcelable>) mProjectGroups);
 				mContext.startActivity(intent);
 			}
 		});

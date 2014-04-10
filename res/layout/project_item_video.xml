@@ -9,17 +9,12 @@
         android:layout_height="wrap_content"
         android:indeterminate="true"
         android:layout_centerInParent="true"
-        android:indeterminateBehavior="repeat" />"
+        android:indeterminateBehavior="repeat" />
     
     <at.fb.portfolio.views.CustomVideoView
         android:id="@+id/vv_project_item_video"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
-    
-<!--  prevent blink by adding a dummy    
-    <SurfaceView 
-        android:layout_width="0dp"
-        android:layout_height="0dp"/>--> 
-
+  
 </RelativeLayout>

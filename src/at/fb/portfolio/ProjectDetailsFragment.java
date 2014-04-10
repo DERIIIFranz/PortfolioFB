@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import at.fb.portfolio.projectItems.ProjectItemVideo;
 
@@ -26,6 +27,9 @@ public class ProjectDetailsFragment extends Fragment {
 
 		LinearLayout linear = (LinearLayout) rootView
 				.findViewById(R.id.ll_project_details);
+		
+		((TextView) linear.findViewById(R.id.category_project_details)).setText(getArguments().getString(Project.PROJECT_CATEGORY));
+		
 		for (int i = 0; i < mProject.getProjectItems().size(); i++) {
 
 			try {

@@ -16,5 +16,10 @@
             android:layout_gravity="top" />
         
     </android.support.v4.view.ViewPager>
+    
+    <!-- fix to prevent black blink on create VideoView -->
+    <SurfaceView 
+        android:layout_width="0px"
+        android:layout_height="0px"/>
 
 </RelativeLayout>

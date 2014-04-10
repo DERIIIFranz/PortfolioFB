@@ -20,14 +20,14 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 
 		Bundle extras = getIntent().getExtras();
-		ArrayList<Project> projects = getIntent().getParcelableArrayListExtra(
-				Project.PROJECT_COLLECTION);
+		ArrayList<ProjectGroup> projectGroups = getIntent().getParcelableArrayListExtra(
+				Project.PROJECT_GROUPS);
 		
 		setTitle(extras.getString(ProjectsFragment.FRAGMENT_PAGE_TITLE));
 		setContentView(R.layout.activity_project_details);
 
 		mPagerAdapter = new ProjectDetailsPagerAdapter(
-				getSupportFragmentManager(), projects);
+				getSupportFragmentManager(), projectGroups);
 		mViewPager = (ViewPager) findViewById(R.id.projectDetailsPager);
 		mViewPager.setAdapter(mPagerAdapter);
 		mViewPager.setCurrentItem(extras.getInt(Project.PROJECT_POSITION));
