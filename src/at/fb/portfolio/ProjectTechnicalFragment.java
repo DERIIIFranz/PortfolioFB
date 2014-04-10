@@ -56,8 +56,8 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 					getString(R.string.project_noomix_description)));
 			pItems.add(new ProjectItemImageGallery(galleryImages1));
 			pItems.add(new ProjectItemVideo(
-					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
-			// "http://dl.dropboxusercontent.com/s/l7bww337o7g5ei1/noomix_trailer.3gp"));
+			//		"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
+			 "http://dl.dropboxusercontent.com/s/l7bww337o7g5ei1/noomix_trailer.3gp"));
 
 			mProjectGroup1.add(new Project(
 					R.drawable.thumb_project_noomix_white,

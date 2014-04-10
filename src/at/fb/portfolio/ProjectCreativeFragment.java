@@ -6,7 +6,6 @@ import java.util.List;
 import android.content.Context;
 import android.os.Bundle;
 import at.fb.portfolio.projectItems.ProjectItem;
-import at.fb.portfolio.projectItems.ProjectItemImageGallery;
 import at.fb.portfolio.projectItems.ProjectItemImageHeader;
 import at.fb.portfolio.projectItems.ProjectItemPdfDocuments;
 import at.fb.portfolio.projectItems.ProjectItemText;
@@ -40,8 +39,8 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 					R.drawable.img_project_k13_header_white));
 			pItems.add(new ProjectItemText(
 					getString(R.string.project_K13_description)));
-			pItems.add(new ProjectItemVideo(
-					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
+//			pItems.add(new ProjectItemVideo(
+//					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
 
 			mProjectGroup1.add(new Project(R.drawable.thumb_project_k13_white,
 					getString(R.string.project_K13_title), pItems));
@@ -55,8 +54,8 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 					R.drawable.img_project_tgtn_header));
 			pItems.add(new ProjectItemText(
 					getString(R.string.project_TGTN_description)));
-			pItems.add(new ProjectItemVideo(
-					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
+//			pItems.add(new ProjectItemVideo(
+//					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
 
 			mProjectGroup1.add(new Project(R.drawable.thumb_project_tgtn_white,
 					getString(R.string.project_TGTN_title), pItems));
@@ -87,7 +86,7 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 			pItems.add(new ProjectItemPdfDocuments(pdfDocuments));
 			pItems.add(new ProjectItemVideo(
 					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
-
+	
 			mProjectGroup1.add(new Project(
 					R.drawable.thumb_project_mocap_white,
 					getString(R.string.project_MOCAP_title), pItems));
@@ -101,7 +100,7 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 			pItems.add(new ProjectItemText(
 					getString(R.string.project_clip_description)));
 			pItems.add(new ProjectItemVideo(
-					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
+					"http://dl.dropboxusercontent.com/s/5iphdvbnhuenxd7/clip.3gp"));
 
 			mProjectGroup2.add(new Project(R.drawable.thumb_project_clip_white,
 					getString(R.string.project_clip_title), pItems));

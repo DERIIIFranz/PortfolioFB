@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
@@ -30,7 +31,7 @@ public class ProjectItemImageGallery extends ProjectItem {
 	}
 
 	@Override
-	public View getView(final View rootView) {
+	public View getView(final View rootView, final Bundle savedInstanceState) {
 		LayoutInflater inflater = (LayoutInflater) rootView.getContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		GridView view = (GridView) inflater.inflate(

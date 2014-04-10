@@ -1,5 +1,8 @@
 package at.fb.portfolio.projectItems;
 
+import java.io.IOException;
+
+import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.View;
@@ -10,8 +13,9 @@ public abstract class ProjectItem implements Parcelable {
 	 * Inflates the specific view that can be added to a layout.
 	 * @param ctx The context the view should base on.
 	 * @return a new view
+	 * @throws IOException 
 	 */
-	public abstract View getView(View rootView);
+	public abstract View getView(final View rootView, final Bundle savedInstanceState) throws IOException;
 	
 	public static final Parcelable.Creator<ProjectItem> CREATOR = new Parcelable.Creator<ProjectItem>() {
 		public ProjectItem createFromParcel(Parcel in) {
