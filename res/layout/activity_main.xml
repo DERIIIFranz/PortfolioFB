@@ -1,68 +1,76 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    android:weightSum="9"
+    android:orientation="vertical" >
 
-    <ImageView
-        android:id="@+id/picture"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
-        android:contentDescription="@string/img_author_descr"
-        android:src="@drawable/portrait1" />
-    <TextView
-        android:id="@+id/profession"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		android:layout_below="@+id/name"
-		android:layout_alignLeft="@+id/name"
-        android:text="@string/profession" />
+        android:gravity="center"
+        android:layout_weight="4"
+        >
 
-    <Button
-        android:id="@+id/btn_private"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
-        android:layout_alignLeft="@+id/picture"
-        android:text="@string/btn_private" 
-        android:onClick="showPrivate"/>
-    <Button
-        android:id="@+id/btn_projects"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btn_private"
-        android:layout_alignBottom="@+id/btn_private"
-        android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@+id/btn_private"
-        android:text="@string/btn_projects" 
-        android:onClick="showProjects"/>
-    
+        <ImageView
+            android:id="@+id/picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:contentDescription="@string/img_author_descr"
+            android:src="@drawable/portrait1" />
+
+        <TextView
+            android:id="@+id/profession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/name"
+            android:layout_below="@+id/name"
+            android:text="@string/profession" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/picture"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="47dp"
+            android:layout_toRightOf="@+id/picture"
+            android:text="@string/name"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/slogan"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_private"
         android:layout_marginBottom="10dp"
-        android:gravity="center_horizontal"
-        android:textSize="15sp"
-        android:text="@string/slogan" />
+        android:gravity="center|bottom"
+        android:text="@string/slogan"
+        android:layout_weight="1"
+        android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/picture"
-        android:layout_marginTop="47dp"
-        android:layout_toRightOf="@+id/picture"
-        android:layout_marginLeft="20dp"
-        android:textSize="15sp"
-        android:text="@string/name" />
+        android:layout_weight="4"
+        android:gravity="center|top"
+        android:orientation="horizontal" >
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/btn_private"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:onClick="showPrivate"
+            android:text="@string/btn_private" />
+
+        <Button
+            android:id="@+id/btn_projects"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:onClick="showProjects"
+            android:text="@string/btn_projects" />
+    </LinearLayout>
+
+</LinearLayout>

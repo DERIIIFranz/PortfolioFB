@@ -77,7 +77,7 @@ public class PrivatActivityTest extends
 
 	public void testAboutMe() {
 		FlowTextView aboutMe = (FlowTextView) pActivity
-				.findViewById(R.id.tv_about_me);
+				.findViewById(R.id.tv_about_me1);
 		ImageView portrait2 = (ImageView) pActivity
 				.findViewById(R.id.iv_about_me_portrait2);
 		ImageView team1 = (ImageView) pActivity
@@ -92,7 +92,7 @@ public class PrivatActivityTest extends
 		assertEquals(View.VISIBLE, team1.getVisibility());
 		assertEquals(View.VISIBLE, team.getVisibility());
 
-		assertEquals(pActivity.getString(R.string.about_me), aboutMe.getText()
+		assertEquals(pActivity.getString(R.string.about_me1), aboutMe.getText()
 				.toString());
 	}
 

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2" >
+
+            <com.pagesuite.flowtext.FlowTextView
+                android:id="@+id/tv_about_me1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:textSize="15sp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/iv_about_me_portrait2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:contentDescription="@string/img_portrait2_descr"
+                    android:padding="10dip"
+                    android:src="@drawable/portrait2" />
+            </com.pagesuite.flowtext.FlowTextView>
+
+            <com.pagesuite.flowtext.FlowTextView
+                android:id="@+id/tv_about_me2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                app:textSize="15sp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/iv_about_me_team1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/img_team1_descr"
+                    android:padding="10dip"
+                    android:src="@drawable/img_team1" />
+            </com.pagesuite.flowtext.FlowTextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2" >
+
+            <com.pagesuite.flowtext.FlowTextView
+                android:id="@+id/tv_about_me3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:textSize="15sp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/iv_about_me_team"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/img_team_descr"
+                    android:padding="10dip"
+                    android:src="@drawable/team" />
+            </com.pagesuite.flowtext.FlowTextView>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
