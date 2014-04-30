@@ -21,7 +21,6 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		super.setListView(R.layout.fragment_projects_technical);
 		super.setPageTitle(R.string.pageTitle_activity_project_technical_details);
 
 		if (mProjectGroups.isEmpty()) {

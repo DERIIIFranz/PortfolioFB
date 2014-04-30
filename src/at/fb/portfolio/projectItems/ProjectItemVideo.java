@@ -32,18 +32,15 @@ public class ProjectItemVideo extends ProjectItem {
 	private MediaController mMc;
 	private ProgressBar mProgressBar;
 	private int mPos;
-	private boolean mIsMcVisible;
 
 	public ProjectItemVideo(String uri) {
 		mUri = uri;
 		mPos = initPos;
-		mIsMcVisible = true;
 	}
 
 	protected ProjectItemVideo(Parcel in) {
 		mUri = in.readString();
 		mPos = initPos;
-		mIsMcVisible = true;
 	}
 
 	@Override
@@ -57,9 +54,8 @@ public class ProjectItemVideo extends ProjectItem {
 				.findViewById(R.id.vv_project_item_video);
 
 		mVideoView.setVideoURI(Uri.parse(mUri));
-
 		mMc = new MediaController(mVideoView.getContext(), false);
-		
+
 		//
 		// append MediaController
 		//
@@ -69,14 +65,12 @@ public class ProjectItemVideo extends ProjectItem {
 			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
 					RelativeLayout.LayoutParams.MATCH_PARENT,
 					RelativeLayout.LayoutParams.WRAP_CONTENT);
-			lp.addRule(RelativeLayout.ALIGN_BOTTOM,
-					R.id.vv_project_item_video);
+			lp.addRule(RelativeLayout.ALIGN_BOTTOM, R.id.vv_project_item_video);
 
 			((LinearLayout) f.getParent()).removeView(f);
 			((RelativeLayout) mVideoView.getParent()).addView(f, lp);
 		}
-		
-		
+
 		mVideoView.setMediaController(mMc);
 		mMc.setAnchorView(mVideoView);
 
@@ -92,6 +86,8 @@ public class ProjectItemVideo extends ProjectItem {
 				.findViewById(R.id.pbar_project_item_video));
 		mProgressBar.setVisibility(View.VISIBLE);
 		mProgressBar.bringToFront();
+		mProgressBar.invalidate();
+		relativeLayout.requestLayout();
 
 		mVideoView
 				.setPlayPauseListener(new CustomVideoView.PlayPauseListener() {
@@ -114,15 +110,13 @@ public class ProjectItemVideo extends ProjectItem {
 
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				if (mIsMcVisible) {
+				if (mMc.isShowing()) {
 					mMc.setVisibility(View.INVISIBLE);
 				}
 
 				else {
 					mMc.setVisibility(View.VISIBLE);
 				}
-
-				mIsMcVisible = mIsMcVisible ? false : true;
 
 				return false;
 			}
@@ -138,6 +132,12 @@ public class ProjectItemVideo extends ProjectItem {
 				mVideoView.setBackgroundDrawable(rootView.getContext()
 						.getResources()
 						.getDrawable(R.drawable.placeholder_video_white));
+				
+				RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+						mp.getVideoWidth(),
+						RelativeLayout.LayoutParams.WRAP_CONTENT);
+				
+				mVideoView.setLayoutParams(params);
 
 				mProgressBar.setVisibility(View.GONE);
 
@@ -146,7 +146,6 @@ public class ProjectItemVideo extends ProjectItem {
 			}
 
 		});
-
 		return relativeLayout;
 	}
 

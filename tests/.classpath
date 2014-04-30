@@ -6,10 +6,6 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry kind="lib" path="D:/workspace/PortfolioFB/tests/libs/robotium-solo-4.3.1.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:platform:/resource/PortfolioFBTest/libs/robotium-solo-4.3.1-javadoc.jar!/"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="D:/workspace/PortfolioFB/tests/libs/robotium-solo-5.1.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

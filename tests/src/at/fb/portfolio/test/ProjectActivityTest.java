@@ -17,7 +17,7 @@ import at.fb.portfolio.ProjectTechnicalFragment;
 import at.fb.portfolio.ProjectsFragment;
 import at.fb.portfolio.R;
 
-import com.jayway.android.robotium.solo.Solo;
+import com.robotium.solo.Solo;
 
 public class ProjectActivityTest extends
 		ActivityInstrumentationTestCase2<ProjectActivity> {
@@ -27,7 +27,7 @@ public class ProjectActivityTest extends
 	private ProjectActivity pActivity;
 	private ViewPager projectPager;
 	private Locale l;
-	private ListView listFragPartials;
+	private ListView listProjectGroups;
 
 	public ProjectActivityTest() {
 		super(ProjectActivity.class);
@@ -50,12 +50,12 @@ public class ProjectActivityTest extends
 	}
 
 	public void testProjectsList_layout() {
-		listFragPartials = (ListView) pActivity
-				.findViewById(R.id.ListView_projects_technical);
+		listProjectGroups = (ListView) pActivity
+				.findViewById(R.id.lv_projects);
 
 		final View decorView = pActivity.getWindow().getDecorView();
 
-		ViewAsserts.assertOnScreen(decorView, listFragPartials);
+		ViewAsserts.assertOnScreen(decorView, listProjectGroups);
 	}
 
 	public void testTabBar() {
@@ -77,8 +77,8 @@ public class ProjectActivityTest extends
 
 	public void testTechnicalContent() {
 
-		listFragPartials = (ListView) pActivity
-				.findViewById(R.id.ListView_projects_technical);
+		listProjectGroups = (ListView) pActivity
+				.findViewById(R.id.lv_projects);
 
 		assertTrue(ProjectTechnicalFragment.isVisibleToUser());
 
@@ -87,8 +87,8 @@ public class ProjectActivityTest extends
 
 		// count displayed projects
 		int projectCountView = 0;
-		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
-			View v = listFragPartials.getChildAt(i);
+		for (int i = 0; i < listProjectGroups.getChildCount(); i++) {
+			View v = listProjectGroups.getChildAt(i);
 			projectCountView += ((GridView) v
 					.findViewById(R.id.gridview_projects)).getCount();
 		}
@@ -106,12 +106,12 @@ public class ProjectActivityTest extends
 		 * click on every item and verify if its title is displayed in
 		 * ProjectDetailsActivity
 		 */
-		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
-			for (int j = 0; j < ((GridView) listFragPartials.getChildAt(i)
+		for (int i = 0; i < listProjectGroups.getChildCount(); i++) {
+			for (int j = 0; j < ((GridView) listProjectGroups.getChildAt(i)
 					.findViewById(R.id.gridview_projects)).getCount(); j++) {
 				Project p = pFragment.getProjectGroups().get(i)
 						.getProjects().get(j);
-				View projectItemView = ((GridView) listFragPartials.getChildAt(
+				View projectItemView = ((GridView) listProjectGroups.getChildAt(
 						i).findViewById(R.id.gridview_projects)).getChildAt(j);
 				solo.clickOnView(projectItemView);
 
@@ -125,11 +125,11 @@ public class ProjectActivityTest extends
 	}
 
 	public void testCreativeContent() {
-		listFragPartials = (ListView) pActivity
-				.findViewById(R.id.ListView_projects_creative);
 
 		solo.clickOnText(pActivity.getString(
 				R.string.tabTitle_project_fragment_creative).toUpperCase(l));
+		
+		listProjectGroups = (ListView) solo.getView(R.id.lv_projects, 1);
 
 		assertFalse(ProjectTechnicalFragment.isVisibleToUser());
 		assertTrue(ProjectCreativeFragment.isVisibleToUser());
@@ -139,11 +139,11 @@ public class ProjectActivityTest extends
 
 		// count displayed projects
 		int projectCountView = 0;
-		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
-			View v = listFragPartials.getChildAt(i);
+		for (int i = 0; i < listProjectGroups.getChildCount(); i++) {
+			View v = listProjectGroups.getChildAt(i);
 			projectCountView += ((GridView) v
 					.findViewById(R.id.gridview_projects)).getCount();
-		}
+		}		
 
 		int projectCountObject = 0;
 		for (int i = 0; i < pFragment.getProjectGroups().size(); i++) {
@@ -158,12 +158,12 @@ public class ProjectActivityTest extends
 		 * click on every item and verify if its title is displayed in
 		 * ProjectDetailsActivity
 		 */
-		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
-			for (int j = 0; j < ((GridView) listFragPartials.getChildAt(i)
+		for (int i = 0; i < listProjectGroups.getChildCount(); i++) {
+			for (int j = 0; j < ((GridView) listProjectGroups.getChildAt(i)
 					.findViewById(R.id.gridview_projects)).getCount(); j++) {
 				Project p = pFragment.getProjectGroups().get(i)
 						.getProjects().get(j);
-				View projectItemView = ((GridView) listFragPartials.getChildAt(
+				View projectItemView = ((GridView) listProjectGroups.getChildAt(
 						i).findViewById(R.id.gridview_projects)).getChildAt(j);
 				solo.clickOnView(projectItemView);
 
@@ -177,13 +177,13 @@ public class ProjectActivityTest extends
 	}
 
 	public void testProjectTechnicalDetails() {
-		listFragPartials = (ListView) pActivity
-				.findViewById(R.id.ListView_projects_technical);
+		listProjectGroups = (ListView) pActivity
+				.findViewById(R.id.lv_projects);
 
 		ProjectsFragment tFragment = (ProjectTechnicalFragment) projectPager
 				.getAdapter().instantiateItem(projectPager, 0);
 
-		View v = ((GridView) listFragPartials.getChildAt(0).findViewById(
+		View v = ((GridView) listProjectGroups.getChildAt(0).findViewById(
 				R.id.gridview_projects)).getChildAt(0);
 
 		solo.clickOnView(v);
@@ -191,8 +191,8 @@ public class ProjectActivityTest extends
 				.getProjects().get(0).getTitle()));
 
 		// swipe through all projects and check title
-		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
-			for (int j = 0; j < ((GridView) listFragPartials.getChildAt(i)
+		for (int i = 0; i < listProjectGroups.getChildCount(); i++) {
+			for (int j = 0; j < ((GridView) listProjectGroups.getChildAt(i)
 					.findViewById(R.id.gridview_projects)).getCount(); j++) {
 				Project p = tFragment.getProjectGroups().get(i)
 						.getProjects().get(j);
@@ -207,13 +207,12 @@ public class ProjectActivityTest extends
 		solo.clickOnText(pActivity.getString(
 				R.string.tabTitle_project_fragment_creative).toUpperCase(l));
 
-		listFragPartials = (ListView) pActivity
-				.findViewById(R.id.ListView_projects_creative);
+		listProjectGroups = (ListView) solo.getView(R.id.lv_projects, 1);
 
 		ProjectsFragment cFragment = (ProjectCreativeFragment) projectPager
 				.getAdapter().instantiateItem(projectPager, 1);
 
-		View v = ((GridView) listFragPartials.getChildAt(0).findViewById(
+		View v = ((GridView) listProjectGroups.getChildAt(0).findViewById(
 				R.id.gridview_projects)).getChildAt(0);
 
 		solo.clickOnView(v);
@@ -221,8 +220,8 @@ public class ProjectActivityTest extends
 				.getProjects().get(0).getTitle()));
 
 		// swipe through all projects and check title
-		for (int i = 0; i < listFragPartials.getChildCount(); i++) {
-			for (int j = 0; j < ((GridView) listFragPartials.getChildAt(i)
+		for (int i = 0; i < listProjectGroups.getChildCount(); i++) {
+			for (int j = 0; j < ((GridView) listProjectGroups.getChildAt(i)
 					.findViewById(R.id.gridview_projects)).getCount(); j++) {
 				Project p = cFragment.getProjectGroups().get(i)
 						.getProjects().get(j);

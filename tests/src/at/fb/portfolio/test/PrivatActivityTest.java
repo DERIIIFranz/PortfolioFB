@@ -16,8 +16,8 @@ import at.fb.portfolio.PrivatActivity;
 import at.fb.portfolio.PrivatDocsFragment;
 import at.fb.portfolio.R;
 
-import com.jayway.android.robotium.solo.Solo;
 import com.pagesuite.flowtext.FlowTextView;
+import com.robotium.solo.Solo;
 
 public class PrivatActivityTest extends
 		ActivityInstrumentationTestCase2<PrivatActivity> {
@@ -71,6 +71,7 @@ public class PrivatActivityTest extends
 		solo.clickOnText(pActivity.getString(
 				R.string.tabTitle_privat_fragment_documents).toUpperCase(l));
 
+		solo.sleep(50);
 		assertFalse(PrivatAboutMeFragment.isVisibleToUser());
 		assertTrue(PrivatDocsFragment.isVisibleToUser());
 	}
@@ -98,6 +99,7 @@ public class PrivatActivityTest extends
 
 	public void testDocuments() {
 		swipeToLeft(1);
+		solo.sleep(50);
 		assertTrue(PrivatDocsFragment.isVisibleToUser());
 
 		GridView gv = (GridView) pActivity
@@ -144,6 +146,7 @@ public class PrivatActivityTest extends
 
 	public void testImageGallery() {
 		swipeToLeft(1);
+		solo.sleep(50);
 		assertTrue(PrivatDocsFragment.isVisibleToUser());
 
 		ImageView iv_urkunde_thumb = (ImageView) pActivity

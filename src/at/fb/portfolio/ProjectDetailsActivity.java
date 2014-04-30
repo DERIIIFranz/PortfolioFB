@@ -2,6 +2,7 @@ package at.fb.portfolio;
 
 import java.util.ArrayList;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
@@ -18,6 +19,12 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		// Need to check if Activity has been switched to landscape mode
+	    if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+	      finish();
+	      return;
+	    }
 
 		Bundle extras = getIntent().getExtras();
 		ArrayList<ProjectGroup> projectGroups = getIntent().getParcelableArrayListExtra(

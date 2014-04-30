@@ -20,7 +20,6 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		super.setListView(R.layout.fragment_projects_creative);
 		super.setPageTitle(R.string.pageTitle_activity_project_creative_details);
 
 		if (mProjectGroups.isEmpty()) {

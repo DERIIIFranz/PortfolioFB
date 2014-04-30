@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import at.fb.portfolio.projectItems.ProjectItemVideo;
 
 public class ProjectDetailsFragment extends Fragment {
@@ -27,19 +26,32 @@ public class ProjectDetailsFragment extends Fragment {
 
 		LinearLayout linear = (LinearLayout) rootView
 				.findViewById(R.id.ll_project_details);
-		
-		((TextView) linear.findViewById(R.id.category_project_details)).setText(getArguments().getString(Project.PROJECT_CATEGORY));
-		
-		for (int i = 0; i < mProject.getProjectItems().size(); i++) {
 
-			try {
-				linear.addView(mProject.getProjectItems().get(i).getView(rootView, savedInstanceState));
-			} catch (IOException e) {
-				Toast.makeText(rootView.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-				e.printStackTrace();
-			}
+		TextView label = (TextView) linear
+				.findViewById(R.id.category_project_details);
+
+		if (label != null) {
+			label.setText(getArguments().getString(Project.PROJECT_CATEGORY));
 		}
 
+		if (mProject.getProjectItems() != null) {
+
+			for (int i = 0; i < mProject.getProjectItems().size(); i++) {
+
+				try {
+					linear.addView(mProject.getProjectItems().get(i)
+							.getView(rootView, savedInstanceState));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+			// scroll to top, as VideoView requests focus automatically
+			if (linear.getChildCount() >= 1) {
+				linear.getChildAt(0).setFocusableInTouchMode(true);
+				linear.getChildAt(0).requestFocus();
+			}
+		}
 		return rootView;
 	}
 
@@ -51,8 +63,7 @@ public class ProjectDetailsFragment extends Fragment {
 
 			for (int i = 0; i < mProject.getProjectItems().size(); i++) {
 				if (mProject.getProjectItems().get(i).getClass()
-						.equals(ProjectItemVideo.class)
-				) {
+						.equals(ProjectItemVideo.class)) {
 					outState.putInt(
 							ProjectItemVideo.POS,
 							((ProjectItemVideo) mProject.getProjectItems().get(
