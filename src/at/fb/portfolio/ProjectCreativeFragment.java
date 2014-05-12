@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Bundle;
 import at.fb.portfolio.projectItems.ProjectItem;
 import at.fb.portfolio.projectItems.ProjectItemImageHeader;
+import at.fb.portfolio.projectItems.ProjectItemObj;
 import at.fb.portfolio.projectItems.ProjectItemPdfDocuments;
 import at.fb.portfolio.projectItems.ProjectItemText;
 import at.fb.portfolio.projectItems.ProjectItemVideo;
@@ -62,10 +63,15 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 			//
 			// PROJECT 3 -- PIRAT
 			//
+			pItems = new ArrayList<ProjectItem>();
+			pItems.add(new ProjectItemImageHeader(
+					R.drawable.img_project_pirat_header_white));
+			pItems.add(new ProjectItemText(getString(R.string.project_pirat_description)));
+			pItems.add(new ProjectItemObj("at.fb.portfolio:raw/pirat_obj"));
 
 			mProjectGroup1.add(new Project(
-					R.drawable.thumb_project_noomix_white,
-					getString(R.string.project_pirat_title), null));
+					R.drawable.thumb_project_pirat_white,
+					getString(R.string.project_pirat_title), pItems));
 
 			//
 			// PROJECT 4 -- MOCAP

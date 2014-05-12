@@ -1,8 +1,6 @@
 package at.fb.portfolio.test;
 
-import android.app.Instrumentation.ActivityMonitor;
 import android.test.ActivityInstrumentationTestCase2;
-import android.test.TouchUtils;
 import android.test.ViewAsserts;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.view.View;
@@ -14,11 +12,12 @@ import at.fb.portfolio.PrivatActivity;
 import at.fb.portfolio.ProjectActivity;
 import at.fb.portfolio.R;
 
+import com.robotium.solo.Solo;
+
 public class MainActivityTest extends
 		ActivityInstrumentationTestCase2<MainActivity> {
 
-	private static final int TIMEOUT_IN_MS = 500;
-
+	private Solo solo;
 	private MainActivity mMainActivity;
 	private TextView name, profession, slogan;
 	private Button mPrivatButton, mProjectsButton;
@@ -42,6 +41,7 @@ public class MainActivityTest extends
 		picture = (ImageView) mMainActivity.findViewById(R.id.picture);
 		slogan = (TextView) mMainActivity.findViewById(R.id.slogan);
 
+		solo = new Solo(getInstrumentation(), getActivity());
 	}
 
 	public void testPreconditions() {
@@ -92,49 +92,21 @@ public class MainActivityTest extends
 
 	@MediumTest
 	public void testPrivatButton_click() {
-
-		// Set up an ActivityMonitor
-		ActivityMonitor privatActivityMonitor = getInstrumentation()
-				.addMonitor(PrivatActivity.class.getName(), null, false);
-
-		TouchUtils.clickView(this, mPrivatButton);
-		PrivatActivity privatActivity = (PrivatActivity) privatActivityMonitor
-				.waitForActivityWithTimeout(TIMEOUT_IN_MS);
-		assertNotNull("PrivatActivity is null", privatActivity);
-		assertEquals("Monitor for PrivatActivity has not been called", 1,
-				privatActivityMonitor.getHits());
-		assertEquals("Activity is of wrong type", PrivatActivity.class,
-				privatActivity.getClass());
-
-		if (privatActivity != null)
-			privatActivity.finish();
-
-		// Remove the ActivityMonitor
-		getInstrumentation().removeMonitor(privatActivityMonitor);
+		
+		solo.clickOnButton(mMainActivity.getString(R.string.btn_private));
+		solo.assertCurrentActivity("private activity not started", PrivatActivity.class);
 	}
 
 	@MediumTest
 	public void testProjectsButton_click() {
 
-		// Set up an ActivityMonitor
-		ActivityMonitor projectActivityMonitor = getInstrumentation()
-				.addMonitor(ProjectActivity.class.getName(), null, false);
-
-		// Validate that ReceiverActivity is started
-		TouchUtils.clickView(this, mProjectsButton);
-		ProjectActivity projectActivity = (ProjectActivity) projectActivityMonitor
-				.waitForActivityWithTimeout(TIMEOUT_IN_MS);
-		assertNotNull("ProjectActivity is null", projectActivity);
-		assertEquals("Monitor for ProjectActivity has not been called", 1,
-				projectActivityMonitor.getHits());
-		assertEquals("Activity is of wrong type", ProjectActivity.class,
-				projectActivity.getClass());
-
-		if (projectActivity != null)
-			projectActivity.finish();
-
-		// Remove the ActivityMonitor
-		getInstrumentation().removeMonitor(projectActivityMonitor);
+		solo.clickOnButton(mMainActivity.getString(R.string.btn_projects));
+		solo.assertCurrentActivity("project activity not started", ProjectActivity.class);
+	}
+	
+	@Override
+	public void tearDown() throws Exception {
+		solo.finishOpenedActivities();
 	}
 
 }

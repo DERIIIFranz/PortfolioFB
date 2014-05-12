@@ -37,8 +37,11 @@ public abstract class ProjectItem implements Parcelable {
 			else if(type.equals(ProjectItemPdfDocuments.TYPE))
 				return new ProjectItemPdfDocuments(in);
 			
+			else if(type.equals(ProjectItemObj.TYPE))
+				return new ProjectItemObj(in);
+			
 			else
-				return null;
+				throw new RuntimeException("ProjectItemTYPE not handled in ProjectItem.java");
 		}
 
 		public ProjectItem[] newArray(int size) {

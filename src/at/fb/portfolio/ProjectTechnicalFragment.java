@@ -55,8 +55,8 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 					getString(R.string.project_noomix_description)));
 			pItems.add(new ProjectItemImageGallery(galleryImages1));
 			pItems.add(new ProjectItemVideo(
-			//		"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
-			 "http://dl.dropboxusercontent.com/s/l7bww337o7g5ei1/noomix_trailer.3gp"));
+			// "http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
+					"http://dl.dropboxusercontent.com/s/l7bww337o7g5ei1/noomix_trailer.3gp"));
 
 			mProjectGroup1.add(new Project(
 					R.drawable.thumb_project_noomix_white,
@@ -115,7 +115,7 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			//
 			// PROJECT 4 -- ARCTCONSENSE
 			//
-			
+
 			ArrayList<GalleryImage> galleryImages3 = new ArrayList<GalleryImage>();
 			galleryImages3.add(new GalleryImage(
 					R.drawable.project_artconsense_img1_thumb,
@@ -145,12 +145,13 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			// PROJECT 5 -- SWATCHDOG
 			// PROJECTGROUP 2
 			//
-			
+
 			pdfDocuments = new ArrayList<PdfDocument>();
-			pdfDocuments.add(new PdfDocument(getActivity().getString(
-						R.string.pdf_masterThesis_title),
-						"http://www.pdf-archive.com/2014/03/05/masterthesis/masterthesis.pdf"));
-			
+			pdfDocuments
+					.add(new PdfDocument(getActivity().getString(
+							R.string.pdf_masterThesis_title),
+							"http://www.pdf-archive.com/2014/03/05/masterthesis/masterthesis.pdf"));
+
 			pItems = new ArrayList<ProjectItem>();
 			pItems.add(new ProjectItemImageHeader(
 					R.drawable.img_project_swatchdog_header_white));
@@ -166,9 +167,10 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			// PROJECT 6 -- PORTFOLIOFB
 			// PROJECTGROUP 3
 			//
-			
+
 			pItems = new ArrayList<ProjectItem>();
-			pItems.add(new ProjectItemText(getString(R.string.project_portfolioFB_description)));
+			pItems.add(new ProjectItemText(
+					getString(R.string.project_portfolioFB_description)));
 
 			mProjectGroup3.add(new Project(
 					R.drawable.thumb_project_portfoliofb_white,
@@ -177,12 +179,12 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			//
 			// PROJECT 7 -- PROJECTX
 			//
-			
-			pItems = new ArrayList<ProjectItem>();
-			pItems.add(new ProjectItemText(getString(R.string.project_x_description)));
 
-			mProjectGroup3.add(new Project(
-					R.drawable.thumb_project_x_white,
+			pItems = new ArrayList<ProjectItem>();
+			pItems.add(new ProjectItemText(
+					getString(R.string.project_x_description)));
+
+			mProjectGroup3.add(new Project(R.drawable.thumb_project_x_white,
 					getString(R.string.project_x_title), pItems));
 
 			// add all projectGroups

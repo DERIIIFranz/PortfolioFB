@@ -1,5 +1,6 @@
 package at.fb.portfolio.test;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import android.support.v4.view.ViewPager;
@@ -8,14 +9,18 @@ import android.test.ViewAsserts;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import at.fb.portfolio.Project;
 import at.fb.portfolio.ProjectActivity;
 import at.fb.portfolio.ProjectCreativeFragment;
 import at.fb.portfolio.ProjectDetailsActivity;
+import at.fb.portfolio.ProjectGroup;
 import at.fb.portfolio.ProjectTechnicalFragment;
 import at.fb.portfolio.ProjectsFragment;
 import at.fb.portfolio.R;
+import at.fb.portfolio.views.NonScrollableGridView;
 
 import com.robotium.solo.Solo;
 
@@ -50,8 +55,7 @@ public class ProjectActivityTest extends
 	}
 
 	public void testProjectsList_layout() {
-		listProjectGroups = (ListView) pActivity
-				.findViewById(R.id.lv_projects);
+		listProjectGroups = (ListView) pActivity.findViewById(R.id.lv_projects);
 
 		final View decorView = pActivity.getWindow().getDecorView();
 
@@ -77,8 +81,7 @@ public class ProjectActivityTest extends
 
 	public void testTechnicalContent() {
 
-		listProjectGroups = (ListView) pActivity
-				.findViewById(R.id.lv_projects);
+		listProjectGroups = (ListView) pActivity.findViewById(R.id.lv_projects);
 
 		assertTrue(ProjectTechnicalFragment.isVisibleToUser());
 
@@ -109,10 +112,11 @@ public class ProjectActivityTest extends
 		for (int i = 0; i < listProjectGroups.getChildCount(); i++) {
 			for (int j = 0; j < ((GridView) listProjectGroups.getChildAt(i)
 					.findViewById(R.id.gridview_projects)).getCount(); j++) {
-				Project p = pFragment.getProjectGroups().get(i)
-						.getProjects().get(j);
-				View projectItemView = ((GridView) listProjectGroups.getChildAt(
-						i).findViewById(R.id.gridview_projects)).getChildAt(j);
+				Project p = pFragment.getProjectGroups().get(i).getProjects()
+						.get(j);
+				View projectItemView = ((GridView) listProjectGroups
+						.getChildAt(i).findViewById(R.id.gridview_projects))
+						.getChildAt(j);
 				solo.clickOnView(projectItemView);
 
 				assertTrue(solo.searchText(p.getTitle()));
@@ -128,7 +132,7 @@ public class ProjectActivityTest extends
 
 		solo.clickOnText(pActivity.getString(
 				R.string.tabTitle_project_fragment_creative).toUpperCase(l));
-		
+
 		listProjectGroups = (ListView) solo.getView(R.id.lv_projects, 1);
 
 		assertFalse(ProjectTechnicalFragment.isVisibleToUser());
@@ -143,7 +147,7 @@ public class ProjectActivityTest extends
 			View v = listProjectGroups.getChildAt(i);
 			projectCountView += ((GridView) v
 					.findViewById(R.id.gridview_projects)).getCount();
-		}		
+		}
 
 		int projectCountObject = 0;
 		for (int i = 0; i < pFragment.getProjectGroups().size(); i++) {
@@ -161,10 +165,11 @@ public class ProjectActivityTest extends
 		for (int i = 0; i < listProjectGroups.getChildCount(); i++) {
 			for (int j = 0; j < ((GridView) listProjectGroups.getChildAt(i)
 					.findViewById(R.id.gridview_projects)).getCount(); j++) {
-				Project p = pFragment.getProjectGroups().get(i)
-						.getProjects().get(j);
-				View projectItemView = ((GridView) listProjectGroups.getChildAt(
-						i).findViewById(R.id.gridview_projects)).getChildAt(j);
+				Project p = pFragment.getProjectGroups().get(i).getProjects()
+						.get(j);
+				View projectItemView = ((GridView) listProjectGroups
+						.getChildAt(i).findViewById(R.id.gridview_projects))
+						.getChildAt(j);
 				solo.clickOnView(projectItemView);
 
 				assertTrue(solo.searchText(p.getTitle()));
@@ -177,8 +182,7 @@ public class ProjectActivityTest extends
 	}
 
 	public void testProjectTechnicalDetails() {
-		listProjectGroups = (ListView) pActivity
-				.findViewById(R.id.lv_projects);
+		listProjectGroups = (ListView) pActivity.findViewById(R.id.lv_projects);
 
 		ProjectsFragment tFragment = (ProjectTechnicalFragment) projectPager
 				.getAdapter().instantiateItem(projectPager, 0);
@@ -194,8 +198,8 @@ public class ProjectActivityTest extends
 		for (int i = 0; i < listProjectGroups.getChildCount(); i++) {
 			for (int j = 0; j < ((GridView) listProjectGroups.getChildAt(i)
 					.findViewById(R.id.gridview_projects)).getCount(); j++) {
-				Project p = tFragment.getProjectGroups().get(i)
-						.getProjects().get(j);
+				Project p = tFragment.getProjectGroups().get(i).getProjects()
+						.get(j);
 				assertTrue(solo.searchText(p.getTitle()));
 				swipeToLeft(1);
 			}
@@ -223,14 +227,77 @@ public class ProjectActivityTest extends
 		for (int i = 0; i < listProjectGroups.getChildCount(); i++) {
 			for (int j = 0; j < ((GridView) listProjectGroups.getChildAt(i)
 					.findViewById(R.id.gridview_projects)).getCount(); j++) {
-				Project p = cFragment.getProjectGroups().get(i)
-						.getProjects().get(j);
+				Project p = cFragment.getProjectGroups().get(i).getProjects()
+						.get(j);
 				assertTrue(solo.searchText(p.getTitle()));
 				swipeToLeft(1);
 			}
 		}
 	}
+/*
+	public void testHorizontalLayout_technicalProjects() {
+		solo.setActivityOrientation(Solo.LANDSCAPE);
 
+		swipeToRight(1); // get focus
+
+		ListView lv = (ListView) solo.getView(R.id.lv_projects, 0);
+		ArrayList<ImageView> iv = new ArrayList<ImageView>();
+
+		for (int i = 0; i < lv.getAdapter().getCount(); i++) {
+			for (int j = 0; j < ((ProjectGroup) lv.getAdapter().getItem(i))
+					.getProjects().size(); j++) {
+
+				ImageView v = (ImageView) ((NonScrollableGridView) ((LinearLayout) lv
+						.getAdapter().getView(i, null, null)).getChildAt(1))
+						.getAdapter().getView(j, null, null);
+
+				iv.add(v);
+			}
+		}
+
+		for (int i = 0; i < iv.size(); i++) {
+			// for (int j = 0; j < iv.get(i).getChildCount(); j++) {
+			// solo.scrollListToLine(lv, i); // abs listposition
+			
+	//		View currentView = solo.getView(iv.get(i).getId());
+			
+	//		if (currentView == null) {
+	//			solo.scrollDown();
+	//		}
+			solo.clickOnView(iv.get(i));
+			solo.sleep(50);
+			// }
+		}
+	}
+*/
+/*
+	public void testHorizontalLayout_creativeProjects() {
+		solo.setActivityOrientation(Solo.LANDSCAPE);
+
+		swipeToLeft(1); // get focus
+
+		ListView lv = (ListView) solo.getView(R.id.lv_projects, 1);
+
+		ArrayList<NonScrollableGridView> gv = new ArrayList<NonScrollableGridView>();
+
+		for (int i = 0; i < lv.getChildCount(); i++) {
+			for (int j = 0; j < ((LinearLayout) lv.getChildAt(i))
+					.getChildCount(); j++) {
+				if (((LinearLayout) lv.getChildAt(i)).getChildAt(j) instanceof NonScrollableGridView) {
+					gv.add((NonScrollableGridView) ((LinearLayout) lv
+							.getChildAt(i)).getChildAt(j));
+				}
+			}
+		}
+		for (int i = 0; i < gv.size(); i++) {
+			for (int j = 0; j < gv.get(i).getChildCount(); j++) {
+				solo.scrollListToLine(lv, j * i + i); // abs listposition
+				solo.clickOnView(gv.get(i).getChildAt(j));
+				solo.sleep(50);
+			}
+		}
+	}
+*/
 	private void swipeToLeft(int stepCount) {
 		DisplayMetrics displaymetrics = new DisplayMetrics();
 		getActivity().getWindowManager().getDefaultDisplay()

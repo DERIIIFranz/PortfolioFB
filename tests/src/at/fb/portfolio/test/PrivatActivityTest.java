@@ -135,8 +135,7 @@ public class PrivatActivityTest extends
 		assertEquals(pActivity.getText(R.string.privat_docs_cv_title),
 				((TextView) ((RelativeLayout) gv.getChildAt(0)).getChildAt(1))
 						.getText());
-		assertEquals(
-				pActivity.getText(R.string.pdf_masterThesis_title),
+		assertEquals(pActivity.getText(R.string.pdf_masterThesis_title),
 				((TextView) ((RelativeLayout) gv.getChildAt(1)).getChildAt(1))
 						.getText());
 		assertEquals(pActivity.getText(R.string.pdf_bakkThesis_title),
@@ -162,7 +161,6 @@ public class PrivatActivityTest extends
 		assertEquals(iv_urkunde.getTag(), R.drawable.urkunde_fhs);
 		assertEquals(descr_urkunde.getText(),
 				pActivity.getString(R.string.img_urkunde_fhs_descr));
-
 	}
 
 	@Override

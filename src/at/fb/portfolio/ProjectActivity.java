@@ -1,5 +1,7 @@
 package at.fb.portfolio;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -10,6 +12,7 @@ import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 import at.fb.portfolio.adapters.TabsAdapter;
 
 public class ProjectActivity extends ActionBarActivity implements
@@ -43,8 +46,7 @@ public class ProjectActivity extends ActionBarActivity implements
 		Fragment[] frags = { ProjectTechnicalFragment.newInstance(this),
 				ProjectCreativeFragment.newInstance(this) };
 
-		mTabsAdapter = new TabsAdapter(
-				getSupportFragmentManager(), frags);
+		mTabsAdapter = new TabsAdapter(getSupportFragmentManager(), frags);
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.projectPager);
@@ -67,9 +69,10 @@ public class ProjectActivity extends ActionBarActivity implements
 			// the adapter. Also specify this Activity object, which implements
 			// the TabListener interface, as the callback (listener) for when
 			// this tab is selected.
-			actionBar.addTab(actionBar.newTab()
-					.setText(mTabsAdapter.getPageTitle(i))
-					.setTabListener(this));
+			actionBar
+					.addTab(actionBar.newTab()
+							.setText(mTabsAdapter.getPageTitle(i))
+							.setTabListener(this));
 		}
 	}
 
@@ -82,7 +85,7 @@ public class ProjectActivity extends ActionBarActivity implements
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.privat, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
@@ -99,6 +102,27 @@ public class ProjectActivity extends ActionBarActivity implements
 			//
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
+
+		case R.id.action_contact_mail:
+			Intent i = new Intent(Intent.ACTION_SEND);
+			i.setType("message/rfc822");
+			i.putExtra(Intent.EXTRA_EMAIL,
+					new String[] { getString(R.string.email_address) });
+			i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject));
+			i.putExtra(Intent.EXTRA_TEXT, "");
+			try {
+				startActivity(Intent.createChooser(i,
+						getString(R.string.title_message_chooser)));
+			} catch (android.content.ActivityNotFoundException ex) {
+				Toast.makeText(this, "Es wurde kein E-Mail-Client gefunden.",
+						Toast.LENGTH_SHORT).show();
+			}
+			return super.onOptionsItemSelected(item);
+
+		case R.id.action_contact_phone:
+			Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"
+					+ getString(R.string.phone_number)));
+			startActivity(callIntent);
 		}
 		return super.onOptionsItemSelected(item);
 	}
