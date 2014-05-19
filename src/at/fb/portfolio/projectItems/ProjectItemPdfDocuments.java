@@ -8,10 +8,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.GridView;
 import at.fb.portfolio.PdfDocument;
 import at.fb.portfolio.R;
 import at.fb.portfolio.adapters.DocumentAdapter;
+import at.fb.portfolio.views.NonScrollableGridView;
 
 public class ProjectItemPdfDocuments extends ProjectItem {
 
@@ -30,7 +30,7 @@ public class ProjectItemPdfDocuments extends ProjectItem {
 	public View getView(final View rootView, final Bundle savedInstanceState) {
 		LayoutInflater inflater = (LayoutInflater) rootView.getContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		GridView view = (GridView) inflater.inflate(
+		NonScrollableGridView view = (NonScrollableGridView) inflater.inflate(
 				R.layout.project_item_pdf_documents, null);
 
 		view.setAdapter(new DocumentAdapter(rootView.getContext(),

@@ -2,8 +2,10 @@ package at.fb.portfolio;
 
 import java.util.ArrayList;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -33,6 +35,16 @@ public class ImageGalleryActivity extends ActionBarActivity {
 		mViewPager = (ViewPager) findViewById(R.id.projectImageGalleryPager);
 		mViewPager.setAdapter(mGalleryAdapter);
 		mViewPager.setCurrentItem(extras.getInt(GalleryImage.IMAGE_POSITION));
+		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			setFinishOnTouch(true);
+		}
+	}
+	
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	private void setFinishOnTouch(boolean bool) {
+		setFinishOnTouchOutside(true);
+		
 	}
 
 	@Override

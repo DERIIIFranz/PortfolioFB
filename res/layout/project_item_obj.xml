@@ -2,4 +2,5 @@
     android:id="@+id/btn_project_item_obj"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@drawable/button"
     android:text="@string/project_item_obj_show" />

@@ -102,8 +102,7 @@ public class PrivatActivityTest extends
 		solo.sleep(50);
 		assertTrue(PrivatDocsFragment.isVisibleToUser());
 
-		GridView gv = (GridView) pActivity
-				.findViewById(R.id.gv_privat_docs_download);
+		GridView gv = (GridView) pActivity.findViewById(R.id.ngv_pdf_documents);
 		assertEquals(3, gv.getChildCount());
 
 		String imgBtn_descr = pActivity
@@ -149,8 +148,7 @@ public class PrivatActivityTest extends
 		assertTrue(PrivatDocsFragment.isVisibleToUser());
 
 		ImageView iv_urkunde_thumb = (ImageView) pActivity
-				.findViewById(R.id.gv_privat_docs_gallery).getTouchables()
-				.get(0);
+				.findViewById(R.id.gv_image_gallery).getTouchables().get(0);
 		assertEquals(iv_urkunde_thumb.getTag(), R.drawable.urkunde_fhs_thumb);
 
 		solo.clickOnView(iv_urkunde_thumb);

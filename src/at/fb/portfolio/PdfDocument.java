@@ -10,7 +10,6 @@ public class PdfDocument implements Parcelable{
 	private String mTitle;
 	private String mUrl;
 	private int mDownloadIcon = R.drawable.ic_action_download;
-	private int mDownloadIconDescr = R.string.ic_action_download_descr;
 
 	public PdfDocument(String title, String url) {
 		mTitle = title;
@@ -37,10 +36,6 @@ public class PdfDocument implements Parcelable{
 
 	public int getDownloadIcon() {
 		return mDownloadIcon;
-	}
-
-	public String getDownloadIconDescr(Context ctx) {
-		return ctx.getString(mDownloadIconDescr);
 	}
 
 	public void show(Context ctx) {

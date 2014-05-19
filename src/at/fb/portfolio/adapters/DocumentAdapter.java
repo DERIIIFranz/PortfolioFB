@@ -47,8 +47,7 @@ public class DocumentAdapter extends BaseAdapter {
 		View documentView = vi.inflate(R.layout.document_download, null);
 		
 		ImageButton imgBtn = (ImageButton) documentView.findViewById(R.id.btn_document);		
-		imgBtn.setImageResource(mPdfDocuments.get(position).getDownloadIcon());
-		imgBtn.setContentDescription(mPdfDocuments.get(position).getDownloadIconDescr(mContext));
+
 		// set the Drawables resourceId as the ImageButtons tag
 		// so that the id can be compared for testing purposes
 		imgBtn.setTag(mPdfDocuments.get(position).getDownloadIcon());

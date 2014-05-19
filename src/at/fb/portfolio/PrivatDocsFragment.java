@@ -3,17 +3,16 @@ package at.fb.portfolio;
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
-import at.fb.portfolio.adapters.DocumentAdapter;
-import at.fb.portfolio.adapters.GalleryThumbAdapter;
+import android.widget.LinearLayout;
+import at.fb.portfolio.projectItems.ProjectItemImageGallery;
+import at.fb.portfolio.projectItems.ProjectItemPdfDocuments;
+import at.fb.portfolio.views.NonScrollableGridView;
 
 public class PrivatDocsFragment extends Fragment {
 
@@ -23,41 +22,17 @@ public class PrivatDocsFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-		View rootView = inflater.inflate(R.layout.fragment_privat_documents,
-				container, false);
-
-		GridView gvDownloads = (GridView) rootView
-				.findViewById(R.id.gv_privat_docs_download);
+		LinearLayout rootView = (LinearLayout) inflater.inflate(
+				R.layout.fragment_privat_documents, container, false);
 
 		if (getPdfDocuments() != null && getPdfDocuments().size() > 0) {
-			gvDownloads.setAdapter(new DocumentAdapter(getActivity(),
-					getPdfDocuments()));
+			rootView.addView((NonScrollableGridView) (new ProjectItemPdfDocuments(
+					getPdfDocuments())).getView(rootView, savedInstanceState));
 		}
 
-		GridView gvGallery = (GridView) rootView
-				.findViewById(R.id.gv_privat_docs_gallery);
-
 		if (getGalleryImages() != null && getGalleryImages().size() > 0) {
-			gvGallery.setAdapter(new GalleryThumbAdapter(getActivity(),
-					getGalleryImages()));
-
-			/**
-			 * start ImageGalleryActivity on galleryImageThumbnail clicked and
-			 * pass all galleryImages of this project
-			 */
-			gvGallery.setOnItemClickListener(new OnItemClickListener() {
-				public void onItemClick(AdapterView<?> parent, View v,
-						int position, long id) {
-
-					Intent intent = new Intent(getActivity(),
-							ImageGalleryActivity.class);
-
-					intent.putExtra(GalleryImage.IMAGE_POSITION, position);
-					intent.putParcelableArrayListExtra(
-							GalleryImage.IMAGE_COLLECTION, getGalleryImages());
-					startActivity(intent);
-				}
-			});
+			rootView.addView((GridView) (new ProjectItemImageGallery(
+					getGalleryImages())).getView(rootView, savedInstanceState));
 		}
 		return rootView;
 	}

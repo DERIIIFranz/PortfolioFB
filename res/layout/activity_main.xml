@@ -62,6 +62,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:onClick="showPrivate"
+            android:background="@drawable/button"
             android:text="@string/btn_private" />
 
         <Button
@@ -70,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:onClick="showProjects"
+            android:background="@drawable/button"
             android:text="@string/btn_projects" />
     </LinearLayout>
 
