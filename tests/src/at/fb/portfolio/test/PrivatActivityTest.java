@@ -99,7 +99,7 @@ public class PrivatActivityTest extends
 
 	public void testDocuments() {
 		swipeToLeft(1);
-		solo.sleep(50);
+		solo.sleep(500);
 		assertTrue(PrivatDocsFragment.isVisibleToUser());
 
 		GridView gv = (GridView) pActivity.findViewById(R.id.ngv_pdf_documents);

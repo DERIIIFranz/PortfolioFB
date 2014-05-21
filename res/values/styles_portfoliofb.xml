@@ -75,6 +75,16 @@
         <item name="android:background">@drawable/button</item>
     </style>
     
+    <style name="imageGalleryTheme" parent="@style/Theme.AppCompat">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
     <style name="Theme.Portfoliofb.Widget" parent="@style/Theme.AppCompat">
         <item name="popupMenuStyle">@style/PopupMenu.Portfoliofb</item>

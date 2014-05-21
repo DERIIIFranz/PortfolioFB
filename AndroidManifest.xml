@@ -5,7 +5,7 @@
     android:versionName="alpha" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="10"
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -48,7 +48,7 @@
             android:parentActivityName="at.fb.portfolio.ProjectActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="at.fb.portfolio.ProjectsActivity" />
+                android:value="at.fb.portfolio.ProjectActivity" />
         </activity>
         <activity
             android:name="at.fb.portfolio.ImageGalleryActivity"

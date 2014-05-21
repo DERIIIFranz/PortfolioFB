@@ -33,7 +33,7 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 		ArrayList<ProjectGroup> projectGroups = getIntent()
 				.getParcelableArrayListExtra(Project.PROJECT_GROUPS);
 
-		setTitle(extras.getString(ProjectsFragment.FRAGMENT_PAGE_TITLE));
+		setTitle(getString(extras.getInt(ProjectsFragment.FRAGMENT_PAGE_TITLE)));
 		setContentView(R.layout.activity_project_details);
 
 		mPagerAdapter = new ProjectDetailsPagerAdapter(
