@@ -71,10 +71,6 @@
         <item name="android:background">@drawable/btn_cab_done_portfoliofb</item>
     </style>
     
-    <style name="Button.Portfoliofb" parent="@style/Widget.AppCompat.Base.ActionButton">
-        <item name="android:background">@drawable/button</item>
-    </style>
-    
     <style name="imageGalleryTheme" parent="@style/Theme.AppCompat">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFrame">@null</item>

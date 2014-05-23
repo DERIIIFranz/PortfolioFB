@@ -1,6 +1,5 @@
 package at.fb.portfolio.test;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
 import android.support.v4.view.ViewPager;
@@ -9,18 +8,14 @@ import android.test.ViewAsserts;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import at.fb.portfolio.Project;
 import at.fb.portfolio.ProjectActivity;
 import at.fb.portfolio.ProjectCreativeFragment;
 import at.fb.portfolio.ProjectDetailsActivity;
-import at.fb.portfolio.ProjectGroup;
 import at.fb.portfolio.ProjectTechnicalFragment;
 import at.fb.portfolio.ProjectsFragment;
 import at.fb.portfolio.R;
-import at.fb.portfolio.views.NonScrollableGridView;
 
 import com.robotium.solo.Solo;
 
