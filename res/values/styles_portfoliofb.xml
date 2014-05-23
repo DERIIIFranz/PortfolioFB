@@ -29,8 +29,7 @@
         <item name="actionModeBackground">@drawable/cab_background_top_portfoliofb</item>
         <item name="actionModeSplitBackground">@drawable/cab_background_bottom_portfoliofb</item>
         <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Portfoliofb</item>
-
-        
+        <item name="android:windowBackground">@drawable/window_background</item>
     </style>
 
     <style name="ActionBar.Solid.Portfoliofb" parent="@style/Widget.AppCompat.ActionBar.Solid">

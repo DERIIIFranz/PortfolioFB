@@ -8,7 +8,8 @@
         android:id="@+id/lv_projects"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000" />
     
     <FrameLayout
         android:id="@+id/placeholder_project_fragment"
