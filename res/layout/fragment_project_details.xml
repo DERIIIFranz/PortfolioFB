@@ -10,11 +10,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
-        
-        <TextView 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#281F15"
+            android:layout_marginBottom="5dp"
+            android:tag="PlaceHolder" />
+
+        <TextView
             android:id="@+id/category_project_details"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/category_background" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#99559b53"
+            android:layout_marginBottom="5dp"
+            android:tag="PlaceHolder" />
     </LinearLayout>
 
 </ScrollView>
