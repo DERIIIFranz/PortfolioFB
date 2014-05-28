@@ -10,12 +10,12 @@ import android.view.View;
 public abstract class ProjectItem implements Parcelable {
 
 	/**
-	 * Inflates the specific view that can be added to a layout.
+	 * Creates the specific view that can be added to a layout.
 	 * @param ctx The context the view should base on.
 	 * @return a new view
 	 * @throws IOException 
 	 */
-	public abstract View getView(final View rootView, final Bundle savedInstanceState) throws IOException;
+	public abstract View getView(final View rootView, final Bundle savedInstanceState);
 	
 	public static final Parcelable.Creator<ProjectItem> CREATOR = new Parcelable.Creator<ProjectItem>() {
 		public ProjectItem createFromParcel(Parcel in) {

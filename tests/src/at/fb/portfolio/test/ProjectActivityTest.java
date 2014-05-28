@@ -1,18 +1,23 @@
 package at.fb.portfolio.test;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
+import android.app.Instrumentation;
 import android.support.v4.view.ViewPager;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.ViewAsserts;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import at.fb.portfolio.Project;
 import at.fb.portfolio.ProjectActivity;
 import at.fb.portfolio.ProjectCreativeFragment;
 import at.fb.portfolio.ProjectDetailsActivity;
+import at.fb.portfolio.ProjectGroup;
 import at.fb.portfolio.ProjectTechnicalFragment;
 import at.fb.portfolio.ProjectsFragment;
 import at.fb.portfolio.R;
@@ -229,70 +234,109 @@ public class ProjectActivityTest extends
 			}
 		}
 	}
-/*
+
 	public void testHorizontalLayout_technicalProjects() {
 		solo.setActivityOrientation(Solo.LANDSCAPE);
 
 		swipeToRight(1); // get focus
 
-		ListView lv = (ListView) solo.getView(R.id.lv_projects, 0);
-		ArrayList<ImageView> iv = new ArrayList<ImageView>();
+		ListView listProjectGroups = (ListView) solo.getView(R.id.lv_projects,
+				0);
 
-		for (int i = 0; i < lv.getAdapter().getCount(); i++) {
-			for (int j = 0; j < ((ProjectGroup) lv.getAdapter().getItem(i))
-					.getProjects().size(); j++) {
+		ArrayList<Project> projectList = new ArrayList<Project>();
 
-				ImageView v = (ImageView) ((NonScrollableGridView) ((LinearLayout) lv
-						.getAdapter().getView(i, null, null)).getChildAt(1))
-						.getAdapter().getView(j, null, null);
+		for (int i = 0; i < listProjectGroups.getAdapter().getCount(); i++) {
+			for (int j = 0; j < ((ProjectGroup) listProjectGroups.getAdapter()
+					.getItem(i)).getProjects().size(); j++) {
 
-				iv.add(v);
+				projectList.add(((ProjectGroup) listProjectGroups.getAdapter()
+						.getItem(i)).getProjects().get(j));
 			}
 		}
 
-		for (int i = 0; i < iv.size(); i++) {
-			// for (int j = 0; j < iv.get(i).getChildCount(); j++) {
-			// solo.scrollListToLine(lv, i); // abs listposition
-			
-	//		View currentView = solo.getView(iv.get(i).getId());
-			
-	//		if (currentView == null) {
-	//			solo.scrollDown();
-	//		}
-			solo.clickOnView(iv.get(i));
+		int helper = 0;
+		ArrayList<ImageView> views = solo.getCurrentViews(ImageView.class,
+				listProjectGroups);
+		for (int i = 0; i < projectList.size(); i++) {
+
+			if (views.size() == helper) {
+				solo.scrollDown();
+				solo.sleep(50);
+				views = solo
+						.getCurrentViews(ImageView.class, listProjectGroups);
+				helper = 0;
+				solo.sleep(50);
+			}
+			solo.clickOnView(views.get(helper));
 			solo.sleep(50);
-			// }
+
+			assertNotNull(
+					"First view of Project " + projectList.get(i).getTitle()
+							+ " is not found in current window",
+					solo.getViews(projectList
+							.get(i)
+							.getProjectItems()
+							.get(0)
+							.getView(
+									solo.getCurrentActivity()
+											.findViewById(R.id.ll_project_details),
+									null)));
+
+			helper++;
 		}
 	}
-*/
-/*
+
 	public void testHorizontalLayout_creativeProjects() {
 		solo.setActivityOrientation(Solo.LANDSCAPE);
 
-		swipeToLeft(1); // get focus
+		swipeToLeft(1);
 
-		ListView lv = (ListView) solo.getView(R.id.lv_projects, 1);
+		ListView listProjectGroups = (ListView) solo.getView(R.id.lv_projects,
+				1);
 
-		ArrayList<NonScrollableGridView> gv = new ArrayList<NonScrollableGridView>();
+		ArrayList<Project> projectList = new ArrayList<Project>();
 
-		for (int i = 0; i < lv.getChildCount(); i++) {
-			for (int j = 0; j < ((LinearLayout) lv.getChildAt(i))
-					.getChildCount(); j++) {
-				if (((LinearLayout) lv.getChildAt(i)).getChildAt(j) instanceof NonScrollableGridView) {
-					gv.add((NonScrollableGridView) ((LinearLayout) lv
-							.getChildAt(i)).getChildAt(j));
-				}
+		for (int i = 0; i < listProjectGroups.getAdapter().getCount(); i++) {
+			for (int j = 0; j < ((ProjectGroup) listProjectGroups.getAdapter()
+					.getItem(i)).getProjects().size(); j++) {
+
+				projectList.add(((ProjectGroup) listProjectGroups.getAdapter()
+						.getItem(i)).getProjects().get(j));
 			}
 		}
-		for (int i = 0; i < gv.size(); i++) {
-			for (int j = 0; j < gv.get(i).getChildCount(); j++) {
-				solo.scrollListToLine(lv, j * i + i); // abs listposition
-				solo.clickOnView(gv.get(i).getChildAt(j));
+
+		int helper = 0;
+		ArrayList<ImageView> views = solo.getCurrentViews(ImageView.class,
+				listProjectGroups);
+		for (int i = 0; i < projectList.size(); i++) {
+
+			if (views.size() == helper) {
+				solo.scrollDown();
+				solo.sleep(50);
+				views = solo
+						.getCurrentViews(ImageView.class, listProjectGroups);
+				helper = 0;
 				solo.sleep(50);
 			}
+			solo.clickOnView(views.get(helper));
+			solo.sleep(250);
+
+			assertNotNull(
+					"First view of Project " + projectList.get(i).getTitle()
+							+ " is not found in current window",
+					solo.getViews(projectList
+							.get(i)
+							.getProjectItems()
+							.get(0)
+							.getView(
+									solo.getCurrentActivity()
+											.findViewById(R.id.ll_project_details),
+									null)));
+
+			helper++;
 		}
 	}
-*/
+	
 	private void swipeToLeft(int stepCount) {
 		DisplayMetrics displaymetrics = new DisplayMetrics();
 		getActivity().getWindowManager().getDefaultDisplay()
@@ -305,7 +349,6 @@ public class ProjectActivityTest extends
 		solo.sleep(100);
 	}
 
-	@SuppressWarnings("unused")
 	private void swipeToRight(int stepCount) {
 		DisplayMetrics displaymetrics = new DisplayMetrics();
 		getActivity().getWindowManager().getDefaultDisplay()
@@ -321,5 +364,29 @@ public class ProjectActivityTest extends
 	@Override
 	public void tearDown() throws Exception {
 		solo.finishOpenedActivities();
+	}
+
+	public View getViewAtIndex(final ListView listElement,
+			final int indexInList, Instrumentation instrumentation) {
+		ListView parent = listElement;
+		if (parent != null) {
+			if (indexInList <= parent.getAdapter().getCount()) {
+				scrollListTo(parent, indexInList, instrumentation);
+				int indexToUse = indexInList - parent.getFirstVisiblePosition();
+				return parent.getChildAt(indexToUse);
+			}
+		}
+		return null;
+	}
+
+	public <T extends AbsListView> void scrollListTo(final T listView,
+			final int index, Instrumentation instrumentation) {
+		instrumentation.runOnMainSync(new Runnable() {
+			@Override
+			public void run() {
+				listView.setSelection(index);
+			}
+		});
+		instrumentation.waitForIdleSync();
 	}
 }

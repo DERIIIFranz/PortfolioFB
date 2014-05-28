@@ -1,7 +1,5 @@
 package at.fb.portfolio.projectItems;
 
-import java.io.IOException;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -51,8 +49,7 @@ public class ProjectItemObj extends ProjectItem {
 	}
 
 	@Override
-	public View getView(final View rootView, Bundle savedInstanceState)
-			throws IOException {
+	public View getView(final View rootView, Bundle savedInstanceState) {
 
 		LayoutInflater inflater = (LayoutInflater) rootView.getContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

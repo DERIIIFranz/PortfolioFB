@@ -1,7 +1,5 @@
 package at.fb.portfolio;
 
-import java.io.IOException;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -38,12 +36,8 @@ public class ProjectDetailsFragment extends Fragment {
 
 			for (int i = 0; i < mProject.getProjectItems().size(); i++) {
 
-				try {
 					linear.addView(mProject.getProjectItems().get(i)
 							.getView(rootView, savedInstanceState));
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
 			}
 
 			// scroll to top, as VideoView requests focus automatically

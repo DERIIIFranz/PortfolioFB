@@ -14,7 +14,7 @@
     <string name="img_portrait2_descr">Portrait von Franz Brandstätter MSc</string>
     <string name="img_team_descr">Teamfoto Volleyball</string>
     <string name="img_team1_descr">Foto Teamwork</string>
-    <string name="img_urkunde_fhs_descr">Beim Salzburger Landespreis für Marketing, Kommunikation &amp; Design 2014 wurden für 
+    <string name="img_urkunde_fhs_descr">Beim Salzburger Landespreis für Marketing, Kommunikation &amp; Design 2014 wurden wir für 
         das Masterprojekt "Noomix" mit dem ausgezeichneten 2. Platz geehrt.</string>
     <string name="ic_action_download_descr">Element downloaden</string>
     <string name="name">Franz Brandstätter MSc</string>
@@ -134,7 +134,7 @@
     <string name="project_clip_title">Clip</string>
     <string name="project_clip_description">Im Laufe meines Bachelorstudiums beschäftigte ich mich neben 3D-Animationen auch mit 2D-Animationen.
         Als Tool zum Erstellen der meisten dieser Animationen verwendete ich Adobe After Effects woraus Arbeiten, wie zum Beispiel Sequenzen aus dem
-        Kurzfilm "K13" bzw.folgender Bumper,
+        Kurzfilm "K13" bzw. folgender Bumper,
         entstanden.</string>
     <string name="about_me1">Mein Name ist Franz Brandstätter und ich habe kürzlich mein Masterstudium in "Multimediatechnology" an der FH Salzburg abgeschlossen.
         Im ersten Abschnitt meines Studiums beschäftigte ich mich im Zuge des Bachelorstudiums an der FH Hagenberg 
@@ -147,7 +147,7 @@
         programmieren zu können. Seit diesem Zeitpunkt ist für mich klar, dass ich meine berufliche Karriere in diesem Sektor starten
         möchte!</string>
     <string name="about_me3">Während meiner gesamten Studienzeit war mir schon immer ein entsprechender sportlicher Ausgleich wichtig. Seit vielen
-        Jahren übe ich deshalb den Teamsport (Beach) Volleyball aus. Zum einen halte ich mich auf diese Weise körperlich fit und zum
+        Jahren übe ich deshalb den Teamsport (Beach) Volleyball (Bundesliga) aus. Zum einen halte ich mich auf diese Weise körperlich fit und zum
         anderen fördere ich damit insbesondere meine sozialen Kompetenzen in Bezug auf Teamfähigkeit.</string>
     <string name="title_activity_image_gallery">ImageGalleryActivity</string>
     <string name="img_image_gallery_descr">Hier sehen Sie eine Sammlung von Bildern.</string>
