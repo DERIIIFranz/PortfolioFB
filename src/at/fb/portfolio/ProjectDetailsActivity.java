@@ -25,7 +25,16 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 
 		// Need to check if Activity has been switched to landscape mode
 		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-			finish();
+			Intent intent = new Intent(this, ProjectActivity.class);
+			intent.putExtra(Project.PROJECT_REL_POSITION,
+					savedInstanceState.getInt(Project.PROJECT_REL_POSITION));
+			intent.putExtra(Project.PROJECT_GROUP_POSITION,
+					savedInstanceState.getInt(Project.PROJECT_GROUP_POSITION));
+			intent.putExtra(ProjectsFragment.FRAGMENT_CLASS_NAME, getIntent()
+					.getExtras()
+					.getString(ProjectsFragment.FRAGMENT_CLASS_NAME));
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
 			return;
 		}
 
@@ -40,7 +49,7 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 				getSupportFragmentManager(), projectGroups);
 		mViewPager = (ViewPager) findViewById(R.id.projectDetailsPager);
 		mViewPager.setAdapter(mPagerAdapter);
-		mViewPager.setCurrentItem(extras.getInt(Project.PROJECT_POSITION));
+		mViewPager.setCurrentItem(extras.getInt(Project.PROJECT_ABS_POSITION));
 
 		// Show the Up button in the action bar.
 		setupActionBar();
@@ -95,4 +104,22 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		if (mViewPager != null) {
+
+			// determine projectGroupId for requested item
+			int projectId = mViewPager.getCurrentItem();
+			int groupId;
+			for (groupId = 0; (projectId - mPagerAdapter.getProjectGroups()
+					.get(groupId).getProjects().size()) >= 0; groupId++) {
+				projectId -= mPagerAdapter.getProjectGroups().get(groupId)
+						.getProjects().size();
+			}
+
+			outState.putInt(Project.PROJECT_REL_POSITION, projectId);
+			outState.putInt(Project.PROJECT_GROUP_POSITION, groupId);
+		}
+	}
 }

@@ -1,5 +1,8 @@
 package at.fb.portfolio;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -43,8 +46,9 @@ public class PrivatActivity extends ActionBarActivity implements
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		// Fragments to be shown as Tabs
-		Fragment[] frags = { PrivatAboutMeFragment.newInstance(this),
-				PrivatDocsFragment.newInstance(this) };
+		List<Fragment> frags = new ArrayList<Fragment>();
+		frags.add(PrivatAboutMeFragment.newInstance(this));
+		frags.add(PrivatDocsFragment.newInstance(this));
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.

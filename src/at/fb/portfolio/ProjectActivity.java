@@ -1,5 +1,8 @@
 package at.fb.portfolio;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -32,6 +35,9 @@ public class ProjectActivity extends ActionBarActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	private ViewPager mViewPager;
+	private List<Fragment> frags = new ArrayList<Fragment>();
+
+	public static final int PROJECT_DETAILS_REQUEST = 123;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +49,9 @@ public class ProjectActivity extends ActionBarActivity implements
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		// Fragments to be shown as Tabs
-		Fragment[] frags = { ProjectTechnicalFragment.newInstance(this),
-				ProjectCreativeFragment.newInstance(this) };
+		frags.add(ProjectTechnicalFragment.newInstance(this));
+		frags.add(ProjectCreativeFragment.newInstance(this));
+
 
 		mTabsAdapter = new TabsAdapter(getSupportFragmentManager(), frags);
 
@@ -62,6 +69,7 @@ public class ProjectActivity extends ActionBarActivity implements
 						actionBar.setSelectedNavigationItem(position);
 					}
 				});
+		
 
 		// For each of the sections in the app, add a tab to the action bar.
 		for (int i = 0; i < mTabsAdapter.getCount(); i++) {
@@ -73,6 +81,27 @@ public class ProjectActivity extends ActionBarActivity implements
 					.addTab(actionBar.newTab()
 							.setText(mTabsAdapter.getPageTitle(i))
 							.setTabListener(this));
+		}
+		
+		showActiveProject();
+	}
+
+	/**
+	 * If switched to landscape, jump to currently viewed project
+	 */
+	private void showActiveProject() {
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+			String hostClassName = extras.getString(ProjectsFragment.FRAGMENT_CLASS_NAME);
+			
+			for (int i = 0; i < frags.size(); i++) {
+				if (hostClassName.equals(frags.get(i).getClass().getName())) {
+					mViewPager.setCurrentItem(i);
+					((ProjectsFragment) frags.get(i)).setCurrentProject(
+							extras.getInt(Project.PROJECT_GROUP_POSITION),
+							extras.getInt(Project.PROJECT_REL_POSITION));
+				}
+			}
 		}
 	}
 

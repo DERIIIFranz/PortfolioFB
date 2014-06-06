@@ -1,5 +1,6 @@
 package at.fb.portfolio.adapters;
 
+import java.util.List;
 import java.util.Locale;
 
 import android.support.v4.app.Fragment;
@@ -13,9 +14,9 @@ import at.fb.portfolio.MainActivity;
  */
 public class TabsAdapter extends FragmentPagerAdapter {
 
-	private Fragment[] mFrags;
+	private List<Fragment> mFrags;
 
-	public TabsAdapter(FragmentManager fm, Fragment[] frags) {
+	public TabsAdapter(FragmentManager fm, List<Fragment> frags) {
 		super(fm);
 		this.mFrags = frags;
 	}
@@ -23,17 +24,17 @@ public class TabsAdapter extends FragmentPagerAdapter {
 	@Override
 	public Fragment getItem(int position) {
 
-		return mFrags[position];
+		return mFrags.get(position);
 	}
 
 	@Override
 	public int getCount() {
-		return mFrags.length;
+		return mFrags.size();
 	}
 
 	@Override
 	public CharSequence getPageTitle(int position) {
 		Locale l = Locale.getDefault();
-		return mFrags[position].getArguments().getString(MainActivity.TAB_TITLE).toUpperCase(l);
+		return mFrags.get(position).getArguments().getString(MainActivity.TAB_TITLE).toUpperCase(l);
 	}
 }

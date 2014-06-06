@@ -30,6 +30,8 @@ public class ProjectGroupAdapter extends BaseAdapter {
 	private FragmentActivity mActivity;
 	private List<ProjectGroup> mProjectGroups;
 	private int mPageTitle;
+	private Class<?> mHostClass;
+	
 
 	/**
 	 * Supplies projectpage with several ProjectGroups
@@ -40,11 +42,12 @@ public class ProjectGroupAdapter extends BaseAdapter {
 	 *            list of groups
 	 * @param pageTitle
 	 */
-	public ProjectGroupAdapter(FragmentActivity act,
+	public ProjectGroupAdapter(FragmentActivity act, Class<?> hostClass,
 			List<ProjectGroup> projectGroups, int pageTitle) {
-		this.mPageTitle = pageTitle;
+		mPageTitle = pageTitle;
 		mActivity = act;
-		this.mProjectGroups = projectGroups;
+		mProjectGroups = projectGroups;
+		mHostClass = hostClass;
 	}
 
 	@Override
@@ -93,7 +96,7 @@ public class ProjectGroupAdapter extends BaseAdapter {
 				}
 
 				// use the unique id assigned to the placeholder in
-				// ProjectFragments.java
+				// ProjectsFragment.java
 				View placeholder = mActivity.findViewById(mPageTitle);
 
 				// if placeholder is defined (e.g. within layout for
@@ -125,9 +128,10 @@ public class ProjectGroupAdapter extends BaseAdapter {
 							ProjectDetailsActivity.class);
 					// use "id" as index here, as "position" only determines
 					// position within projectGroup
-					intent.putExtra(Project.PROJECT_POSITION, (int) id);
+					intent.putExtra(Project.PROJECT_ABS_POSITION, (int) id);
 					intent.putExtra(ProjectsFragment.FRAGMENT_PAGE_TITLE,
 							mPageTitle);
+					intent.putExtra(ProjectsFragment.FRAGMENT_CLASS_NAME, mHostClass.getName());
 					intent.putParcelableArrayListExtra(Project.PROJECT_GROUPS,
 							(ArrayList<? extends Parcelable>) mProjectGroups);
 					mActivity.startActivity(intent);

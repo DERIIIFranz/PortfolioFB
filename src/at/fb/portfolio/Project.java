@@ -9,7 +9,9 @@ import at.fb.portfolio.projectItems.ProjectItem;
 public class Project implements Parcelable {
 
 	public static final String PROJECT_GROUPS = "at.fb.portfolio.PROJECT_COLLECTION";
-	public static final String PROJECT_POSITION = "at.fb.portfolio.PROJECT_POSITION";
+	public static final String PROJECT_ABS_POSITION = "at.fb.portfolio.PROJECT_ABS_POSITION";
+	public static final String PROJECT_REL_POSITION = "at.fb.portfolio.PROJECT_REL_POSITION";
+	public static final String PROJECT_GROUP_POSITION = "at.fb.portfolio.PROJECT_GROUP_POSITION";
 	public static final String PROJECT = "at.fb.portfolio.PROJECT";
 	public static final String PROJECT_CATEGORY = "at.fb.portfolio.PROJECT_CATEGORY";
 

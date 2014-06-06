@@ -39,8 +39,8 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 					R.drawable.img_project_k13_header_white));
 			pItems.add(new ProjectItemText(
 					getString(R.string.project_K13_description)));
-//			pItems.add(new ProjectItemVideo(
-//					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
+			pItems.add(new ProjectItemVideo(
+					"http://dl.dropboxusercontent.com/s/7rc9kwa56l0jzcn/k13.3gp"));
 
 			mProjectGroup1.add(new Project(R.drawable.thumb_project_k13_white,
 					getString(R.string.project_K13_title), pItems));
@@ -54,8 +54,8 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 					R.drawable.img_project_tgtn_header));
 			pItems.add(new ProjectItemText(
 					getString(R.string.project_TGTN_description)));
-//			pItems.add(new ProjectItemVideo(
-//					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
+			pItems.add(new ProjectItemVideo(
+					"http://dl.dropboxusercontent.com/s/6zdgt62cyb6kalj/tgtn.3gp"));
 
 			mProjectGroup1.add(new Project(R.drawable.thumb_project_tgtn_white,
 					getString(R.string.project_TGTN_title), pItems));
@@ -90,7 +90,7 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 					getString(R.string.project_MOCAP_description)));
 			pItems.add(new ProjectItemPdfDocuments(pdfDocuments));
 			pItems.add(new ProjectItemVideo(
-					"http://dl.dropboxusercontent.com/s/p74sgo9r1zh1qoa/test_noomix_trailer.3gp"));
+					"http://dl.dropboxusercontent.com/s/91aiv7h9o4huyfn/mocap.3gp"));
 	
 			mProjectGroup1.add(new Project(
 					R.drawable.thumb_project_mocap_white,

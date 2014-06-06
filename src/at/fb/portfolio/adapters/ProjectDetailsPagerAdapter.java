@@ -41,6 +41,10 @@ public class ProjectDetailsPagerAdapter extends FragmentPagerAdapter {
 		fragment.setArguments(args);
 		return fragment;
 	}
+	
+	public List<ProjectGroup> getProjectGroups() {
+		return mProjectGroups;
+	}
 
 	@Override
 	public int getCount() {

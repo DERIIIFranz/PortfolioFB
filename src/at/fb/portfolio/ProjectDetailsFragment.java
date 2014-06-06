@@ -46,6 +46,9 @@ public class ProjectDetailsFragment extends Fragment {
 				linear.getChildAt(0).requestFocus();
 			}
 		}
+		
+		//TODO distinguish between tab1 and tab2
+		rootView.setTag("placeholder");
 		return rootView;
 	}
 
