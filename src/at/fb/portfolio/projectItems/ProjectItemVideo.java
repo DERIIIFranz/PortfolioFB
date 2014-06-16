@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
@@ -56,20 +57,7 @@ public class ProjectItemVideo extends ProjectItem {
 		mVideoView.setVideoURI(Uri.parse(mUri));
 		mMc = new MediaController(mVideoView.getContext(), false);
 
-		//
-		// append MediaController
-		//
-		FrameLayout f = (FrameLayout) mMc.getParent();
-		// if not LinearLayout, Layout has already been added
-		if (f.getParent().getClass().equals(LinearLayout.class)) {
-			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-					RelativeLayout.LayoutParams.MATCH_PARENT,
-					RelativeLayout.LayoutParams.WRAP_CONTENT);
-			lp.addRule(RelativeLayout.ALIGN_BOTTOM, R.id.vv_project_item_video);
-
-			((LinearLayout) f.getParent()).removeView(f);
-			((RelativeLayout) mVideoView.getParent()).addView(f, lp);
-		}
+		bindMediaControllerToLayout();
 
 		mVideoView.setMediaController(mMc);
 		mMc.setAnchorView(mVideoView);
@@ -97,6 +85,7 @@ public class ProjectItemVideo extends ProjectItem {
 					public void onPlay() {
 						mVideoView.setBackgroundDrawable(null);
 
+						hideMediaController(3000);
 					}
 
 					@Override
@@ -116,6 +105,8 @@ public class ProjectItemVideo extends ProjectItem {
 
 				else {
 					mMc.setVisibility(View.VISIBLE);
+
+					hideMediaController(3000);
 				}
 
 				return false;
@@ -132,11 +123,11 @@ public class ProjectItemVideo extends ProjectItem {
 				mVideoView.setBackgroundDrawable(rootView.getContext()
 						.getResources()
 						.getDrawable(R.drawable.placeholder_video_white));
-				
+
 				RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
 						mp.getVideoWidth(),
 						RelativeLayout.LayoutParams.WRAP_CONTENT);
-				
+
 				mVideoView.setLayoutParams(params);
 
 				mProgressBar.setVisibility(View.GONE);
@@ -147,6 +138,32 @@ public class ProjectItemVideo extends ProjectItem {
 
 		});
 		return relativeLayout;
+	}
+
+	private void bindMediaControllerToLayout() {
+		FrameLayout f = (FrameLayout) mMc.getParent();
+		// if not LinearLayout, Layout has already been added
+		if (f.getParent().getClass().equals(LinearLayout.class)) {
+			RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+					RelativeLayout.LayoutParams.MATCH_PARENT,
+					RelativeLayout.LayoutParams.WRAP_CONTENT);
+			lp.addRule(RelativeLayout.ALIGN_BOTTOM, R.id.vv_project_item_video);
+
+			((LinearLayout) f.getParent()).removeView(f);
+			((RelativeLayout) mVideoView.getParent()).addView(f, lp);
+		}
+	}
+
+	private void hideMediaController(int timeout) {
+		Handler handler = new Handler();
+		Runnable runnable = new Runnable() {
+			@Override
+			public void run() {
+				mMc.setVisibility(View.INVISIBLE);
+			}
+		};
+
+		handler.postDelayed(runnable, timeout);
 	}
 
 	public VideoView getVideoView() {
