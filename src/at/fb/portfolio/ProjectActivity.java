@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 import at.fb.portfolio.adapters.TabsAdapter;
+import at.fb.portfolio.projectItems.ProjectItemVideo;
 
 public class ProjectActivity extends ActionBarActivity implements
 		ActionBar.TabListener {
@@ -52,7 +53,6 @@ public class ProjectActivity extends ActionBarActivity implements
 		frags.add(ProjectTechnicalFragment.newInstance(this));
 		frags.add(ProjectCreativeFragment.newInstance(this));
 
-
 		mTabsAdapter = new TabsAdapter(getSupportFragmentManager(), frags);
 
 		// Set up the ViewPager with the sections adapter.
@@ -69,7 +69,6 @@ public class ProjectActivity extends ActionBarActivity implements
 						actionBar.setSelectedNavigationItem(position);
 					}
 				});
-		
 
 		// For each of the sections in the app, add a tab to the action bar.
 		for (int i = 0; i < mTabsAdapter.getCount(); i++) {
@@ -82,25 +81,32 @@ public class ProjectActivity extends ActionBarActivity implements
 							.setText(mTabsAdapter.getPageTitle(i))
 							.setTabListener(this));
 		}
-		
+
 		showActiveProject();
 	}
 
 	/**
-	 * If switched to landscape, jump to currently viewed project
+	 * If switched to landscape, jump to recently viewed project
 	 */
 	private void showActiveProject() {
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-			String hostClassName = extras.getString(ProjectsFragment.FRAGMENT_CLASS_NAME);
-			
+			String hostClassName = extras
+					.getString(ProjectsFragment.FRAGMENT_CLASS_NAME);
+
 			for (int i = 0; i < frags.size(); i++) {
 				if (hostClassName.equals(frags.get(i).getClass().getName())) {
 					mViewPager.setCurrentItem(i);
 					((ProjectsFragment) frags.get(i)).setCurrentProject(
 							extras.getInt(Project.PROJECT_GROUP_POSITION),
 							extras.getInt(Project.PROJECT_REL_POSITION));
+					
+					((ProjectsFragment)frags.get(i)).setCurrentVideoPos(extras.getInt(ProjectItemVideo.POS));
 				}
+			}
+
+			if (extras.getInt(ProjectItemVideo.POS) > 0) {
+
 			}
 		}
 	}

@@ -43,6 +43,15 @@ public class ProjectItemVideo extends ProjectItem {
 		mUri = in.readString();
 		mPos = initPos;
 	}
+	
+	// used for delayed call to hide MediaController
+	Handler handler = new Handler();
+	Runnable runnable = new Runnable() {
+		@Override
+		public void run() {
+			mMc.setVisibility(View.INVISIBLE);
+		}
+	};
 
 	@Override
 	public View getView(final View rootView, Bundle savedInstanceState) {
@@ -66,6 +75,10 @@ public class ProjectItemVideo extends ProjectItem {
 		if (savedInstanceState != null) {
 			setPos(savedInstanceState.getInt(ProjectItemVideo.POS));
 		}
+		
+		if (mPos != initPos && mPos > 0) {
+			mVideoView.start();
+		}
 
 		//
 		// ProgressBar
@@ -76,6 +89,8 @@ public class ProjectItemVideo extends ProjectItem {
 		mProgressBar.bringToFront();
 		mProgressBar.invalidate();
 		relativeLayout.requestLayout();
+		
+		
 
 		mVideoView
 				.setPlayPauseListener(new CustomVideoView.PlayPauseListener() {
@@ -90,8 +105,7 @@ public class ProjectItemVideo extends ProjectItem {
 
 					@Override
 					public void onPause() {
-						// TODO Auto-generated method stub
-
+						handler.removeCallbacks(runnable);
 					}
 				});
 
@@ -105,7 +119,8 @@ public class ProjectItemVideo extends ProjectItem {
 
 				else {
 					mMc.setVisibility(View.VISIBLE);
-
+					
+					if (mVideoView.isPlaying())
 					hideMediaController(3000);
 				}
 
@@ -137,6 +152,7 @@ public class ProjectItemVideo extends ProjectItem {
 			}
 
 		});
+		
 		return relativeLayout;
 	}
 
@@ -155,14 +171,6 @@ public class ProjectItemVideo extends ProjectItem {
 	}
 
 	private void hideMediaController(int timeout) {
-		Handler handler = new Handler();
-		Runnable runnable = new Runnable() {
-			@Override
-			public void run() {
-				mMc.setVisibility(View.INVISIBLE);
-			}
-		};
-
 		handler.postDelayed(runnable, timeout);
 	}
 

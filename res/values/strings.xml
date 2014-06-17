@@ -29,7 +29,7 @@
     <string name="title_activity_privat">Privat</string>
     <string name="title_activity_projects">Projekte</string>
     <string name="title_activity_project_item_obj">3D-Model</string>
-    <string name="project_item_obj_show">3D-Modell</string>
+    <string name="project_item_obj_show">3D-Modell anzeigen</string>
     <string name="pageTitle_activity_project_technical_details">Technische Projekte</string>
     <string name="pageTitle_activity_project_creative_details">Kreative Projekte</string>
     <string name="pdf_show_local_progress_title">Download</string>

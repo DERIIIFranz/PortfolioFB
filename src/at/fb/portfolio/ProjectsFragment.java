@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import at.fb.portfolio.adapters.ProjectGroupAdapter;
+import at.fb.portfolio.projectItems.ProjectItemVideo;
 
 /**
  * 
@@ -21,7 +22,8 @@ public abstract class ProjectsFragment extends Fragment {
 
 	private List<ProjectGroup> mProjectGroups;
 	private int mPageTitle;
-	private int mCurrentProjectPos, mCurrentProjectGroupPos = 0;
+	private int mCurrentProjectPos, mCurrentProjectGroupPos,
+			mCurrentVideoPos = 0;
 
 	private LinearLayout rootView;
 	private View placeholder;
@@ -45,8 +47,8 @@ public abstract class ProjectsFragment extends Fragment {
 				container, false);
 
 		ListView lView = (ListView) rootView.findViewById(R.id.lv_projects);
-		lView.setAdapter(new ProjectGroupAdapter(getActivity(), this.getClass(), mProjectGroups,
-				mPageTitle));
+		lView.setAdapter(new ProjectGroupAdapter(getActivity(),
+				this.getClass(), mProjectGroups, mPageTitle));
 
 		// if placeholder is defined (e.g. within layout for landscape-mode)
 		// add additional fragment in order to avoid an extra detailActivity
@@ -61,12 +63,29 @@ public abstract class ProjectsFragment extends Fragment {
 
 			replaceFragment();
 		}
+
+		restoreVideoPos();
+
 		return rootView;
+	}
+
+	private void restoreVideoPos() {
+		Project p = mProjectGroups.get(mCurrentProjectGroupPos).getProjects()
+				.get(mCurrentProjectPos);
+
+		for (int i = 0; i < p.getProjectItems().size(); i++) {
+			if (p.getProjectItems().get(i).getClass()
+					.equals(ProjectItemVideo.class)) {
+				((ProjectItemVideo) p.getProjectItems().get(i))
+						.setPos(mCurrentVideoPos);
+			}
+		}
 	}
 
 	private void replaceFragment() {
 
 		Bundle args = new Bundle();
+
 		args.putParcelable(
 				Project.PROJECT,
 				mProjectGroups.get(mCurrentProjectGroupPos).getProjects()
@@ -95,6 +114,17 @@ public abstract class ProjectsFragment extends Fragment {
 	public void setCurrentProject(int groupPos, int projectPos) {
 		mCurrentProjectGroupPos = groupPos;
 		mCurrentProjectPos = projectPos;
+	}
+
+	/**
+	 * set current video position. Has only effect if current project uses a
+	 * ProjectItemVideo
+	 * 
+	 * @param pos
+	 *            recent videoposition
+	 */
+	public void setCurrentVideoPos(int pos) {
+		mCurrentVideoPos = pos;
 	}
 
 	public int getPageTitle() {

@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 import at.fb.portfolio.adapters.ProjectDetailsPagerAdapter;
+import at.fb.portfolio.projectItems.ProjectItem;
+import at.fb.portfolio.projectItems.ProjectItemVideo;
 
 public class ProjectDetailsActivity extends ActionBarActivity {
 
@@ -33,6 +35,7 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 			intent.putExtra(ProjectsFragment.FRAGMENT_CLASS_NAME, getIntent()
 					.getExtras()
 					.getString(ProjectsFragment.FRAGMENT_CLASS_NAME));
+			intent.putExtra(ProjectItemVideo.POS, savedInstanceState.getInt(ProjectItemVideo.POS));
 			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
 			return;
@@ -117,9 +120,18 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 				projectId -= mPagerAdapter.getProjectGroups().get(groupId)
 						.getProjects().size();
 			}
+			ArrayList<ProjectItem> projectItems = mPagerAdapter.getProjectGroups().get(groupId).getProjects().get(projectId).getProjectItems();
+			
+			for (int i = 0; i < projectItems.size(); i++) {
+				if (projectItems.get(i).getClass().equals(ProjectItemVideo.class)) {
+					outState.putInt(ProjectItemVideo.POS, ((ProjectItemVideo)projectItems.get(i)).getVideoView().getCurrentPosition());
+				}
+			}
 
 			outState.putInt(Project.PROJECT_REL_POSITION, projectId);
 			outState.putInt(Project.PROJECT_GROUP_POSITION, groupId);
+			
+			
 		}
 	}
 }
