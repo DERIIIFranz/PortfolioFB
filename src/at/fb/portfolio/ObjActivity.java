@@ -6,6 +6,7 @@ import min3d.interfaces.ISceneController;
 import min3d.parser.IParser;
 import min3d.parser.Parser;
 import min3d.vos.Light;
+import android.app.ProgressDialog;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -13,6 +14,9 @@ import at.fb.portfolio.projectItems.ProjectItemObj;
 
 public class ObjActivity extends RendererActivity implements ISceneController {
 	private Object3dContainer objModel;
+
+	private boolean mPrepared = false;
+	private ProgressDialog mProgressDialog;
 
 	@Override
 	public void initScene() {
@@ -35,8 +39,36 @@ public class ObjActivity extends RendererActivity implements ISceneController {
 	}
 
 	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+
+		mProgressDialog = new ProgressDialog(this);
+		mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+		mProgressDialog.setTitle(R.string.project_item_obj_dialog_title);
+		mProgressDialog
+				.setMessage(getString(R.string.project_item_obj_dialog_message));
+		mProgressDialog.show();
+
+		super.onCreate(savedInstanceState);
+	}
+
+	@Override
 	public void updateScene() {
+		if (!mPrepared) {
+			mPrepared = true;
+
+			if (mProgressDialog != null && mProgressDialog.isShowing()) {
+				mProgressDialog.dismiss();
+			}
+		}
 		objModel.rotation().y++;
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		if (mProgressDialog != null && mProgressDialog.isShowing()) {
+			mProgressDialog.dismiss();
+		}
 	}
 
 	@Override

@@ -29,7 +29,9 @@
     <string name="title_activity_privat">Privat</string>
     <string name="title_activity_projects">Projekte</string>
     <string name="title_activity_project_item_obj">3D-Model</string>
-    <string name="project_item_obj_show">3D-Modell anzeigen</string>
+    <string name="project_item_obj_show">3D-Modell</string>
+    <string name="project_item_obj_dialog_title">Bitte warten&#8230;</string>
+    <string name="project_item_obj_dialog_message">3D-Modell wird geladen</string>
     <string name="pageTitle_activity_project_technical_details">Technische Projekte</string>
     <string name="pageTitle_activity_project_creative_details">Kreative Projekte</string>
     <string name="pdf_show_local_progress_title">Download</string>
@@ -124,8 +126,7 @@
         und Koordination mit einem relativ großen Team gewinnen.</string>
     <string name="project_pirat_title">Pirat</string>
     <string name="project_pirat_description">Während meines Bachelorstudiums an der FH Hagenberg entwarf und realisierte ich einige 3D-Modelle. Zu den 
-        verhältnismäßig aufwendigeren Objekten zählt dieser Pirat, welcher bei Bedarf auch animiert werden kann.
-         </string>
+        verhältnismäßig aufwendigeren Objekten zählt dieser Pirat, welcher bei Bedarf auch animiert werden kann.</string>
     <string name="project_MOCAP_title">MOCAP</string>
     <string name="project_MOCAP_description">Bei meiner Bachelorarbeit befasste ich mich ins Besondere mit Motion Capturing. Kernpunkt meiner Arbeit
         "Facial Motion Capture Retargeting for Cartoon Blendshape Animations" ist die Übertragung von aufgezeichneten Gesichtsbewegungen eines realen 
