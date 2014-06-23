@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
@@ -15,10 +17,17 @@ import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.Toast;
+import at.fb.portfolio.adapters.ProjectGroupAdapter;
 import at.fb.portfolio.adapters.TabsAdapter;
 import at.fb.portfolio.projectItems.ProjectItemVideo;
 
+/**
+ * 
+ * shows an overview of all projects
+ * 
+ */
 public class ProjectActivity extends ActionBarActivity implements
 		ActionBar.TabListener {
 
@@ -32,17 +41,18 @@ public class ProjectActivity extends ActionBarActivity implements
 	 */
 	private TabsAdapter mTabsAdapter;
 
+	public static final String SWITCHED_TO_PORTRAIT = "at.fb.portfoliob.ProjectActivity.SWITCHED_TO_PORTRAIT";
+
 	/**
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	private ViewPager mViewPager;
-	private List<Fragment> frags = new ArrayList<Fragment>();
-
-	public static final int PROJECT_DETAILS_REQUEST = 123;
+	private List<Fragment> mFrags = new ArrayList<Fragment>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.activity_projects);
 
 		// Show the Up button in the action bar.
@@ -50,10 +60,10 @@ public class ProjectActivity extends ActionBarActivity implements
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		// Fragments to be shown as Tabs
-		frags.add(ProjectTechnicalFragment.newInstance(this));
-		frags.add(ProjectCreativeFragment.newInstance(this));
+		mFrags.add(ProjectTechnicalFragment.newInstance(this));
+		mFrags.add(ProjectCreativeFragment.newInstance(this));
 
-		mTabsAdapter = new TabsAdapter(getSupportFragmentManager(), frags);
+		mTabsAdapter = new TabsAdapter(getSupportFragmentManager(), mFrags);
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.projectPager);
@@ -83,6 +93,7 @@ public class ProjectActivity extends ActionBarActivity implements
 		}
 
 		showActiveProject();
+
 	}
 
 	/**
@@ -90,25 +101,74 @@ public class ProjectActivity extends ActionBarActivity implements
 	 */
 	private void showActiveProject() {
 		Bundle extras = getIntent().getExtras();
-		if (extras != null) {
+		if (extras != null
+				&& extras.getString(ProjectsFragment.FRAGMENT_CLASS_NAME) != null) {
 			String hostClassName = extras
 					.getString(ProjectsFragment.FRAGMENT_CLASS_NAME);
 
-			for (int i = 0; i < frags.size(); i++) {
-				if (hostClassName.equals(frags.get(i).getClass().getName())) {
+			for (int i = 0; i < mFrags.size(); i++) {
+				if (hostClassName.equals(mFrags.get(i).getClass().getName())) {
 					mViewPager.setCurrentItem(i);
-					((ProjectsFragment) frags.get(i)).setCurrentProject(
+					((ProjectsFragment) mFrags.get(i)).setCurrentProject(
 							extras.getInt(Project.PROJECT_GROUP_POSITION),
 							extras.getInt(Project.PROJECT_REL_POSITION));
-					
-					((ProjectsFragment)frags.get(i)).setCurrentVideoPos(extras.getInt(ProjectItemVideo.POS));
+
+					((ProjectsFragment) mFrags.get(i))
+							.setCurrentVideoPos(extras
+									.getInt(ProjectItemVideo.POS));
+				}
+			}
+		}
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+
+			int pos = ((ProjectGroupAdapter) ((ListView) mViewPager.getChildAt(
+					mViewPager.getCurrentItem()).findViewById(R.id.lv_projects))
+					.getAdapter()).getCurrentProjectAbsPos();
+
+			//
+			// pos is -1 (default) unless an item has been clicked.
+			// if pos is still default, refer to the stored value from extras
+			//
+			if (pos == -1) {
+				if (getIntent().getExtras() != null) {
+					pos = getIntent().getExtras().getInt(
+							Project.PROJECT_ABS_POSITION);
+				}
+				else {
+					pos = 0;
 				}
 			}
 
-			if (extras.getInt(ProjectItemVideo.POS) > 0) {
+			Intent intent = new Intent(this, ProjectDetailsActivity.class);
 
-			}
+			intent.putExtra(Project.PROJECT_ABS_POSITION, pos);
+			intent.putExtra(
+					ProjectsFragment.FRAGMENT_PAGE_TITLE,
+					((ProjectsFragment) mFrags.get(mViewPager.getCurrentItem()))
+							.getPageTitle());
+			intent.putExtra(ProjectsFragment.FRAGMENT_CLASS_NAME,
+					mFrags.get(mViewPager.getCurrentItem()).getClass()
+							.getName());
+			intent.putParcelableArrayListExtra(
+					Project.PROJECT_GROUPS,
+					(ArrayList<? extends Parcelable>) ((ProjectsFragment) mFrags
+							.get(mViewPager.getCurrentItem()))
+							.getProjectGroups());
+			// recreate activity
+			finish();
+			startActivity(new Intent(this, this.getClass()));
+
+			startActivity(intent);
+		} else {
+			// recreate activity
+			finish();
+			startActivity(new Intent(this, this.getClass()));
 		}
+		super.onConfigurationChanged(newConfig);
 	}
 
 	private ActionBar setupActionBar() {

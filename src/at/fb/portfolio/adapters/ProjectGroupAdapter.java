@@ -32,6 +32,7 @@ public class ProjectGroupAdapter extends BaseAdapter {
 	private int mPageTitle;
 	private Class<?> mHostClass;
 	
+	private int mCurProjectAbsPos = -1;
 
 	/**
 	 * Supplies projectpage with several ProjectGroups
@@ -48,6 +49,14 @@ public class ProjectGroupAdapter extends BaseAdapter {
 		mActivity = act;
 		mProjectGroups = projectGroups;
 		mHostClass = hostClass;
+	}
+	
+	public int getCurrentProjectAbsPos() {
+		return mCurProjectAbsPos;
+	}
+	
+	public void setCurrentProjectAbsPos(int pos) {
+		mCurProjectAbsPos = pos;
 	}
 
 	@Override
@@ -81,10 +90,13 @@ public class ProjectGroupAdapter extends BaseAdapter {
 				.findViewById(R.id.gridview_projects);
 		gView.setAdapter(new ProjectAdapter(mActivity, mProjectGroups.get(
 				position).getProjects()));
-
+				
 		gView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
+				
+				//store current projectPos
+				mCurProjectAbsPos = (int) id;
 
 				// determine projectGroupId for requested item
 				int projectId = (int) id;
