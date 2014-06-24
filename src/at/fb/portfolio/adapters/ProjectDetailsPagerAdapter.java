@@ -23,12 +23,12 @@ public class ProjectDetailsPagerAdapter extends FragmentPagerAdapter {
 	}
 
 	@Override
-	public Fragment getItem(int i) {
+	public Fragment getItem(int absPos) {
 		Fragment fragment = new ProjectDetailsFragment();
 		Bundle args = new Bundle();
 
 		// determine projectGroupId for requested item
-		mProjectId = i;
+		mProjectId = absPos;
 		for (mGroupId = 0; (mProjectId - mProjectGroups.get(mGroupId)
 				.getProjects().size()) >= 0; mGroupId++) {
 			mProjectId -= mProjectGroups.get(mGroupId).getProjects().size();

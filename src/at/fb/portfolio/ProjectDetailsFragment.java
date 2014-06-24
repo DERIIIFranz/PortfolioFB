@@ -40,6 +40,7 @@ public class ProjectDetailsFragment extends Fragment {
 							.getView(rootView, savedInstanceState));
 			}
 
+			//TODO only scroll to top unless video is playing
 			// scroll to top, as VideoView requests focus automatically
 			if (linear.getChildCount() >= 1) {
 				linear.getChildAt(0).setFocusableInTouchMode(true);

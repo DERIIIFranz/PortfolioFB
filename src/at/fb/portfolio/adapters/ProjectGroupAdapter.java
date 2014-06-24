@@ -51,6 +51,10 @@ public class ProjectGroupAdapter extends BaseAdapter {
 		mHostClass = hostClass;
 	}
 	
+	public Class<?> getHostClass() {
+		return mHostClass;
+	}
+	
 	public int getCurrentProjectAbsPos() {
 		return mCurProjectAbsPos;
 	}
@@ -99,13 +103,8 @@ public class ProjectGroupAdapter extends BaseAdapter {
 				mCurProjectAbsPos = (int) id;
 
 				// determine projectGroupId for requested item
-				int projectId = (int) id;
-				int groupId;
-				for (groupId = 0; (projectId - mProjectGroups.get(groupId)
-						.getProjects().size()) >= 0; groupId++) {
-					projectId -= mProjectGroups.get(groupId).getProjects()
-							.size();
-				}
+				int projectId = ProjectGroup.calcRelProjectPos((int) id, mProjectGroups);
+				int groupId = ProjectGroup.calcRelGroupPos((int) id, mProjectGroups);
 
 				// use the unique id assigned to the placeholder in
 				// ProjectsFragment.java

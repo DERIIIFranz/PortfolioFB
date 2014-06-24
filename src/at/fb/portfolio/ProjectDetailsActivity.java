@@ -1,6 +1,7 @@
 package at.fb.portfolio;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -48,6 +49,8 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 		ArrayList<ProjectGroup> projectGroups = getIntent()
 				.getParcelableArrayListExtra(Project.PROJECT_GROUPS);
 
+		setCurrentVideoPos(extras, projectGroups);
+
 		setTitle(getString(extras.getInt(ProjectsFragment.FRAGMENT_PAGE_TITLE)));
 		setContentView(R.layout.activity_project_details);
 
@@ -59,6 +62,25 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 
 		// Show the Up button in the action bar.
 		setupActionBar();
+	}
+
+	private void setCurrentVideoPos(Bundle extras,
+			ArrayList<ProjectGroup> projectGroups) {
+
+		List<ProjectItem> projectItems = projectGroups
+				.get(ProjectGroup.calcRelGroupPos(
+						extras.getInt(Project.PROJECT_ABS_POSITION),
+						projectGroups))
+				.getProjects()
+				.get(ProjectGroup.calcRelProjectPos(
+						extras.getInt(Project.PROJECT_ABS_POSITION),
+						projectGroups)).getProjectItems();
+
+		for (int i = 0; i < projectItems.size(); i++) {
+			if (projectItems.get(i).getClass().equals(ProjectItemVideo.class))
+				((ProjectItemVideo) projectItems.get(i)).setPos(extras
+						.getInt(ProjectItemVideo.POS));
+		}
 	}
 
 	private void setupActionBar() {
@@ -115,18 +137,15 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 		super.onSaveInstanceState(outState);
 		if (mViewPager != null) {
 
-			// determine projectGroupId for requested item
-			int projectId = mViewPager.getCurrentItem();
-			int projectAbsPos = projectId;
-			int groupId;
-			for (groupId = 0; (projectId - mPagerAdapter.getProjectGroups()
-					.get(groupId).getProjects().size()) >= 0; groupId++) {
-				projectId -= mPagerAdapter.getProjectGroups().get(groupId)
-						.getProjects().size();
-			}
+			int projectAbsPos = mViewPager.getCurrentItem();
+			int projectRelPos = ProjectGroup.calcRelProjectPos(projectAbsPos,
+					mPagerAdapter.getProjectGroups());
+			int projectGroupPos = ProjectGroup.calcRelGroupPos(projectAbsPos,
+					mPagerAdapter.getProjectGroups());
+
 			ArrayList<ProjectItem> projectItems = mPagerAdapter
-					.getProjectGroups().get(groupId).getProjects()
-					.get(projectId).getProjectItems();
+					.getProjectGroups().get(projectGroupPos).getProjects()
+					.get(projectRelPos).getProjectItems();
 
 			for (int i = 0; i < projectItems.size(); i++) {
 				if (projectItems.get(i).getClass()
@@ -137,8 +156,8 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 				}
 			}
 
-			outState.putInt(Project.PROJECT_REL_POSITION, projectId);
-			outState.putInt(Project.PROJECT_GROUP_POSITION, groupId);
+			outState.putInt(Project.PROJECT_REL_POSITION, projectRelPos);
+			outState.putInt(Project.PROJECT_GROUP_POSITION, projectGroupPos);
 			outState.putInt(Project.PROJECT_ABS_POSITION, projectAbsPos);
 		}
 	}

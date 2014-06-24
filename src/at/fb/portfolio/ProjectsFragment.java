@@ -34,6 +34,18 @@ public abstract class ProjectsFragment extends Fragment {
 	public List<ProjectGroup> getProjectGroups() {
 		return mProjectGroups;
 	}
+	
+	public Project getProjectAtAbsPos(int pos) {
+		for (int i = 0; i < mProjectGroups.size(); i++) {
+			if (pos >= mProjectGroups.get(i).getProjects().size()) {
+				pos = pos - mProjectGroups.get(i).getProjects().size();
+			}
+			else {
+				return mProjectGroups.get(i).getProjects().get(pos);
+			}
+		}
+		return null;
+	}
 
 	protected void setProjectGroups(List<ProjectGroup> projectGroups) {
 		mProjectGroups = projectGroups;
@@ -117,8 +129,8 @@ public abstract class ProjectsFragment extends Fragment {
 	}
 
 	/**
-	 * set current video position. Has only effect if current project uses a
-	 * ProjectItemVideo
+	 * set current video position. Has only effect if current project 
+	 * actually uses a ProjectItemVideo
 	 * 
 	 * @param pos
 	 *            recent videoposition

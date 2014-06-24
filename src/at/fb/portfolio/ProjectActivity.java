@@ -125,20 +125,24 @@ public class ProjectActivity extends ActionBarActivity implements
 	public void onConfigurationChanged(Configuration newConfig) {
 		if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
 
-			int pos = ((ProjectGroupAdapter) ((ListView) mViewPager.getChildAt(
-					mViewPager.getCurrentItem()).findViewById(R.id.lv_projects))
-					.getAdapter()).getCurrentProjectAbsPos();
+			ProjectGroupAdapter curAdapter = (ProjectGroupAdapter) ((ListView) mViewPager
+					.getFocusedChild().findViewById(R.id.lv_projects))
+					.getAdapter();
+
+			int pos = curAdapter.getCurrentProjectAbsPos();
 
 			//
 			// pos is -1 (default) unless an item has been clicked.
 			// if pos is still default, refer to the stored value from extras
 			//
 			if (pos == -1) {
-				if (getIntent().getExtras() != null) {
+				if (getIntent().getExtras() != null
+						&& curAdapter.getHostClass().getName().equals(
+								getIntent().getExtras().getString(
+										ProjectsFragment.FRAGMENT_CLASS_NAME))) {
 					pos = getIntent().getExtras().getInt(
 							Project.PROJECT_ABS_POSITION);
-				}
-				else {
+				} else {
 					pos = 0;
 				}
 			}
@@ -158,6 +162,24 @@ public class ProjectActivity extends ActionBarActivity implements
 					(ArrayList<? extends Parcelable>) ((ProjectsFragment) mFrags
 							.get(mViewPager.getCurrentItem()))
 							.getProjectGroups());
+
+			// store VideoPos
+
+			Project curPro = ((ProjectsFragment) mFrags.get(mViewPager
+					.getCurrentItem())).getProjectAtAbsPos(pos);
+
+			for (int i = 0; i < curPro.getProjectItems().size(); i++) {
+				if (curPro.getProjectItems().get(i).getClass()
+						.equals(ProjectItemVideo.class)
+						&& ((ProjectItemVideo) curPro.getProjectItems().get(i))
+								.getVideoView() != null) {
+					intent.putExtra(
+							ProjectItemVideo.POS,
+							((ProjectItemVideo) curPro.getProjectItems().get(i))
+									.getVideoView().getCurrentPosition());
+				}
+			}
+
 			// recreate activity
 			finish();
 			startActivity(new Intent(this, this.getClass()));
