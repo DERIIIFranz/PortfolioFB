@@ -26,25 +26,6 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// Need to check if Activity has been switched to landscape mode
-		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-			Intent intent = new Intent(this, ProjectActivity.class);
-			intent.putExtra(Project.PROJECT_REL_POSITION,
-					savedInstanceState.getInt(Project.PROJECT_REL_POSITION));
-			intent.putExtra(Project.PROJECT_GROUP_POSITION,
-					savedInstanceState.getInt(Project.PROJECT_GROUP_POSITION));
-			intent.putExtra(Project.PROJECT_ABS_POSITION,
-					savedInstanceState.getInt(Project.PROJECT_ABS_POSITION));
-			intent.putExtra(ProjectsFragment.FRAGMENT_CLASS_NAME, getIntent()
-					.getExtras()
-					.getString(ProjectsFragment.FRAGMENT_CLASS_NAME));
-			intent.putExtra(ProjectItemVideo.POS,
-					savedInstanceState.getInt(ProjectItemVideo.POS));
-			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			startActivity(intent);
-			return;
-		}
-
 		Bundle extras = getIntent().getExtras();
 		ArrayList<ProjectGroup> projectGroups = getIntent()
 				.getParcelableArrayListExtra(Project.PROJECT_GROUPS);
@@ -133,32 +114,45 @@ public class ProjectDetailsActivity extends ActionBarActivity {
 	}
 
 	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		if (mViewPager != null) {
+	public void onConfigurationChanged(Configuration newConfig) {
 
-			int projectAbsPos = mViewPager.getCurrentItem();
-			int projectRelPos = ProjectGroup.calcRelProjectPos(projectAbsPos,
-					mPagerAdapter.getProjectGroups());
-			int projectGroupPos = ProjectGroup.calcRelGroupPos(projectAbsPos,
-					mPagerAdapter.getProjectGroups());
+		if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
-			ArrayList<ProjectItem> projectItems = mPagerAdapter
-					.getProjectGroups().get(projectGroupPos).getProjects()
-					.get(projectRelPos).getProjectItems();
+			if (mViewPager != null) {
+				int videoPos = 0;
+				int projectAbsPos = mViewPager.getCurrentItem();
+				int projectRelPos = ProjectGroup.calcRelProjectPos(
+						projectAbsPos, mPagerAdapter.getProjectGroups());
+				int projectGroupPos = ProjectGroup.calcRelGroupPos(
+						projectAbsPos, mPagerAdapter.getProjectGroups());
 
-			for (int i = 0; i < projectItems.size(); i++) {
-				if (projectItems.get(i).getClass()
-						.equals(ProjectItemVideo.class)) {
-					outState.putInt(ProjectItemVideo.POS,
-							((ProjectItemVideo) projectItems.get(i))
-									.getVideoView().getCurrentPosition());
+				ArrayList<ProjectItem> projectItems = mPagerAdapter
+						.getProjectGroups().get(projectGroupPos).getProjects()
+						.get(projectRelPos).getProjectItems();
+
+				for (int i = 0; i < projectItems.size(); i++) {
+					if (projectItems.get(i).getClass()
+							.equals(ProjectItemVideo.class)) {
+						videoPos = ((ProjectItemVideo) projectItems.get(i))
+								.getVideoView().getCurrentPosition();
+					}
 				}
-			}
 
-			outState.putInt(Project.PROJECT_REL_POSITION, projectRelPos);
-			outState.putInt(Project.PROJECT_GROUP_POSITION, projectGroupPos);
-			outState.putInt(Project.PROJECT_ABS_POSITION, projectAbsPos);
+				Intent intent = new Intent(this, ProjectActivity.class);
+				intent.putExtra(Project.PROJECT_REL_POSITION, projectRelPos);
+				intent.putExtra(Project.PROJECT_GROUP_POSITION, projectGroupPos);
+				intent.putExtra(Project.PROJECT_ABS_POSITION, projectAbsPos);
+				intent.putExtra(
+						ProjectsFragment.FRAGMENT_CLASS_NAME,
+						getIntent().getExtras().getString(
+								ProjectsFragment.FRAGMENT_CLASS_NAME));
+				intent.putExtra(ProjectItemVideo.POS, videoPos);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				finish();
+				startActivity(intent);
+			}
 		}
+		super.onConfigurationChanged(newConfig);
 	}
+
 }

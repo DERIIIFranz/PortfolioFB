@@ -41,8 +41,6 @@ public class ProjectActivity extends ActionBarActivity implements
 	 */
 	private TabsAdapter mTabsAdapter;
 
-	public static final String SWITCHED_TO_PORTRAIT = "at.fb.portfoliob.ProjectActivity.SWITCHED_TO_PORTRAIT";
-
 	/**
 	 * The {@link ViewPager} that will host the section contents.
 	 */
@@ -185,7 +183,7 @@ public class ProjectActivity extends ActionBarActivity implements
 			startActivity(new Intent(this, this.getClass()));
 
 			startActivity(intent);
-		} else {
+		} else { // if switched to landscape
 			// recreate activity
 			finish();
 			startActivity(new Intent(this, this.getClass()));

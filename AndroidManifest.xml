@@ -45,6 +45,7 @@
         </activity>
         <activity
             android:name="at.fb.portfolio.ProjectDetailsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/pageTitle_activity_project_technical_details"
             android:parentActivityName="at.fb.portfolio.ProjectActivity" >
             <meta-data
