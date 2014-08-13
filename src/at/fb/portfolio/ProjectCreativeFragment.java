@@ -40,7 +40,7 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 			pItems.add(new ProjectItemText(
 					getString(R.string.project_K13_description)));
 			pItems.add(new ProjectItemVideo(
-					"http://dl.dropboxusercontent.com/s/kdvhdg4acwgdpfa/k13_small.3gp"));
+					"http://bit.ly/k13_small"));
 
 			mProjectGroup1.add(new Project(R.drawable.thumb_project_k13_white,
 					getString(R.string.project_K13_title), pItems));
@@ -55,7 +55,7 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 			pItems.add(new ProjectItemText(
 					getString(R.string.project_TGTN_description)));
 			pItems.add(new ProjectItemVideo(
-					"http://dl.dropboxusercontent.com/s/g1ljrxblzuktdwe/tgtn_small_short.mp4"));
+					"http://bit.ly/tgtn_small_short"));
 
 			mProjectGroup1.add(new Project(R.drawable.thumb_project_tgtn_white,
 					getString(R.string.project_TGTN_title), pItems));
@@ -90,7 +90,7 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 					getString(R.string.project_MOCAP_description)));
 			pItems.add(new ProjectItemPdfDocuments(pdfDocuments));
 			pItems.add(new ProjectItemVideo(
-					"http://dl.dropboxusercontent.com/s/91aiv7h9o4huyfn/mocap.3gp"));
+					"http://bit.ly/mocap_small"));
 	
 			mProjectGroup1.add(new Project(
 					R.drawable.thumb_project_mocap_white,
@@ -105,7 +105,7 @@ public class ProjectCreativeFragment extends ProjectsFragment {
 			pItems.add(new ProjectItemText(
 					getString(R.string.project_clip_description)));
 			pItems.add(new ProjectItemVideo(
-					"http://dl.dropboxusercontent.com/s/5iphdvbnhuenxd7/clip.3gp"));
+					"http://bit.ly/clip_small"));
 
 			mProjectGroup2.add(new Project(R.drawable.thumb_project_clip_white,
 					getString(R.string.project_clip_title), pItems));

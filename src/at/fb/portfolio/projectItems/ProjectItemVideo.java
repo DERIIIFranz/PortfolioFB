@@ -140,7 +140,7 @@ public class ProjectItemVideo extends ProjectItem {
 						.getDrawable(R.drawable.placeholder_video_white));
 
 				RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-						mp.getVideoWidth(),
+						RelativeLayout.LayoutParams.MATCH_PARENT,
 						RelativeLayout.LayoutParams.WRAP_CONTENT);
 
 				mVideoView.setLayoutParams(params);

@@ -80,7 +80,7 @@ public class PrivatDocsFragment extends Fragment {
 		pdfDocuments
 				.add(new PdfDocument(getActivity().getString(
 						R.string.privat_docs_cv_title),
-						"http://www.pdf-archive.com/2014/03/05/lebenslauf/lebenslauf.pdf"));
+						"http://dl.dropbox.com/s/6qi9oocb2p2nv81/Lebenslauf.pdf"));
 		pdfDocuments
 				.add(new PdfDocument(getActivity().getString(
 						R.string.pdf_masterThesis_title),
@@ -89,7 +89,14 @@ public class PrivatDocsFragment extends Fragment {
 				.add(new PdfDocument(getActivity().getString(
 						R.string.pdf_bakkThesis_title),
 						"http://www.pdf-archive.com/2014/03/05/bachelorthesis/bachelorthesis.pdf"));
-
+		pdfDocuments
+		.add(new PdfDocument(getActivity().getString(
+				R.string.privat_docs_bakk_report),
+				"http://dl.dropbox.com/s/gqoy8mhbhj31bwd/Bachelorpruefungszeugnis_Franz_Brandstaetter.pdf"));
+		pdfDocuments
+		.add(new PdfDocument(getActivity().getString(
+				R.string.privat_docs_master_report),
+				"http://dl.dropbox.com/s/orucrxz599mv3tn/Masterpruefungszeugnis_Franz_Brandstaetter.pdf"));
 		return pdfDocuments;
 	}
 }

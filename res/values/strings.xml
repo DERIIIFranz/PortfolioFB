@@ -41,6 +41,8 @@
     <string name="pdf_show_online_dialog_button_no">Abbrechen</string>
     <string name="pdf_show_online_dialog_button_yes">OK</string>
     <string name="privat_docs_cv_title">Lebenslauf</string>
+    <string name="privat_docs_bakk_report">Bachelorzeugnis</string>
+    <string name="privat_docs_master_report">Masterzeugnis</string>
     <string name="pdf_masterThesis_title">Masterthesis</string>
     <string name="pdf_bakkThesis_title">Bachelorthesis</string>
     <string name="project_image_header_descr">Titelbild</string>
@@ -130,12 +132,12 @@
     <string name="project_MOCAP_title">MOCAP</string>
     <string name="project_MOCAP_description">Bei meiner Bachelorarbeit befasste ich mich ins Besondere mit Motion Capturing. Kernpunkt meiner Arbeit
         "Facial Motion Capture Retargeting for Cartoon Blendshape Animations" ist die Übertragung von aufgezeichneten Gesichtsbewegungen eines realen 
-        Menschen auf das Gesichet eines 3D-Charakters. Dabei wird auf die spezielle Methode der Gesichtsanimation namens "Blendshapeanimations" eingegangen
+        Menschen auf das Gesicht eines 3D-Charakters. Dabei wird auf die spezielle Methode der Gesichtsanimation namens "Blendshapeanimations" eingegangen
         und diese mit weiteren Varianten verglichen.</string>
     <string name="project_clip_title">Clip</string>
     <string name="project_clip_description">Im Laufe meines Bachelorstudiums beschäftigte ich mich neben 3D-Animationen auch mit 2D-Animationen.
         Als Tool zum Erstellen der meisten dieser Animationen verwendete ich Adobe After Effects woraus Arbeiten, wie zum Beispiel Sequenzen aus dem
-        Kurzfilm "K13" bzw. folgender Bumper,
+        Kurzfilm "K13" sowie nachfolgender Bumper,
         entstanden.</string>
     <string name="about_me1">Mein Name ist Franz Brandstätter und ich habe kürzlich mein Masterstudium in "Multimediatechnology" an der FH Salzburg abgeschlossen.
         Im ersten Abschnitt meines Studiums beschäftigte ich mich im Zuge des Bachelorstudiums an der FH Hagenberg 

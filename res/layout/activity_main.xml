@@ -59,7 +59,7 @@
 
         <Button
             android:id="@+id/btn_private"
-            android:layout_width="100dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:onClick="showPrivate"
             android:background="@drawable/button"
@@ -68,7 +68,7 @@
 
         <Button
             android:id="@+id/btn_projects"
-            android:layout_width="100dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:onClick="showProjects"
