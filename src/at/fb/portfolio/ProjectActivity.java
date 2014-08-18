@@ -121,7 +121,13 @@ public class ProjectActivity extends ActionBarActivity implements
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
-		if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+		/**
+		 * only start ProjectDetailsActivity if switched to PORTRAIT AND
+		 * device-size is small or normal.
+		 */
+		if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT
+				&& ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_NORMAL | (getResources()
+						.getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_SMALL)) {
 
 			ProjectGroupAdapter curAdapter = (ProjectGroupAdapter) ((ListView) mViewPager
 					.getFocusedChild().findViewById(R.id.lv_projects))
@@ -135,8 +141,10 @@ public class ProjectActivity extends ActionBarActivity implements
 			//
 			if (pos == -1) {
 				if (getIntent().getExtras() != null
-						&& curAdapter.getHostClass().getName().equals(
-								getIntent().getExtras().getString(
+						&& curAdapter
+								.getHostClass()
+								.getName()
+								.equals(getIntent().getExtras().getString(
 										ProjectsFragment.FRAGMENT_CLASS_NAME))) {
 					pos = getIntent().getExtras().getInt(
 							Project.PROJECT_ABS_POSITION);
@@ -183,7 +191,7 @@ public class ProjectActivity extends ActionBarActivity implements
 			startActivity(new Intent(this, this.getClass()));
 
 			startActivity(intent);
-		} else { // if switched to landscape
+		} else { // if switched to landscape or device-size is at least large
 			// recreate activity
 			finish();
 			startActivity(new Intent(this, this.getClass()));
