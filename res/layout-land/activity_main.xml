@@ -31,7 +31,7 @@
             android:layout_marginTop="20dp"
             android:gravity="right"
             android:text="@string/name"
-            android:textSize="15sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/profession"
@@ -39,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_alignRight="@+id/picture"
             android:layout_below="@+id/name"
+            android:textSize="12sp"
             android:text="@string/profession" />
     </RelativeLayout>
 

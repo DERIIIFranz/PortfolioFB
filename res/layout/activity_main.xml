@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/name"
             android:layout_below="@+id/name"
+            android:textSize="12sp"
             android:text="@string/profession" />
 
         <TextView
@@ -37,7 +38,7 @@
             android:layout_marginTop="47dp"
             android:layout_toRightOf="@+id/picture"
             android:text="@string/name"
-            android:textSize="15sp" />
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <TextView
