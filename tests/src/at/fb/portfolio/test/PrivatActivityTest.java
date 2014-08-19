@@ -103,7 +103,7 @@ public class PrivatActivityTest extends
 		assertTrue(PrivatDocsFragment.isVisibleToUser());
 
 		GridView gv = (GridView) pActivity.findViewById(R.id.ngv_pdf_documents);
-		assertEquals(3, gv.getChildCount());
+		assertEquals(5, gv.getChildCount());
 
 		String imgBtn_descr = pActivity
 				.getString(R.string.ic_action_download_descr);
