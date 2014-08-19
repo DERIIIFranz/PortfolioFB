@@ -121,41 +121,33 @@ public class ProjectActivity extends ActionBarActivity implements
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
-		/**
-		 * only start ProjectDetailsActivity if switched to PORTRAIT AND
-		 * device-size is small or normal.
-		 */
+
+		boolean deviceIsNotLarge = ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_NORMAL || (getResources()
+				.getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_SMALL);
+		
 		if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT
-				&& ((getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_NORMAL | (getResources()
-						.getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_SMALL)) {
+				|| !deviceIsNotLarge) {
 
-			ProjectGroupAdapter curAdapter = (ProjectGroupAdapter) ((ListView) mViewPager
-					.getFocusedChild().findViewById(R.id.lv_projects))
-					.getAdapter();
+			Intent intent;
 
-			int pos = curAdapter.getCurrentProjectAbsPos();
-
-			//
-			// pos is -1 (default) unless an item has been clicked.
-			// if pos is still default, refer to the stored value from extras
-			//
-			if (pos == -1) {
-				if (getIntent().getExtras() != null
-						&& curAdapter
-								.getHostClass()
-								.getName()
-								.equals(getIntent().getExtras().getString(
-										ProjectsFragment.FRAGMENT_CLASS_NAME))) {
-					pos = getIntent().getExtras().getInt(
-							Project.PROJECT_ABS_POSITION);
-				} else {
-					pos = 0;
-				}
+			/**
+			 * only start ProjectDetailsActivity if switched to PORTRAIT AND
+			 * device-size is small or normal.
+			 */
+			if (deviceIsNotLarge) {
+				intent = new Intent(this, ProjectDetailsActivity.class);
 			}
 
-			Intent intent = new Intent(this, ProjectDetailsActivity.class);
+			else {
+				intent = new Intent(this, this.getClass());
+			}
 
-			intent.putExtra(Project.PROJECT_ABS_POSITION, pos);
+			intent.putExtra(Project.PROJECT_ABS_POSITION,
+					getCurrentProjectAbsPos());
+			intent.putExtra(Project.PROJECT_REL_POSITION,
+					getCurrentProjectRelPos());
+			intent.putExtra(Project.PROJECT_GROUP_POSITION,
+					getCurrentGroupPos());
 			intent.putExtra(
 					ProjectsFragment.FRAGMENT_PAGE_TITLE,
 					((ProjectsFragment) mFrags.get(mViewPager.getCurrentItem()))
@@ -172,7 +164,8 @@ public class ProjectActivity extends ActionBarActivity implements
 			// store VideoPos
 
 			Project curPro = ((ProjectsFragment) mFrags.get(mViewPager
-					.getCurrentItem())).getProjectAtAbsPos(pos);
+					.getCurrentItem()))
+					.getProjectAtAbsPos(getCurrentProjectAbsPos());
 
 			for (int i = 0; i < curPro.getProjectItems().size(); i++) {
 				if (curPro.getProjectItems().get(i).getClass()
@@ -188,15 +181,56 @@ public class ProjectActivity extends ActionBarActivity implements
 
 			// recreate activity
 			finish();
-			startActivity(new Intent(this, this.getClass()));
-
+			if (deviceIsNotLarge) {
+				startActivity(new Intent(this, this.getClass()));
+			}
 			startActivity(intent);
-		} else { // if switched to landscape or device-size is at least large
+		} else { // if switched to landscape and device-size is not large
 			// recreate activity
 			finish();
 			startActivity(new Intent(this, this.getClass()));
+		
 		}
 		super.onConfigurationChanged(newConfig);
+	}
+
+	private int getCurrentGroupPos() {
+		return ProjectGroup.calcRelGroupPos(getCurrentProjectAbsPos(),
+				((ProjectsFragment) mFrags.get(mViewPager.getCurrentItem()))
+						.getProjectGroups());
+	}
+
+	private int getCurrentProjectRelPos() {
+
+		return ProjectGroup.calcRelProjectPos(getCurrentProjectAbsPos(),
+				((ProjectsFragment) mFrags.get(mViewPager.getCurrentItem()))
+						.getProjectGroups());
+	}
+
+	private int getCurrentProjectAbsPos() {
+		ProjectGroupAdapter curAdapter = (ProjectGroupAdapter) ((ListView) mViewPager
+				.getFocusedChild().findViewById(R.id.lv_projects)).getAdapter();
+
+		int pos = curAdapter.getCurrentProjectAbsPos();
+
+		//
+		// pos is -1 (default) unless an item has been clicked.
+		// if pos is still default, refer to the stored value from extras
+		//
+		if (pos == -1) {
+			if (getIntent().getExtras() != null
+					&& curAdapter
+							.getHostClass()
+							.getName()
+							.equals(getIntent().getExtras().getString(
+									ProjectsFragment.FRAGMENT_CLASS_NAME))) {
+				pos = getIntent().getExtras().getInt(
+						Project.PROJECT_ABS_POSITION);
+			} else {
+				pos = 0;
+			}
+		}
+		return pos;
 	}
 
 	private ActionBar setupActionBar() {
