@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.View;
+import android.view.ViewGroup;
 
 public abstract class ProjectItem implements Parcelable {
 
@@ -15,7 +16,7 @@ public abstract class ProjectItem implements Parcelable {
 	 * @return a new view
 	 * @throws IOException 
 	 */
-	public abstract View getView(final View rootView, final Bundle savedInstanceState);
+	public abstract View getView(final View rootView, final Bundle savedInstanceState, final ViewGroup parent);
 	
 	public static final Parcelable.Creator<ProjectItem> CREATOR = new Parcelable.Creator<ProjectItem>() {
 		public ProjectItem createFromParcel(Parcel in) {

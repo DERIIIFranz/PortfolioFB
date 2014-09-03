@@ -6,6 +6,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import at.fb.portfolio.R;
 
@@ -19,11 +20,11 @@ public class ProjectItemText extends ProjectItem {
 	}
 	
 	@Override
-	public View getView(final View rootView, final Bundle savedInstanceState) {
+	public View getView(final View rootView, final Bundle savedInstanceState, ViewGroup parent) {
 		LayoutInflater inflater = (LayoutInflater) rootView.getContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		TextView view = (TextView) inflater.inflate(
-				R.layout.project_item_text_view, null);
+				R.layout.project_item_text_view, parent, false);
 		
 		view.setText(mTxt);
 		return view;

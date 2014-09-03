@@ -8,6 +8,7 @@ import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import at.fb.portfolio.ObjActivity;
 import at.fb.portfolio.R;
@@ -49,11 +50,11 @@ public class ProjectItemObj extends ProjectItem {
 	}
 
 	@Override
-	public View getView(final View rootView, Bundle savedInstanceState) {
+	public View getView(final View rootView, Bundle savedInstanceState, ViewGroup parent) {
 
 		LayoutInflater inflater = (LayoutInflater) rootView.getContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		Button btn = (Button) inflater.inflate(R.layout.project_item_obj, null);
+		Button btn = (Button) inflater.inflate(R.layout.project_item_obj, parent, false);
 
 		btn.setOnClickListener(new OnClickListener() {
 

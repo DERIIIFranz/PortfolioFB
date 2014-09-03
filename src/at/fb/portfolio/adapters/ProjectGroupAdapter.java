@@ -83,7 +83,13 @@ public class ProjectGroupAdapter extends BaseAdapter {
 		LayoutInflater vi = (LayoutInflater) mActivity
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-		View projectGroupView = vi.inflate(R.layout.group_project, null);
+		View projectGroupView;
+		if(convertView != null) {
+			projectGroupView = convertView;
+		}
+		else {
+			projectGroupView = vi.inflate(R.layout.group_project, parent, false);
+		}
 
 		TextView label = (TextView) projectGroupView
 				.findViewById(R.id.text_project_category);

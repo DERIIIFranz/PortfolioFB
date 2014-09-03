@@ -9,6 +9,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
@@ -31,11 +32,11 @@ public class ProjectItemImageGallery extends ProjectItem {
 	}
 
 	@Override
-	public View getView(final View rootView, final Bundle savedInstanceState) {
+	public View getView(final View rootView, final Bundle savedInstanceState, final ViewGroup parent) {
 		LayoutInflater inflater = (LayoutInflater) rootView.getContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		GridView view = (GridView) inflater.inflate(
-				R.layout.project_item_image_gallery, null);
+				R.layout.project_item_image_gallery, parent, false);
 
 		view.setAdapter(new GalleryThumbAdapter(rootView.getContext(),
 				mGalleryImages));

@@ -37,7 +37,7 @@ public class ProjectDetailsFragment extends Fragment {
 			for (int i = 0; i < mProject.getProjectItems().size(); i++) {
 
 					linear.addView(mProject.getProjectItems().get(i)
-							.getView(rootView, savedInstanceState));
+							.getView(rootView, savedInstanceState, container));
 			}
 
 			//TODO only scroll to top unless video is playing

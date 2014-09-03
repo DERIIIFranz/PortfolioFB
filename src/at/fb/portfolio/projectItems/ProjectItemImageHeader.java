@@ -6,6 +6,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import at.fb.portfolio.R;
 
@@ -19,11 +20,11 @@ public class ProjectItemImageHeader extends ProjectItem {
 	}
 
 	@Override
-	public View getView(final View rootView, final Bundle savedInstanceState) {
+	public View getView(final View rootView, final Bundle savedInstanceState, final ViewGroup parent) {
 		LayoutInflater inflater = (LayoutInflater) rootView.getContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		ImageView view = (ImageView) inflater.inflate(
-				R.layout.project_item_image_header, null);
+				R.layout.project_item_image_header, parent, false);
 
 		view.setImageResource(mImgHeader);
 		return view;

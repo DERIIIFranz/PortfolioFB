@@ -837,6 +837,7 @@ public class TouchImageView extends ImageView {
     	
     	@Override
         public boolean onTouch(View v, MotionEvent event) {
+    		v.performClick();
             if(touchListener != null) touchListener.onTouch(v, event); // User-defined handler, maybe
             mScaleDetector.onTouchEvent(event);
             mGestureDetector.onTouchEvent(event);

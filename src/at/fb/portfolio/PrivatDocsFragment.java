@@ -28,12 +28,12 @@ public class PrivatDocsFragment extends Fragment {
 
 		if (getPdfDocuments() != null && getPdfDocuments().size() > 0) {
 			rootView.addView((NonScrollableGridView) (new ProjectItemPdfDocuments(
-					getPdfDocuments())).getView(rootView, savedInstanceState));
+					getPdfDocuments())).getView(rootView, savedInstanceState, container));
 		}
 
 		if (getGalleryImages() != null && getGalleryImages().size() > 0) {
 			rootView.addView((GridView) (new ProjectItemImageGallery(
-					getGalleryImages())).getView(rootView, savedInstanceState));
+					getGalleryImages())).getView(rootView, savedInstanceState, container));
 		}
 		
 		/**

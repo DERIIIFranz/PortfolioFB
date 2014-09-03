@@ -280,7 +280,7 @@ public class ProjectActivityTest extends
 							.getView(
 									solo.getCurrentActivity()
 											.findViewById(R.id.ll_project_details),
-									null)));
+									null,null)));
 
 			helper++;
 		}
@@ -331,7 +331,7 @@ public class ProjectActivityTest extends
 							.getView(
 									solo.getCurrentActivity()
 											.findViewById(R.id.ll_project_details),
-									null)));
+									null,null)));
 
 			helper++;
 		}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="Instantiatable" severity="ignore" />
+    <issue id="MissingRegistered">
+        <ignore path="res/layout-large-land/fragment_privat_about_me.xml" />
+    </issue>
+    <issue id="PropertyEscape">
+        <ignore path="tests/local.properties" />
+    </issue>
+    <issue id="UnusedAttribute" severity="ignore" />
+</lint>

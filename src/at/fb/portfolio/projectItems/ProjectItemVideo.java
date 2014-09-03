@@ -1,5 +1,6 @@
 package at.fb.portfolio.projectItems;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnPreparedListener;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
@@ -53,12 +55,13 @@ public class ProjectItemVideo extends ProjectItem {
 		}
 	};
 
+	@SuppressLint("ClickableViewAccessibility")
 	@Override
-	public View getView(final View rootView, Bundle savedInstanceState) {
+	public View getView(final View rootView, Bundle savedInstanceState, ViewGroup parent) {
 		LayoutInflater inflater = (LayoutInflater) rootView.getContext()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View relativeLayout = inflater.inflate(R.layout.project_item_video,
-				null);
+				parent, false);
 
 		mVideoView = (CustomVideoView) relativeLayout
 				.findViewById(R.id.vv_project_item_video);
@@ -113,6 +116,7 @@ public class ProjectItemVideo extends ProjectItem {
 
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
+				v.performClick();
 				if (mMc.isShowing()) {
 					mMc.setVisibility(View.INVISIBLE);
 				}
@@ -127,7 +131,7 @@ public class ProjectItemVideo extends ProjectItem {
 				return false;
 			}
 		});
-
+		
 		mVideoView.setOnPreparedListener(new OnPreparedListener() {
 
 			@SuppressWarnings("deprecation")

@@ -43,9 +43,16 @@ public class DocumentAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		LayoutInflater vi = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-		View documentView = vi.inflate(R.layout.document_download, null);
 		
+		View documentView;
+		
+		if(convertView != null) {
+			documentView = convertView;
+		}
+		else {
+			documentView = vi.inflate(R.layout.document_download, parent, false);
+		}
+
 		ImageButton imgBtn = (ImageButton) documentView.findViewById(R.id.btn_document);		
 
 		// set the Drawables resourceId as the ImageButtons tag

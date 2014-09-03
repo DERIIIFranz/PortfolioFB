@@ -1,67 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">PortfolioFB</string>
-    <string name="action_settings">Einstellungen</string>
-    <string name="action_contact_mail">Franz eine Nachricht senden</string>
-    <string name="action_contact_phone">Franz anrufen</string>
-    <string name="email_address">FranzBrand@gmx.at</string>
-    <string name="title_message_chooser">Nachricht senden</string>
-    <string name="email_subject">PortfolioFB</string>
-    <string name="phone_number">06801234264</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="img_author_descr">Bild von Franz Brandstätter MSc</string>
-    <string name="img_portrait2_descr">Portrait von Franz Brandstätter MSc</string>
-    <string name="img_team_descr">Teamfoto Volleyball</string>
-    <string name="img_team1_descr">Foto Teamwork</string>
-    <string name="img_urkunde_fhs_descr">Beim Salzburger Landespreis für Marketing, Kommunikation &amp; Design 2014 wurden wir für 
+    <string name="app_name" translatable="false">PortfolioFB</string>
+    <string name="action_settings" translatable="false">Einstellungen</string>
+    <string name="action_contact_mail" translatable="false">Franz eine Nachricht senden</string>
+    <string name="action_contact_phone" translatable="false">Franz anrufen</string>
+    <string name="email_address" translatable="false">FranzBrand@gmx.at</string>
+    <string name="title_message_chooser" translatable="false">Nachricht senden</string>
+    <string name="email_subject" translatable="false">PortfolioFB</string>
+    <string name="phone_number" translatable="false">06801234264</string>
+    <string name="img_author_descr" translatable="false">Bild von Franz Brandstätter MSc</string>
+    <string name="img_portrait2_descr" translatable="false">Portrait von Franz Brandstätter MSc</string>
+    <string name="img_team_descr" translatable="false">Teamfoto Volleyball</string>
+    <string name="img_team1_descr" translatable="false">Foto Teamwork</string>
+    <string name="img_urkunde_fhs_descr" translatable="false">Beim Salzburger Landespreis für Marketing, Kommunikation &amp; Design 2014 wurden wir für 
         das Masterprojekt "Noomix" mit dem ausgezeichneten 2. Platz geehrt.</string>
-    <string name="ic_action_download_descr">Element downloaden</string>
-    <string name="name">Franz Brandstätter MSc</string>
-    <string name="profession">App-Entwickler</string>
-    <string name="slogan">Lernen Sie mich kennen!</string>
-    <string name="btn_private">Privat</string>
-    <string name="btn_projects">Projekte</string>
-    <string name="tabTitle_privat_fragment_aboutMe">Über mich</string>
-    <string name="tabTitle_privat_fragment_documents">Dokumente</string>
-    <string name="tabTitle_project_fragment_creative">Kreativ</string>
-    <string name="tabTitle_project_fragment_technical">Technisch</string>
-    <string name="title_activity_privat">Privat</string>
-    <string name="title_activity_projects">Projekte</string>
-    <string name="title_activity_project_item_obj">3D-Model</string>
-    <string name="project_item_obj_show">3D-Modell</string>
-    <string name="project_item_obj_dialog_title">Bitte warten&#8230;</string>
-    <string name="project_item_obj_dialog_message">3D-Modell wird geladen</string>
-    <string name="pageTitle_activity_project_technical_details">Technische Projekte</string>
-    <string name="pageTitle_activity_project_creative_details">Kreative Projekte</string>
-    <string name="pdf_show_local_progress_title">Download</string>
-    <string name="pdf_show_local_progress_content">PDF wird geladen</string>
-    <string name="pdf_show_online_dialog_title">PDF Viewer</string>
-    <string name="pdf_show_online_dialog_question">PDF via Google Drive anzeigen</string>
-    <string name="pdf_show_online_dialog_button_no">Abbrechen</string>
-    <string name="pdf_show_online_dialog_button_yes">OK</string>
-    <string name="privat_docs_cv_title">Lebenslauf</string>
-    <string name="privat_docs_bakk_report">Bachelorzeugnis</string>
-    <string name="privat_docs_master_report">Masterzeugnis</string>
-    <string name="pdf_masterThesis_title">Masterthesis</string>
-    <string name="pdf_bakkThesis_title">Bachelorthesis</string>
-    <string name="project_image_header_descr">Titelbild</string>
-    <string name="project_group_technical_web_development">Webentwicklung</string>
-    <string name="project_group_technical_web_security">Websicherheit</string>
-    <string name="project_group_technical_apps">Apps</string>
-    <string name="project_group_creative_3d">3D</string>
-    <string name="project_group_creative_2d">2D</string>
-    <string name="project_noomix_title">Noomix</string>
-    <string name="project_noomix_description">Noomix ist ein 3rd person shooter und wurde für Windows, Mac, Linux und den 
+    <string name="ic_action_download_descr" translatable="false">Element downloaden</string>
+    <string name="name" translatable="false">Franz Brandstätter MSc</string>
+    <string name="profession" translatable="false">App-Entwickler</string>
+    <string name="slogan" translatable="false">Lernen Sie mich kennen!</string>
+    <string name="btn_private" translatable="false">Privat</string>
+    <string name="btn_projects" translatable="false">Projekte</string>
+    <string name="tabTitle_privat_fragment_aboutMe" translatable="false">Über mich</string>
+    <string name="tabTitle_privat_fragment_documents" translatable="false">Dokumente</string>
+    <string name="tabTitle_project_fragment_creative" translatable="false">Kreativ</string>
+    <string name="tabTitle_project_fragment_technical" translatable="false">Technisch</string>
+    <string name="title_activity_privat" translatable="false">Privat</string>
+    <string name="title_activity_projects" translatable="false">Projekte</string>
+    <string name="title_activity_project_item_obj" translatable="false">3D-Model</string>
+    <string name="project_item_obj_show" translatable="false">3D-Modell</string>
+    <string name="project_item_obj_dialog_title" translatable="false">Bitte warten&#8230;</string>
+    <string name="project_item_obj_dialog_message" translatable="false">3D-Modell wird geladen</string>
+    <string name="pageTitle_activity_project_technical_details" translatable="false">Technische Projekte</string>
+    <string name="pageTitle_activity_project_creative_details" translatable="false">Kreative Projekte</string>
+    <string name="pdf_show_local_progress_title" translatable="false">Download</string>
+    <string name="pdf_show_local_progress_content" translatable="false">PDF wird geladen</string>
+    <string name="pdf_show_online_dialog_title" translatable="false">PDF Viewer</string>
+    <string name="pdf_show_online_dialog_question" translatable="false">PDF via Google Drive anzeigen</string>
+    <string name="pdf_show_online_dialog_button_no" translatable="false">Abbrechen</string>
+    <string name="pdf_show_online_dialog_button_yes" translatable="false">OK</string>
+    <string name="privat_docs_cv_title" translatable="false">Lebenslauf</string>
+    <string name="privat_docs_bakk_report" translatable="false">Bachelorzeugnis</string>
+    <string name="privat_docs_master_report" translatable="false">Masterzeugnis</string>
+    <string name="pdf_masterThesis_title" translatable="false">Masterthesis</string>
+    <string name="pdf_bakkThesis_title" translatable="false">Bachelorthesis</string>
+    <string name="project_image_header_descr" translatable="false">Titelbild</string>
+    <string name="project_group_technical_web_development" translatable="false">Webentwicklung</string>
+    <string name="project_group_technical_web_security" translatable="false">Websicherheit</string>
+    <string name="project_group_technical_apps" translatable="false">Apps</string>
+    <string name="project_group_creative_3d" translatable="false">3D</string>
+    <string name="project_group_creative_2d" translatable="false">2D</string>
+    <string name="project_noomix_title" translatable="false">Noomix</string>
+    <string name="project_noomix_description" translatable="false">Noomix ist ein 3rd person shooter und wurde für Windows, Mac, Linux und den 
         Web-Browser entwickelt. Dieses Produkt des Masterprojekts an der FH Salzburg wurde von einem 19-köpfigen Team realisiert.
         Zur Koordiantion dieses relativ großen Teams setzten wir auf agiles Projektmanagement mittels Scrum. Noomix ist stark mit
         ihrer Website verknüpft, wo Spieler umfangreiche Statistiken zum Spiel, ein Forum, eine Level-Galerie und vieles mehr finden.
         Gemeinsam mit zwei Kollegen entwickelte ich unter anderem diese Website mit entsprechender API basierend auf dem Framework "Ruby on Rails".</string>
-    <string name="project_noomix_img1_descr">Dieser Screenshot zeigt einen Ausschnitt der Website, welche mit dem shooter "Noomix" eng verbunden ist.</string>
-    <string name="project_noomix_img2_descr">Das 19-köpfige Entwicklungsteam des 3rd person shooters "Noomix".</string>
-    <string name="project_atikon_title">Atikon</string>
-    <string name="project_atikon_report">Praktikumsbericht</string>
-    <string name="project_atikon_description">Im Zuge des Berufspraktikums bei der Firma Atikon, welches ich abschließend zum Bachelorstudium an der FH Hagenberg absolvierte,
+    <string name="project_noomix_img1_descr" translatable="false">Dieser Screenshot zeigt einen Ausschnitt der Website, welche mit dem shooter "Noomix" eng verbunden ist.</string>
+    <string name="project_noomix_img2_descr" translatable="false">Das 19-köpfige Entwicklungsteam des 3rd person shooters "Noomix".</string>
+    <string name="project_atikon_title" translatable="false">Atikon</string>
+    <string name="project_atikon_report" translatable="false">Praktikumsbericht</string>
+    <string name="project_atikon_description" translatable="false">Im Zuge des Berufspraktikums bei der Firma Atikon, welches ich abschließend zum Bachelorstudium an der FH Hagenberg absolvierte,
         konnte ich in der Abteilung Web das im Studium erlernte Wissen sehr gut in die Praxis umsetzen und erweitern. Eine große Bandbreite an unterschiedlichen Tätigkeiten
 		bot mir einen Einblick in sehr viele Bereiche dieser Branche. Sowohl kommunikative,
 		gestalterische, als auch technische Tätigkeiten prägten meinen
@@ -85,79 +84,73 @@
 		Firma Atikon ist. Um dies zu gewährleisten findet jede Woche eine abteilungsinterne
 		Besprechung statt, wo die wichtigsten laufenden und zukünftigen
 		Projekte besprochen werden.</string>
-    <string name="project_freundlinger_title">Freundlinger</string>
-    <string name="project_freundlinger_description">Für die Firma Freundlinger Luft und Klima entwickelte ich parallel zu meinem 
+    <string name="project_freundlinger_title" translatable="false">Freundlinger</string>
+    <string name="project_freundlinger_description" translatable="false">Für die Firma Freundlinger Luft und Klima entwickelte ich parallel zu meinem 
         Studium einen völlig neuen Web-Auftritt (das Design wurde dabei allerdings vorgegeben). Umgesetzt habe ich diesen Internetauftritt mit dem CMS Drupal,
         mit welchem ich durch meine Ausbildung an der FH Hagenberg und meinen privaten Projekten schon einiges an Erfahrung sammeln konnte.
         Die Website wird in zwei Sprachen angeboten und bietet zudem eine angepasste Version für mobile Endgeräte. Nach wie vor pflege ich aktiven
         Kundenkontakt mit dieser Firma und führe bei Bedarf etwaige Anpassungswünsche der Seite durch.</string>
-    <string name="project_freundlinger_img1_descr">Dieser Screenshot zeigt die Startseite von Freundlinger.net.</string>
-    <string name="project_freundlinger_img2_descr">Ein Screenshot einer Unterseite von Freundlinger.net.</string>
-    <string name="project_freundlinger_img3_descr">Ein weiterer Screenshot einer Seite von Freundlinger.net.</string>
-    <string name="project_artconsense_title">Artconsense</string>
-    <string name="project_artconsense_description">Auch für die Firma Artconsense entwickelte ich eine Website basierend auf dem CMS Drupal. Das
+    <string name="project_freundlinger_img1_descr" translatable="false">Dieser Screenshot zeigt die Startseite von Freundlinger.net.</string>
+    <string name="project_freundlinger_img2_descr" translatable="false">Ein Screenshot einer Unterseite von Freundlinger.net.</string>
+    <string name="project_freundlinger_img3_descr" translatable="false">Ein weiterer Screenshot einer Seite von Freundlinger.net.</string>
+    <string name="project_artconsense_title" translatable="false">Artconsense</string>
+    <string name="project_artconsense_description" translatable="false">Auch für die Firma Artconsense entwickelte ich eine Website basierend auf dem CMS Drupal. Das
         Design wurde dabei von selbiger Firma vorgegeben und ich konzentrierte mich demnach auf dessen Implementierung. Enge Zusammenarbeit mit der
         Firma bei der Umsetzung ihres Internetauftritts stellen ihre vollste Zufriedenheit mit der Website sicher. Bis dato unterstütze ich 
         Artconsense auch mit allfälligen Anpassungswünschen in Bezug auf ihre Seite.</string>
-    <string name="project_artconsense_img1_descr">Screenshot der Startseite von artconsense.com.</string>
-    <string name="project_artconsense_img2_descr">Screenshot einer Bildergalerie von artconsense.com.</string>
-    <string name="project_artconsense_img3_descr">Screenshot einer weiteren Unterseite von artconsense.com.</string>
-    <string name="project_swatchdog_title">S-Watchdog</string>
-    <string name="project_swatchdog_description">Meine Masterarbeit an der FHS widmete ich dem Thema Web-Sicherheit. In Kooperation mit der 
+    <string name="project_artconsense_img1_descr" translatable="false">Screenshot der Startseite von artconsense.com.</string>
+    <string name="project_artconsense_img2_descr" translatable="false">Screenshot einer Bildergalerie von artconsense.com.</string>
+    <string name="project_artconsense_img3_descr" translatable="false">Screenshot einer weiteren Unterseite von artconsense.com.</string>
+    <string name="project_swatchdog_title" translatable="false">S-Watchdog</string>
+    <string name="project_swatchdog_description" translatable="false">Meine Masterarbeit an der FHS widmete ich dem Thema Web-Sicherheit. In Kooperation mit der 
         Firma Salzburg Research entwickelte ich eine "Richtlinienbasierte Zugriffskontrolle für RDF-Stores". Im Zuge der in Java 
         implementierten Arbeit konnte ich mein Wissen nicht nur im Bereich Semantic Web vertiefen, sondern auch meine Kompetenzen in der
         Java-Programmierung erweitern. Zudem konnte ich über den Zeitraum eines halben Jahres wertvolle Berufserfahrung als Java-Entwickler
         in der Forschung sammeln.</string>
-    <string name="project_portfolioFB_title">PortfolioFB</string>
-    <string name="project_portfolioFB_description">Schon im Laufe meines Studiums wurde mein Interesse an mobilen Anwendungen geweckt.
+    <string name="project_portfolioFB_title" translatable="false">PortfolioFB</string>
+    <string name="project_portfolioFB_description" translatable="false">Schon im Laufe meines Studiums wurde mein Interesse an mobilen Anwendungen geweckt.
         Nachdem ich mir durch meine Ausbildung unter anderem relativ solide Java-Kenntnisse aneignen konnte, fixierte ich meinen
         Fokus unmittelbar nach meinem Abschluss auf die Entwicklung von Android-Apps und begann unverzüglich mit der Implementierung von
         PortfolioFB. Im Selbststudium eignete ich mir dazu grundlegende Kenntnisse im Allgemeinen über Android und im Speziellen über das
         Android-SDK an. Während ich bei der Umsetzung mein Augenmerk auf die Unterstützung unterschiedlichster mobiler Endgeräte
         legte, entwickelte ich diese App nach den Grundsätzen von "Test-Driven-Development" durch die Verwendung der Library Robotium.</string>
-    <string name="project_x_title">\?</string>
-    <string name="project_x_description">Viele weitere noch performantere, noch besser strukturierte, noch besser aussehende und unverwechselbare
+    <string name="project_x_title" translatable="false">\?</string>
+    <string name="project_x_description" translatable="false">Viele weitere noch performantere, noch besser strukturierte, noch besser aussehende und unverwechselbare
         Apps werden folgen! :)</string>
-    <string name="project_K13_title">K13</string>
-    <string name="project_K13_description">K13 ist ein Kurz-Animationsfilm und wurde von drei Studienkollegen und mir an der FH Hagenberg
+    <string name="project_K13_title" translatable="false">K13</string>
+    <string name="project_K13_description" translatable="false">K13 ist ein Kurz-Animationsfilm und wurde von drei Studienkollegen und mir an der FH Hagenberg
         im Rahmen des Bachelorprojekts erstellt. Mehr als 1000 Arbeitsstunden flossen in diesen Kurzfilm und wurde durch die Verpflichtung 
         eines professionellen Sprechers abgerundet. Geehrt wurde dieser Film unter anderem durch die Austrahlung in einem Kino.</string>
-    <string name="project_TGTN_title">TGTN</string>
-    <string name="project_TGTN_description">TGTN ist ein 3D-Action-Adventure-Spiel, dessen Prototyp an der FH Hagenberg von einem 
+    <string name="project_TGTN_title" translatable="false">TGTN</string>
+    <string name="project_TGTN_description" translatable="false">TGTN ist ein 3D-Action-Adventure-Spiel, dessen Prototyp an der FH Hagenberg von einem 
         24-köpfigen Team entwickelt wurde. Dabei konnte ich wertvolle Erfahrung sowohl beim Low-Poly-Modeling, als auch in der Zusammenarbeit 
         und Koordination mit einem relativ großen Team gewinnen.</string>
-    <string name="project_pirat_title">Pirat</string>
-    <string name="project_pirat_description">Während meines Bachelorstudiums an der FH Hagenberg entwarf und realisierte ich einige 3D-Modelle. Zu den 
+    <string name="project_pirat_title" translatable="false">Pirat</string>
+    <string name="project_pirat_description" translatable="false">Während meines Bachelorstudiums an der FH Hagenberg entwarf und realisierte ich einige 3D-Modelle. Zu den 
         verhältnismäßig aufwendigeren Objekten zählt dieser Pirat, welcher bei Bedarf auch animiert werden kann.</string>
-    <string name="project_MOCAP_title">MOCAP</string>
-    <string name="project_MOCAP_description">Bei meiner Bachelorarbeit befasste ich mich ins Besondere mit Motion Capturing. Kernpunkt meiner Arbeit
+    <string name="project_MOCAP_title" translatable="false">MOCAP</string>
+    <string name="project_MOCAP_description" translatable="false">Bei meiner Bachelorarbeit befasste ich mich ins Besondere mit Motion Capturing. Kernpunkt meiner Arbeit
         "Facial Motion Capture Retargeting for Cartoon Blendshape Animations" ist die Übertragung von aufgezeichneten Gesichtsbewegungen eines realen 
         Menschen auf das Gesicht eines 3D-Charakters. Dabei wird auf die spezielle Methode der Gesichtsanimation namens "Blendshapeanimations" eingegangen
         und diese mit weiteren Varianten verglichen.</string>
-    <string name="project_clip_title">Clip</string>
-    <string name="project_clip_description">Im Laufe meines Bachelorstudiums beschäftigte ich mich neben 3D-Animationen auch mit 2D-Animationen.
+    <string name="project_clip_title" translatable="false">Clip</string>
+    <string name="project_clip_description" translatable="false">Im Laufe meines Bachelorstudiums beschäftigte ich mich neben 3D-Animationen auch mit 2D-Animationen.
         Als Tool zum Erstellen der meisten dieser Animationen verwendete ich Adobe After Effects woraus Arbeiten, wie zum Beispiel Sequenzen aus dem
         Kurzfilm "K13" sowie nachfolgender Bumper,
         entstanden.</string>
-    <string name="about_me1">Mein Name ist Franz Brandstätter und ich habe kürzlich mein Masterstudium in "Multimediatechnology" an der FH Salzburg abgeschlossen.
+    <string name="about_me1" translatable="false">Mein Name ist Franz Brandstätter und ich habe kürzlich mein Masterstudium in "Multimediatechnology" an der FH Salzburg abgeschlossen.
         Im ersten Abschnitt meines Studiums beschäftigte ich mich im Zuge des Bachelorstudiums an der FH Hagenberg 
         (Medientechnik und -design) primär mit kreativen Projekten. Insbesondere faszinierte mich das Arbeiten mit 3D-Objekten.
         Ebenso entdeckte ich meine Leidenschaft für das Programmieren von visuellen Anwendungen, weshalb ich meinen Fokus
         im Masterstudium auf Web-Entwicklung legte.</string>
-    <string name="about_me2">Mit fortschreitender Vertiefung meiner Fachkenntnisse wurde mir schnell klar,
+    <string name="about_me2" translatable="false">Mit fortschreitender Vertiefung meiner Fachkenntnisse wurde mir schnell klar,
         dass die Entwicklung mobiler Anwendung in Form von Apps einen ganz besonderen Reiz auf mich ausübt. Aus diesem Grund
         erweiterte ich meine Kenntnisse in diesem Bereich nach Abschluss meines Studiums noch weiter, um die Ihnen vorliegende App
         programmieren zu können. Seit diesem Zeitpunkt ist für mich klar, dass ich meine berufliche Karriere in diesem Sektor starten
         möchte!</string>
-    <string name="about_me3">Während meiner gesamten Studienzeit war mir schon immer ein entsprechender sportlicher Ausgleich wichtig. Seit vielen
+    <string name="about_me3" translatable="false">Während meiner gesamten Studienzeit war mir schon immer ein entsprechender sportlicher Ausgleich wichtig. Seit vielen
         Jahren übe ich deshalb den Teamsport (Beach) Volleyball (Bundesliga) aus. Zum einen halte ich mich auf diese Weise körperlich fit und zum
         anderen fördere ich damit insbesondere meine sozialen Kompetenzen in Bezug auf Teamfähigkeit.</string>
-    <string name="title_activity_image_gallery">ImageGalleryActivity</string>
-    <string name="img_image_gallery_descr">Hier sehen Sie eine Sammlung von Bildern.</string>
-    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut 
-        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita 
-        kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing 
-        elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et 
-        accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
-
+    <string name="title_activity_image_gallery" translatable="false">ImageGalleryActivity</string>
+    <string name="img_image_gallery_descr" translatable="false">Hier sehen Sie eine Sammlung von Bildern.</string>
 </resources>
