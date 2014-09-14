@@ -12,6 +12,7 @@
 
 package at.fb.portfolio.views;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -835,9 +836,9 @@ public class TouchImageView extends ImageView {
         //
         private PointF last = new PointF();
     	
-    	@Override
+    	@SuppressLint("ClickableViewAccessibility")
+		@Override
         public boolean onTouch(View v, MotionEvent event) {
-    		v.performClick();
             if(touchListener != null) touchListener.onTouch(v, event); // User-defined handler, maybe
             mScaleDetector.onTouchEvent(event);
             mGestureDetector.onTouchEvent(event);
