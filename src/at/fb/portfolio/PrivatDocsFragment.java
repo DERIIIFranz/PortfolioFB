@@ -28,14 +28,16 @@ public class PrivatDocsFragment extends Fragment {
 
 		if (getPdfDocuments() != null && getPdfDocuments().size() > 0) {
 			rootView.addView((NonScrollableGridView) (new ProjectItemPdfDocuments(
-					getPdfDocuments())).getView(rootView, savedInstanceState, container));
+					getPdfDocuments())).getView(rootView, savedInstanceState,
+					container));
 		}
 
 		if (getGalleryImages() != null && getGalleryImages().size() > 0) {
 			rootView.addView((GridView) (new ProjectItemImageGallery(
-					getGalleryImages())).getView(rootView, savedInstanceState, container));
+					getGalleryImages())).getView(rootView, savedInstanceState,
+					container));
 		}
-		
+
 		/**
 		 * wrap the LinearLayout with a ScrollView to enable
 		 * scrolling-capabilities
@@ -86,26 +88,20 @@ public class PrivatDocsFragment extends Fragment {
 		ArrayList<PdfDocument> pdfDocuments = new ArrayList<PdfDocument>();
 
 		pdfDocuments.add(new PdfDocument(getActivity().getString(
-				R.string.privat_docs_cv_title),
-				"http://dl.dropbox.com/s/6qi9oocb2p2nv81/Lebenslauf.pdf"));
-		pdfDocuments
-				.add(new PdfDocument(getActivity().getString(
-						R.string.pdf_masterThesis_title),
-						"http://www.pdf-archive.com/2014/03/05/masterthesis/masterthesis.pdf"));
-		pdfDocuments
-				.add(new PdfDocument(getActivity().getString(
-						R.string.pdf_bakkThesis_title),
-						"http://www.pdf-archive.com/2014/03/05/bachelorthesis/bachelorthesis.pdf"));
-		pdfDocuments
-				.add(new PdfDocument(
-						getActivity().getString(
-								R.string.privat_docs_bakk_report),
-						"http://dl.dropbox.com/s/gqoy8mhbhj31bwd/Bachelorpruefungszeugnis_Franz_Brandstaetter.pdf"));
-		pdfDocuments
-				.add(new PdfDocument(
-						getActivity().getString(
-								R.string.privat_docs_master_report),
-						"http://dl.dropbox.com/s/orucrxz599mv3tn/Masterpruefungszeugnis_Franz_Brandstaetter.pdf"));
+				R.string.pdf_cv_title), getActivity().getString(
+				R.string.pdf_cv_url)));
+		pdfDocuments.add(new PdfDocument(getActivity().getString(
+				R.string.pdf_masterThesis_title), getActivity().getString(
+				R.string.pdf_masterThesis_url)));
+		pdfDocuments.add(new PdfDocument(getActivity().getString(
+				R.string.pdf_bakkThesis_title), getActivity().getString(
+				R.string.pdf_bakkThesis_url)));
+		pdfDocuments.add(new PdfDocument(getActivity().getString(
+				R.string.pdf_bakk_report_title), getActivity().getString(
+				R.string.pdf_bakk_report_url)));
+		pdfDocuments.add(new PdfDocument(getActivity().getString(
+				R.string.pdf_master_report_title), getActivity().getString(
+				R.string.pdf_master_report_url)));
 		return pdfDocuments;
 	}
 }

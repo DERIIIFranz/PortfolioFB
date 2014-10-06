@@ -176,7 +176,7 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 			mProjectGroup3.add(new Project(
 					R.drawable.thumb_project_portfoliofb_white,
 					getString(R.string.project_portfolioFB_title), pItems));
-
+			/*
 			//
 			// PROJECT 7 -- PROJECTX
 			//
@@ -187,7 +187,8 @@ public class ProjectTechnicalFragment extends ProjectsFragment {
 
 			mProjectGroup3.add(new Project(R.drawable.thumb_project_x_white,
 					getString(R.string.project_x_title), pItems));
-
+			*/
+			
 			// add all projectGroups
 			mProjectGroups
 					.add(new ProjectGroup(

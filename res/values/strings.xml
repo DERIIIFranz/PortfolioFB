@@ -17,7 +17,7 @@
         das Masterprojekt "Noomix" mit dem ausgezeichneten 2. Platz geehrt.</string>
     <string name="ic_action_download_descr" translatable="false">Element downloaden</string>
     <string name="name" translatable="false">Franz Brandstätter MSc</string>
-    <string name="profession" translatable="false">App-Entwickler</string>
+    <string name="profession" translatable="false">Ihr neuer Mitarbeiter?</string>
     <string name="slogan" translatable="false">Lernen Sie mich kennen!</string>
     <string name="btn_private" translatable="false">Privat</string>
     <string name="btn_projects" translatable="false">Projekte</string>
@@ -39,11 +39,16 @@
     <string name="pdf_show_online_dialog_question" translatable="false">PDF via Google Drive anzeigen</string>
     <string name="pdf_show_online_dialog_button_no" translatable="false">Abbrechen</string>
     <string name="pdf_show_online_dialog_button_yes" translatable="false">OK</string>
-    <string name="privat_docs_cv_title" translatable="false">Lebenslauf</string>
-    <string name="privat_docs_bakk_report" translatable="false">Bachelorzeugnis</string>
-    <string name="privat_docs_master_report" translatable="false">Masterzeugnis</string>
+    <string name="pdf_cv_title" translatable="false">Lebenslauf</string>
+    <string name="pdf_cv_url" translatable="false">http://dl.dropbox.com/s/o4jdumwkwihhdak/Lebenslauf_Franz_Brandstaetter_web.pdf</string>
+    <string name="pdf_bakk_report_title" translatable="false">Bachelorzeugnis</string>
+    <string name="pdf_bakk_report_url" translatable="false">http://dl.dropbox.com/s/gqoy8mhbhj31bwd/Bachelorpruefungszeugnis_Franz_Brandstaetter.pdf</string>
+    <string name="pdf_master_report_title" translatable="false">Masterzeugnis</string>
+    <string name="pdf_master_report_url" translatable="false">"http://dl.dropbox.com/s/orucrxz599mv3tn/Masterpruefungszeugnis_Franz_Brandstaetter.pdf"</string>
     <string name="pdf_masterThesis_title" translatable="false">Masterthesis</string>
+    <string name="pdf_masterThesis_url" translatable="false">http://www.pdf-archive.com/2014/03/05/masterthesis/masterthesis.pdf</string>
     <string name="pdf_bakkThesis_title" translatable="false">Bachelorthesis</string>
+    <string name="pdf_bakkThesis_url" translatable="false">http://www.pdf-archive.com/2014/03/05/bachelorthesis/bachelorthesis.pdf</string>
     <string name="project_image_header_descr" translatable="false">Titelbild</string>
     <string name="project_group_technical_web_development" translatable="false">Webentwicklung</string>
     <string name="project_group_technical_web_security" translatable="false">Websicherheit</string>
@@ -55,7 +60,8 @@
         Web-Browser entwickelt. Dieses Produkt des Masterprojekts an der FH Salzburg wurde von einem 19-köpfigen Team realisiert.
         Zur Koordiantion dieses relativ großen Teams setzten wir auf agiles Projektmanagement mittels Scrum. Noomix ist stark mit
         ihrer Website verknüpft, wo Spieler umfangreiche Statistiken zum Spiel, ein Forum, eine Level-Galerie und vieles mehr finden.
-        Gemeinsam mit zwei Kollegen entwickelte ich unter anderem diese Website mit entsprechender API basierend auf dem Framework "Ruby on Rails".</string>
+        Gemeinsam mit zwei Kollegen entwickelte ich unter anderem diese Website mit entsprechender API basierend auf dem Framework "Ruby on Rails".
+        \nEinige weitere Technologien/Gems, die wir für die Entwicklung der Website eingesetzt haben, sind: Apache, MySql, Passenger, Capistrano, AJAX&#8230;</string>
     <string name="project_noomix_img1_descr" translatable="false">Dieser Screenshot zeigt einen Ausschnitt der Website, welche mit dem shooter "Noomix" eng verbunden ist.</string>
     <string name="project_noomix_img2_descr" translatable="false">Das 19-köpfige Entwicklungsteam des 3rd person shooters "Noomix".</string>
     <string name="project_atikon_title" translatable="false">Atikon</string>
@@ -109,13 +115,13 @@
         in der Forschung sammeln.</string>
     <string name="project_portfolioFB_title" translatable="false">PortfolioFB</string>
     <string name="project_portfolioFB_description" translatable="false">Schon im Laufe meines Studiums wurde mein Interesse an mobilen Anwendungen geweckt.
-        Nachdem ich mir durch meine Ausbildung unter anderem relativ solide Java-Kenntnisse aneignen konnte, fixierte ich meinen
-        Fokus unmittelbar nach meinem Abschluss auf die Entwicklung von Android-Apps und begann unverzüglich mit der Implementierung von
+        Nachdem ich mir durch meine Ausbildung unter anderem relativ solide Java-Kenntnisse aneignen konnte, beschäftigte ich mich unmittelbar nach meinem 
+        Abschluss mit der Entwicklung von Android-Apps und begann unverzüglich mit der Implementierung von
         PortfolioFB. Im Selbststudium eignete ich mir dazu grundlegende Kenntnisse im Allgemeinen über Android und im Speziellen über das
         Android-SDK an. Während ich bei der Umsetzung mein Augenmerk auf die Unterstützung unterschiedlichster mobiler Endgeräte
         legte, entwickelte ich diese App nach den Grundsätzen von "Test-Driven-Development" durch die Verwendung der Library Robotium.</string>
     <string name="project_x_title" translatable="false">\?</string>
-    <string name="project_x_description" translatable="false">Viele weitere noch performantere, noch besser strukturierte, noch besser aussehende und unverwechselbare
+    <string name="project_x_description" translatable="false">Viele weitere noch performantere, noch besser strukturiertere, noch besser aussehendere und unverwechselbarere
         Apps werden folgen! :)</string>
     <string name="project_K13_title" translatable="false">K13</string>
     <string name="project_K13_description" translatable="false">K13 ist ein Kurz-Animationsfilm und wurde von drei Studienkollegen und mir an der FH Hagenberg
@@ -143,11 +149,10 @@
         (Medientechnik und -design) primär mit kreativen Projekten. Insbesondere faszinierte mich das Arbeiten mit 3D-Objekten.
         Ebenso entdeckte ich meine Leidenschaft für das Programmieren von visuellen Anwendungen, weshalb ich meinen Fokus
         im Masterstudium auf Web-Entwicklung legte.</string>
-    <string name="about_me2" translatable="false">Mit fortschreitender Vertiefung meiner Fachkenntnisse wurde mir schnell klar,
-        dass die Entwicklung mobiler Anwendung in Form von Apps einen ganz besonderen Reiz auf mich ausübt. Aus diesem Grund
-        erweiterte ich meine Kenntnisse in diesem Bereich nach Abschluss meines Studiums noch weiter, um die Ihnen vorliegende App
-        programmieren zu können. Seit diesem Zeitpunkt ist für mich klar, dass ich meine berufliche Karriere in diesem Sektor starten
-        möchte!</string>
+    <string name="about_me2" translatable="false">Mit fortschreitender Vertiefung meiner Fachkenntnisse entwickelte ich zusätzlich ein Interesse
+        an mobilen Anwendungen in Form von Apps. Aus diesem Grund
+        entwickelte ich meine Kenntnisse in diesem Bereich nach Abschluss meines Studiums noch weiter, um die Ihnen vorliegende App
+        programmieren zu können. Nun brenne ich darauf meine vielfältigen Kenntnisse bei neuen Herausforderungen im Berufsleben einzusetzen und zu vertiefen!</string>
     <string name="about_me3" translatable="false">Während meiner gesamten Studienzeit war mir schon immer ein entsprechender sportlicher Ausgleich wichtig. Seit vielen
         Jahren übe ich deshalb den Teamsport (Beach) Volleyball (Bundesliga) aus. Zum einen halte ich mich auf diese Weise körperlich fit und zum
         anderen fördere ich damit insbesondere meine sozialen Kompetenzen in Bezug auf Teamfähigkeit.</string>
