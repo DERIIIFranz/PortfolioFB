@@ -131,7 +131,7 @@ public class PrivatActivityTest extends
 						.getChildAt(0)).getTag());
 
 		// Test TextViews
-		assertEquals(pActivity.getText(R.string.privat_docs_cv_title),
+		assertEquals(pActivity.getText(R.string.pdf_cv_title),
 				((TextView) ((RelativeLayout) gv.getChildAt(0)).getChildAt(1))
 						.getText());
 		assertEquals(pActivity.getText(R.string.pdf_masterThesis_title),
